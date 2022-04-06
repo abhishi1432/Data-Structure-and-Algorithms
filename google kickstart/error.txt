@@ -1,0 +1,5 @@
+new_s YBYGBYBG
+test 2
+new_s BYGY
+test 3
+Time: 30
