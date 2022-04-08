@@ -70,7 +70,7 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll mminv(ll a, ll b) {ll arr[3]; extendgcd(a, b, arr); return arr[0];} //for non prime b
 // ll mminvprime(ll a, ll b) {return expo(a, b - 2, b);}
 // bool revsort(ll a, ll b) {return a > b;}
-// void swap(int &x, int &y) {int temp = x; x = y; y = temp;}
+void swap(int &x, int &y) {int temp = x; x = y; y = temp;}
 // ll combination(ll n, ll r, ll m, ll *fact, ll *ifact) {ll val1 = fact[n]; ll val2 = ifact[n - r]; ll val3 = ifact[r]; return (((val1 * val2) % m) * val3) % m;}
 // void google(int t) {cout << "Case #" << t << ": ";}
 // vector<ll> sieve(int n) {int*arr = new int[n + 1](); vector<ll> vect; for (int i = 2; i <= n; i++)if (arr[i] == 0) {vect.push_back(i); for (int j = 2 * i; j <= n; j += i)arr[j] = 1;} return vect;}
@@ -82,75 +82,43 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
 // bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}
 /*=================================================================*/
-
-void minSwap_solution1(vector<int> arr, int n, int k){
-	/*
-	here in this approach we traveresd every subaarray of length count and checked the number of elements which are greater than k
-	This gives the number of swaps needed considering each and every subarray of length count.
-	For every subarray the minimum swaps will be the answer.
-
-	Time complexity is O(n^2)
-	Space complexity is O(1)
-	*/
-	int cnt=0;
-	for(int i=0;i<n;i++)
-		if (arr[i]<=k)
-			cnt++;
-	int res=n;
-	for(int i=0;i+cnt<=n;i++){
-		int cnt_for_subarray=0;
-		for(int j=i;j<i+cnt;j++){
-			if(arr[j]>k)
-				cnt_for_subarray+=1;
-		}
-		res=min(cnt_for_subarray,res);
-	}
-	cnt==0 ? cout<<-1<<nline : cout<<res<<nline;
-}
-
-void minSwap_solution2(vector<int> arr,int n,int k){
+void selectionSort(vector<int> arr,int n){
 
 	/*
-	In this approach i have used sliding window technique.
-	i.e Here we keep sliding the window by 1 element and update the 
-
-	Time complexity is O(n)
-	Space complexity is O(1)
-
+		-> Time complexity is O(n^2) in worst, average and best case
+		-> Space complexity is O(1)
 	*/
-	int cnt=0;
-	for(int i=0;i<n;i++)
-		if (arr[i]<=k)
-			cnt++;
+	print_vec(arr);
+	int i, j, min_idx; 
+    for (i = 0; i < n-1; i++) 
+    { 
+        min_idx = i; 
+        for (j = i+1; j < n; j++){
+        	if (arr[j] < arr[min_idx]) 
+            	min_idx = j; 
+        }
+        swap(arr[min_idx], arr[i]); 
+    }
+    print_vec(arr);
+} 
 
-	int res=n;
-	int cnt_for_subarray=0;
-
-	//calculating number of swaps need for 1st subarray 
-	for(int i=0;i<cnt;i++){
-		if(arr[i]>k)
-			cnt_for_subarray+=1;
-	}
-	res=min(cnt_for_subarray,res);
-
-	//now using sliding window to check for next subarray
-	for(int i=1;i+cnt<=n;i++){
-		if(arr[i-1]>k)
-			cnt_for_subarray--;
-		if(arr[i+cnt-1]>k)
-			cnt_for_subarray+=1;
-		res=min(cnt_for_subarray,res);
-	}
-	cnt==0 ? cout<<-1<<nline : cout<<res<<nline;  //if cnt is 0, it means we dont have any element less than k, so printing -1
-}
 
 void solve() {
-	int n,k;
-	cin>>n>>k;
+	int n;
+	cin>>n;
 	vector<int> arr;
 	input_vec(arr,n);
-	minSwap_solution1(arr,n,k);
-	minSwap_solution2(arr,n,k);
+	/*
+	
+	The selection sort algorithm sorts an array by repeatedly finding the 
+	minimum element (considering ascending order) from unsorted part and 
+	putting it at the beginning. 
+	The algorithm maintains two subarrays in a given array.
+		1) The subarray which is already sorted. 
+		2) Remaining subarray which is unsorted.
+
+	*/
+	selectionSort(arr,n);
 
 }
 

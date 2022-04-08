@@ -9,6 +9,12 @@ using namespace chrono;
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 #define MOD 1000000007
 #define MOD1 998244353
+#define mx_ll LLONG_MAX
+#define mx_i INT_MAX
+#define mn_i INT_MIN
+#define mx_l LONG_MAX
+#define mn_ll LLONG_MIN
+#define mn_l LONG_MIN
 #define INF 1e18
 #define nline "\n"
 #define pb push_back
@@ -80,37 +86,58 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll mod_div(ll a, ll b, ll m) {a = a % m; b = b % m; return (mod_mul(a, mminvprime(b, m), m) + m) % m;}  //only for prime m
 // ll phin(ll n) {ll number = n; if (n % 2 == 0) {number /= 2; while (n % 2 == 0) n /= 2;} for (ll i = 3; i <= sqrt(n); i += 2) {if (n % i == 0) {while (n % i == 0)n /= i; number = (number / i * (i - 1));}} if (n > 1)number = (number / n * (n - 1)) ; return number;} //O(sqrt(N))
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
-// bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}
-/*=================================================================*/
 
-string StringChallenge(string str){
-	int n = str.length();
-    int res_ind = 0;
-    int flag=-1;
-    for (int i = 0; i < n; i++) {
-        if (!((str[i]>='a' && str[i]<='z') || (str[i]>='A' && str[i]<='Z')))
-        {
-            str[i + 1] = toupper(str[i + 1]);
-            flag=0;
-            continue;
-        }
-        else
-        {
-        	if (flag==0)
-            	str[res_ind++] = str[i];
-            	
-            else
-            	str[res_ind++]=tolower(str[i]); 
-            flag=-1;  
-        } 
-    }
-    return str.substr(0, res_ind);
+/*=================================================================*/
+void merge(vector<int> &arr,int low,int mid,int high){
+
+	vector<int> temp;
+	int i=low,j=mid+1;
+	while(i<=mid && j<=high){
+		if(arr[i]<arr[j]){
+			temp.push_back(arr[i]);
+			i++;
+		}
+		else{
+			temp.push_back(arr[j]);
+			j++;
+		}
+	}
+	while(i<=mid){
+		temp.push_back(arr[i]);
+		i++;
+	}
+	while(j<=high){
+		temp.push_back(arr[j]);
+		j++;
+	}
+	int k=0;
+	for(int i=low;i<=high;i++){
+		arr[i]=temp[k];
+		k++;
+	}
 }
 
-void solve() {
-	string s="cats AND-Dogs-aRE";
-	cout<<StringChallenge(s);
+void merge_sort(vector<int> &arr,int low,int high){
+	
+	if(low==high)
+		return;
+	int mid=low+(high-low)/2;
+	merge_sort(arr,low,mid);
+	merge_sort(arr,mid+1,high);
+	merge(arr,low,mid,high);
 
+}
+
+
+
+
+void solve() {
+
+	vector<int> arr={54,23,60,80,52,32,90,40};
+		print_vec(arr);
+		merge_sort(arr,0,sz(arr)-1);
+		print_vec(arr);
+	
 }
 
 

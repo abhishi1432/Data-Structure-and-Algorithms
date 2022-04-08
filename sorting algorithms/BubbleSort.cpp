@@ -32,8 +32,6 @@ typedef long long ll;
 typedef unsigned long long ull;
 typedef long double lld;
 
-int ans;
-int flag=-1;
 
 /*============================================================*/
 /*    debug() functions */
@@ -72,7 +70,7 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll mminv(ll a, ll b) {ll arr[3]; extendgcd(a, b, arr); return arr[0];} //for non prime b
 // ll mminvprime(ll a, ll b) {return expo(a, b - 2, b);}
 // bool revsort(ll a, ll b) {return a > b;}
-// void swap(int &x, int &y) {int temp = x; x = y; y = temp;}
+void swap(int &x, int &y) {int temp = x; x = y; y = temp;}
 // ll combination(ll n, ll r, ll m, ll *fact, ll *ifact) {ll val1 = fact[n]; ll val2 = ifact[n - r]; ll val3 = ifact[r]; return (((val1 * val2) % m) * val3) % m;}
 // void google(int t) {cout << "Case #" << t << ": ";}
 // vector<ll> sieve(int n) {int*arr = new int[n + 1](); vector<ll> vect; for (int i = 2; i <= n; i++)if (arr[i] == 0) {vect.push_back(i); for (int j = 2 * i; j <= n; j += i)arr[j] = 1;} return vect;}
@@ -84,90 +82,60 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
 // bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}
 /*=================================================================*/
-class Graph
-{
-    int V;    // No. of vertices
-    list<int> *adj;    // Pointer to an array containing adjacency lists
-public:
-    Graph(int V);   // Constructor
-    void addEdge(int v, int w);   // to add an edge to graph
-    void BFS(int s,int s2); 
-    void printGraph(int V);
-};
-Graph::Graph(int V)
-{
-    this->V = V;
-    adj = new list<int>[V];
-}
-void Graph::addEdge(int v, int w)
-{
-    adj[v].push_back(w); // Add w to v’s list.
-}
-void Graph::printGraph(int V)
-{
-    for (int v = 0; v < V; ++v) {
-        cout << "\n Adjacency list of vertex " << v
-             << "\n head ";
-        for (auto x : adj[v])
-            cout << "-> " << x;
-        printf("\n");
-    }
-}
-void Graph::BFS(int s,int s2)
-{
-    bool *visited = new bool[V];
-    for(int i = 0; i < V; i++)
-        visited[i] = false;
-    list<int> queue;
-    visited[s] = true;
-    queue.push_back(s);
-    list<int>::iterator i;
- 
-    while(!queue.empty())
-    {
-        s = queue.front();
-        if(flag==-1)
-        	ans+=1;
-    	if(s==s2)
-        	flag=1;
-        queue.pop_front();
-        for (i = adj[s].begin(); i != adj[s].end(); ++i)
-        {
-            if (!visited[*i])
-            {
-                visited[*i] = true;
-                queue.push_back(*i);
-            }
-        }
-    }
+
+void bubbleSort(vector<int> arr,int n){
+	/*
+		-> Time complexity is O(n^2) for worst(reverse sorted),average and best case(already sorted)
+		-> Space complexity is O(n)
+	*/
+
+	print_vec(arr);
+	for(int i=0;i<n-1;i++){
+		for(int j=0;j<n-i-1;j++){
+			if(arr[j]>arr[j+1])
+				swap(arr[j],arr[j+1]);
+		}
+	}
+	print_vec(arr);
 }
 
+void bubbleSort_Modified(vector<int> arr,int n){
+	/*
+		-> Time complexity is O(n^2) for worst,average and 
+		-> O(n) for best case(already sorted)
+		-> Space complexity is O(n)
+	*/
 
+	print_vec(arr);
+	bool swapped;
+	for(int i=0;i<n-1;i++){
+		swapped=false;
+		for(int j=0;j<n-i-1;j++){
+			if(arr[j]>arr[j+1])
+				swap(arr[j],arr[j+1]);
+				swapped=true;
+		}
+		if(swapped==false)  //if no swap occured in the first pass, it means the array is already sorted hence break
+			break;
+	}
+	print_vec(arr);
+}
 void solve() {
 	int n;
 	cin>>n;
-	Graph g(n);
-	string lines;
-	getline(cin, lines);
-	for(int i=0;i<n;i++){
-		string line;
-	    getline(cin, line);
-	    istringstream lineStream(line);
-	    int value;
-	    while (lineStream >> value)
-	        g.addEdge(i,value-1);
-	}
-	int a,b;
-	cin>>a>>b;
-	// g.printGraph(n);
-	// cout<<nline;
-	g.BFS(a-1,b-1);
-	// cout<<"\n";
-	// cout<<ans-1<<flag;
-	if(flag!=-1)
-		cout<<ans-1<<nline;
-	else
-		cout<<flag<<nline;
+	vector<int> arr;
+	input_vec(arr,n);
+
+	/*
+	In buble sort we keep comapring the adjacent elements and 
+	if they are not in order then we do swapping.
+	For acending oreder, in the first pass, the biggest element will reach to the end of the array
+	and for descending , the smallest elmement will reach the enn in the first pass
+
+	*/
+	bubbleSort(arr,n);
+	bubbleSort_Modified(arr,n);
+
 }
 
 

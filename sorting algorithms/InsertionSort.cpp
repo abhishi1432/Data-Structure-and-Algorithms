@@ -83,74 +83,36 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}
 /*=================================================================*/
 
-void minSwap_solution1(vector<int> arr, int n, int k){
-	/*
-	here in this approach we traveresd every subaarray of length count and checked the number of elements which are greater than k
-	This gives the number of swaps needed considering each and every subarray of length count.
-	For every subarray the minimum swaps will be the answer.
-
-	Time complexity is O(n^2)
-	Space complexity is O(1)
-	*/
-	int cnt=0;
-	for(int i=0;i<n;i++)
-		if (arr[i]<=k)
-			cnt++;
-	int res=n;
-	for(int i=0;i+cnt<=n;i++){
-		int cnt_for_subarray=0;
-		for(int j=i;j<i+cnt;j++){
-			if(arr[j]>k)
-				cnt_for_subarray+=1;
-		}
-		res=min(cnt_for_subarray,res);
-	}
-	cnt==0 ? cout<<-1<<nline : cout<<res<<nline;
-}
-
-void minSwap_solution2(vector<int> arr,int n,int k){
+void insertionSort(vector<int> arr,int n){
 
 	/*
-	In this approach i have used sliding window technique.
-	i.e Here we keep sliding the window by 1 element and update the 
-
-	Time complexity is O(n)
-	Space complexity is O(1)
-
+		-> Time complexity is O(n^2) in worst, average and best case
+		-> Space complexity is O(1)
 	*/
-	int cnt=0;
-	for(int i=0;i<n;i++)
-		if (arr[i]<=k)
-			cnt++;
+	print_vec(arr);
+	
 
-	int res=n;
-	int cnt_for_subarray=0;
-
-	//calculating number of swaps need for 1st subarray 
-	for(int i=0;i<cnt;i++){
-		if(arr[i]>k)
-			cnt_for_subarray+=1;
-	}
-	res=min(cnt_for_subarray,res);
-
-	//now using sliding window to check for next subarray
-	for(int i=1;i+cnt<=n;i++){
-		if(arr[i-1]>k)
-			cnt_for_subarray--;
-		if(arr[i+cnt-1]>k)
-			cnt_for_subarray+=1;
-		res=min(cnt_for_subarray,res);
-	}
-	cnt==0 ? cout<<-1<<nline : cout<<res<<nline;  //if cnt is 0, it means we dont have any element less than k, so printing -1
-}
+    print_vec(arr);
+} 
 
 void solve() {
-	int n,k;
-	cin>>n>>k;
+	int n;
+	cin>>n;
 	vector<int> arr;
 	input_vec(arr,n);
-	minSwap_solution1(arr,n,k);
-	minSwap_solution2(arr,n,k);
+	/*
+	
+ -> 4  3  2  10  12  1   5   6
+	3  4  2  10  12  1   5   6
+	2  3  4  10  12  1   5   6
+	2  3  4  10  12  1   5   6
+	2  3  4  10  12  1   5   6
+	1  2  3  4   10  12  5   6
+	1  2  3  4   5   10  12  6
+ -> 1  2  3  4   5   6   10  12
+		
+	*/
+	insertionSort(arr,n);
 
 }
 

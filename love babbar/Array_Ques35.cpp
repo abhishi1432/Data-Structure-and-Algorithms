@@ -82,85 +82,31 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
 // bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}
 /*=================================================================*/
-int amx_util_func(vector<int> arr,int n,int k){
-	int i,flag=0;
-	vector<int> ans;
-	for(i=k-1;i<n;i+=k){
-		ans.push_back(abs(arr[i]));
-		if(i!=n-1 && i+k>=n)
-			flag=1;
-	}
-	if(flag)
-		ans.push_back(arr[n-1]);
 
-	sort(ans.begin(),ans.end());
-	int sum=0;
-	int szz=(int)(ans.size());
-	for(int j=0;j<szz;j++)
-		sum+=(ans[j]*2);
-	return sum;
-}
-int get_maxDistance(vector<int> arr,int n,int k){
-
-	vector<int> neg;
-	vector<int> pos;
-	for(int i=0;i<n;i++)
-		if(arr[i]<0)
-			neg.push_back(abs(arr[i]));
-		else
-			pos.push_back(arr[i]);
-
-    int n_neg=(int)(neg.size());
-    int n_pos=(int)(pos.size());
-    sort(neg.begin(),neg.end());
-    sort(pos.begin(),pos.end());
-
-    int ans=0;
-    if(n_neg>0 && n_pos>0)
-    	ans=amx_util_func(neg,n_neg,k)+amx_util_func(pos,n_pos,k)- max((*max_element(neg.begin(), neg.end())),(*max_element(pos.begin(), pos.end())));
-	else if (n_neg > 0)
-		ans=amx_util_func(neg,n_neg,k)-(*max_element(neg.begin(), neg.end()));
-	else
-		ans=amx_util_func(pos,n_pos,k)-(*max_element(pos.begin(), pos.end()));
-	return ans;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-vector<int> output_ans(int n,vector<int> track1,vector<int> track2){
-	vector<int> ans(n,0);
+int PalinArray(vector<int> a,int n){
 	for(int i=0;i<n;i++){
-		int temp=max(track1[i],track2[i]);
-		for(int j=0;j<n;j++){
-			if(i!=j){
-				temp>track1[j] || temp>track2[j] ? ans[i]=1 : ans[i]=0;
-			}
+		int temp=a[i];
+		int rev=0;
+		while(temp>0){
+			rev= rev*10 + temp%10;
+			temp/=10;
+		}
+		if(a[i]!=rev){
+			return 0;
 		}
 	}
-	return ans;
+	return 1;
 }
-
 void solve() {
-	int n,k;
-	cin>>n>>k;
+	int t;
+	cin>>t;
+	while(t--){
+	int n;
+	cin>>n;
 	vector<int> arr;
 	input_vec(arr,n);
-	cout<<get_maxDistance(arr,n,k);
-	// int n;
-	// cin>>n;
-	// vector<int> track1,track2;
-	// input_vec(track1,n);
-	// input_vec(track2,n);
-	// print_vec(output_ans(n,track1,track2));
+	cout << PalinArray(arr,n)<<nline;
+	}
 
 }
 

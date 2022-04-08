@@ -83,74 +83,20 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}
 /*=================================================================*/
 
-void minSwap_solution1(vector<int> arr, int n, int k){
-	/*
-	here in this approach we traveresd every subaarray of length count and checked the number of elements which are greater than k
-	This gives the number of swaps needed considering each and every subarray of length count.
-	For every subarray the minimum swaps will be the answer.
-
-	Time complexity is O(n^2)
-	Space complexity is O(1)
-	*/
-	int cnt=0;
-	for(int i=0;i<n;i++)
-		if (arr[i]<=k)
-			cnt++;
-	int res=n;
-	for(int i=0;i+cnt<=n;i++){
-		int cnt_for_subarray=0;
-		for(int j=i;j<i+cnt;j++){
-			if(arr[j]>k)
-				cnt_for_subarray+=1;
-		}
-		res=min(cnt_for_subarray,res);
+void reverseString(string s){
+	cout<<s<<nline;
+	int len=sz(s);
+	for(int i=0;i<=len/2;i++){
+		char temp=s[i];
+		s[i]=s[len-1-i];
+		s[len-1-i]=temp;
 	}
-	cnt==0 ? cout<<-1<<nline : cout<<res<<nline;
+	cout<<s<<nline;
 }
-
-void minSwap_solution2(vector<int> arr,int n,int k){
-
-	/*
-	In this approach i have used sliding window technique.
-	i.e Here we keep sliding the window by 1 element and update the 
-
-	Time complexity is O(n)
-	Space complexity is O(1)
-
-	*/
-	int cnt=0;
-	for(int i=0;i<n;i++)
-		if (arr[i]<=k)
-			cnt++;
-
-	int res=n;
-	int cnt_for_subarray=0;
-
-	//calculating number of swaps need for 1st subarray 
-	for(int i=0;i<cnt;i++){
-		if(arr[i]>k)
-			cnt_for_subarray+=1;
-	}
-	res=min(cnt_for_subarray,res);
-
-	//now using sliding window to check for next subarray
-	for(int i=1;i+cnt<=n;i++){
-		if(arr[i-1]>k)
-			cnt_for_subarray--;
-		if(arr[i+cnt-1]>k)
-			cnt_for_subarray+=1;
-		res=min(cnt_for_subarray,res);
-	}
-	cnt==0 ? cout<<-1<<nline : cout<<res<<nline;  //if cnt is 0, it means we dont have any element less than k, so printing -1
-}
-
 void solve() {
-	int n,k;
-	cin>>n>>k;
-	vector<int> arr;
-	input_vec(arr,n);
-	minSwap_solution1(arr,n,k);
-	minSwap_solution2(arr,n,k);
+	string s;
+	getline(cin,s);
+	reverseString(s);
 
 }
 

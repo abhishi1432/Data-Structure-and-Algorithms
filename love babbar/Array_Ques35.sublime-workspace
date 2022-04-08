@@ -1,0 +1,394 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"min",
+				"minSwap_solution2"
+			],
+			[
+				"INT",
+				"INT_MAX"
+			],
+			[
+				"IN",
+				"INT_MAX"
+			],
+			[
+				"c",
+				"CPP_template()"
+			],
+			[
+				"tra",
+				"trappingWater_method4"
+			],
+			[
+				"max",
+				"max_right"
+			],
+			[
+				"mx_",
+				"mx_left"
+			],
+			[
+				"find",
+				"find3numbers_usingSorting_and_TwoPointer"
+			],
+			[
+				"second",
+				"second_sell"
+			],
+			[
+				"firs",
+				"first_buy"
+			],
+			[
+				"bes",
+				"best_time_maxprofit3_method3"
+			],
+			[
+				"ma",
+				"maxSum"
+			],
+			[
+				"ve",
+				"vec"
+			],
+			[
+				"tem",
+				"temp2"
+			],
+			[
+				"print",
+				"print_vec"
+			],
+			[
+				"n",
+				"n_pos"
+			],
+			[
+				"trac",
+				"track1"
+			],
+			[
+				"ad",
+				"addEdge"
+			],
+			[
+				"Arr",
+				"ArrayChallenge"
+			],
+			[
+				"prin",
+				"printEdgeList"
+			],
+			[
+				"get",
+				"getWeight"
+			],
+			[
+				"des",
+				"destVertexID"
+			],
+			[
+				"set",
+				"setStateName"
+			],
+			[
+				"pus",
+				"push_back"
+			],
+			[
+				"state_",
+				"state_id"
+			],
+			[
+				"dest",
+				"destVertexID"
+			],
+			[
+				"extra",
+				"extractMax"
+			],
+			[
+				"extract",
+				"extractMax"
+			],
+			[
+				"Max",
+				"MaxHeap"
+			],
+			[
+				"He",
+				"MinHeapify"
+			],
+			[
+				"Min",
+				"MinHeapify"
+			],
+			[
+				"pr",
+				"printArray"
+			],
+			[
+				"heap",
+				"MinHeapify"
+			],
+			[
+				"inser",
+				"insertKey"
+			],
+			[
+				"curr",
+				"currSize"
+			],
+			[
+				"dele",
+				"deleteNode"
+			],
+			[
+				"qu",
+				"Queries"
+			],
+			[
+				"sele",
+				"selectivity"
+			],
+			[
+				"prit",
+				"print_vec"
+			],
+			[
+				"inse",
+				"insertKey"
+			],
+			[
+				"temp",
+				"tempNode"
+			],
+			[
+				"t",
+				"tempNode"
+			],
+			[
+				"queu",
+				"queue"
+			],
+			[
+				"ne",
+				"next"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/F/Tech learn and project/coding/CPP practice/love babbar/error.txt",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/output.txt",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/input.txt",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_Ques35.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques34.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques30.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques33.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques32.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques31.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques29.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques19.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques28.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques26.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques18.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques25.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/fileInput (1).txt.crdownload",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques9.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques24.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques23.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques22.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques21.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques20.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques11.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/LinkedList.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/friend_class.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/Codevita2022_ques1.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/Codevita2022_ques2.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/Codevita2022_ques4.py",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/graph_adjacencyList_cycleCheck_Directed.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/graph_adjacencyList_cycleCheck_Undirected.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/segmentTree_range_Query.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/deepti.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/shubham_chocolate.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/graph_adjacencyList_SimpleUsingArrayOfVector_gfg.cpp",
+		"/C/Users/Abhishek Wisteli/Desktop/Screenshot 2022-02-04 100917.png",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/graph_adjacencyList_ComplexUsingYoutube.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/prakhar.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/output.txt",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/bianryheap.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/Stack.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/Queue.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/Binarytree.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/BinaryTreeViaArray.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/BinarySearchTree.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/temp.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/anupamq2.cpp",
+		"/C/Users/Abhishek Wisteli/AppData/Roaming/Sublime Text/Packages/User/CPP_template.sublime-snippet",
+		"/G/Desktop Folders/Tech learn and project/coding/CPP practice/output.txt",
+		"/G/Desktop Folders/Tech learn and project/coding/CPP practice/error.txt",
+		"/G/Desktop Folders/Tech learn and project/coding/CPP practice/input.txt",
+		"/G/Desktop Folders/Tech learn and project/coding/CPP practice/hello.cpp",
+		"/C/Users/Abhishek Wisteli/AppData/Roaming/Sublime Text/Packages/User/hello.cpp"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/CPP.sublime-build",
+	"project": "Array_Ques35.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 224.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

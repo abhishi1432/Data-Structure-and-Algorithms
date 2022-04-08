@@ -9,6 +9,12 @@ using namespace chrono;
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 #define MOD 1000000007
 #define MOD1 998244353
+#define mx_ll LLONG_MAX
+#define mx_i INT_MAX
+#define mn_i INT_MIN
+#define mx_l LONG_MAX
+#define mn_ll LLONG_MIN
+#define mn_l LONG_MIN
 #define INF 1e18
 #define nline "\n"
 #define pb push_back
@@ -70,7 +76,7 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll mminv(ll a, ll b) {ll arr[3]; extendgcd(a, b, arr); return arr[0];} //for non prime b
 // ll mminvprime(ll a, ll b) {return expo(a, b - 2, b);}
 // bool revsort(ll a, ll b) {return a > b;}
-// void swap(int &x, int &y) {int temp = x; x = y; y = temp;}
+void swap(int &x, int &y) {int temp = x; x = y; y = temp;}
 // ll combination(ll n, ll r, ll m, ll *fact, ll *ifact) {ll val1 = fact[n]; ll val2 = ifact[n - r]; ll val3 = ifact[r]; return (((val1 * val2) % m) * val3) % m;}
 // void google(int t) {cout << "Case #" << t << ": ";}
 // vector<ll> sieve(int n) {int*arr = new int[n + 1](); vector<ll> vect; for (int i = 2; i <= n; i++)if (arr[i] == 0) {vect.push_back(i); for (int j = 2 * i; j <= n; j += i)arr[j] = 1;} return vect;}
@@ -80,77 +86,38 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll mod_div(ll a, ll b, ll m) {a = a % m; b = b % m; return (mod_mul(a, mminvprime(b, m), m) + m) % m;}  //only for prime m
 // ll phin(ll n) {ll number = n; if (n % 2 == 0) {number /= 2; while (n % 2 == 0) n /= 2;} for (ll i = 3; i <= sqrt(n); i += 2) {if (n % i == 0) {while (n % i == 0)n /= i; number = (number / i * (i - 1));}} if (n > 1)number = (number / n * (n - 1)) ; return number;} //O(sqrt(N))
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
-// bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}
+
 /*=================================================================*/
-
-void minSwap_solution1(vector<int> arr, int n, int k){
-	/*
-	here in this approach we traveresd every subaarray of length count and checked the number of elements which are greater than k
-	This gives the number of swaps needed considering each and every subarray of length count.
-	For every subarray the minimum swaps will be the answer.
-
-	Time complexity is O(n^2)
-	Space complexity is O(1)
-	*/
-	int cnt=0;
-	for(int i=0;i<n;i++)
-		if (arr[i]<=k)
-			cnt++;
-	int res=n;
-	for(int i=0;i+cnt<=n;i++){
-		int cnt_for_subarray=0;
-		for(int j=i;j<i+cnt;j++){
-			if(arr[j]>k)
-				cnt_for_subarray+=1;
+int partition(vector<int> &arr,int low,int high){
+	int pivot=arr[high];
+	int i=low-1;
+	for(int j=low;j<high;j++){
+		if(arr[j]<pivot){
+			i++;
+			swap(arr[i],arr[j]);
 		}
-		res=min(cnt_for_subarray,res);
 	}
-	cnt==0 ? cout<<-1<<nline : cout<<res<<nline;
+	swap(arr[i+1],arr[high]);
+	return i+1;
 }
 
-void minSwap_solution2(vector<int> arr,int n,int k){
-
-	/*
-	In this approach i have used sliding window technique.
-	i.e Here we keep sliding the window by 1 element and update the 
-
-	Time complexity is O(n)
-	Space complexity is O(1)
-
-	*/
-	int cnt=0;
-	for(int i=0;i<n;i++)
-		if (arr[i]<=k)
-			cnt++;
-
-	int res=n;
-	int cnt_for_subarray=0;
-
-	//calculating number of swaps need for 1st subarray 
-	for(int i=0;i<cnt;i++){
-		if(arr[i]>k)
-			cnt_for_subarray+=1;
+void quick_sort(vector<int> &arr,int low,int high){
+	if(low<high){
+		int pi=partition(arr,low,high);
+		quick_sort(arr,low,pi-1);
+		quick_sort(arr,pi+1,high);
 	}
-	res=min(cnt_for_subarray,res);
-
-	//now using sliding window to check for next subarray
-	for(int i=1;i+cnt<=n;i++){
-		if(arr[i-1]>k)
-			cnt_for_subarray--;
-		if(arr[i+cnt-1]>k)
-			cnt_for_subarray+=1;
-		res=min(cnt_for_subarray,res);
-	}
-	cnt==0 ? cout<<-1<<nline : cout<<res<<nline;  //if cnt is 0, it means we dont have any element less than k, so printing -1
+	return;
+	
 }
 
 void solve() {
-	int n,k;
-	cin>>n>>k;
-	vector<int> arr;
-	input_vec(arr,n);
-	minSwap_solution1(arr,n,k);
-	minSwap_solution2(arr,n,k);
+	
+		vector<int> arr={54,23,60,80,52,32,90,40};
+		print_vec(arr);
+		quick_sort(arr,0,sz(arr)-1);
+		print_vec(arr);
+	
 
 }
 
