@@ -82,68 +82,38 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
 // bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}
 /*=================================================================*/
-void subarray_with_greaterSum(vector<long long> a,int n, int x){
+bool areRotation(string s1,string s2){
 	/*
-		Time complexity is O(n)
-		Space complexity is O(n)
-		This i wrote myself and I checked this function for positve as well as negative elemnts in array and seems to be working fine
-		Don't know if it covers all the edge cases.
-
-		Update : does not work for many of the cases
-		Ex: 8 16
-			6 3 4 5 4 3 7 9
+		Time complexity is O(n^2) in worst and avg case and O(n) in best case(non rotated)
+		Space complexity is O(1)
 	*/
-	vector<long long> sum;
-	long long s=0;
-	for(int i=0;i<n;i++){
-		s+=a[i];
-		sum.push_back(s);
-	}
-	debug(a);
-	debug(sum);
-	int low=0,high=n-1;
-	int res=n+1;
-	while(low<high){
-		if(sum[high]-sum[low]>x)
-			res=min(res,high-low);
-		if(sum[high-1]-sum[low]>x)
-			high--;
-		else{
-			low++;
-		}
 
-		/*
-		I compressed this code to smaller number of lines(See 102- 107)
-
-		if(sum[high]-sum[low]>x){
-			res=min(res,high-low);
-			if(sum[high-1]-sum[low]>x){
-				high--;
+	int len1=sz(s1);
+	int len2=sz(s2);
+	for(int i=0;i<len1;i++){
+		int k=i;
+		int flag=1;
+		for(int j=0;j<len1;j++){
+			if(k==len2)
+				k=0;
+			if(s1[j]!=s2[k]){
+				flag=0;
+				break;
 			}
-			else
-				low++;
+			k++;
 		}
-		else{
-			if(sum[high-1]-sum[low]>x){
-				high--;
-			}
-			else
-				low++;
-		}
-		*/
+		if(flag==1)
+			return true;
 	}
-	if(res>n)
-		cout<<"Not Possible"<<nline;
-	else
-		cout<<res<<nline;
+	return false;
+
 }
 
 void solve() {
-	int n,x;
-	cin>>n>>x;
-	vector<long long> a;
-	input_vec(a,n);
-	subarray_with_greaterSum(a,n,x);  //don't know if it works for all cases or not.
+	string s1,s2;
+	getline(cin,s1);
+	getline(cin,s2);
+	cout<<areRotation(s1,s2);
 
 }
 

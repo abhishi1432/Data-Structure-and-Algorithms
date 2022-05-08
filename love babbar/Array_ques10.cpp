@@ -83,75 +83,45 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 
 /*=================================================================*/
 
-void print_path(vector<int> arr,int n){
-	if(n==0)
-		return;
-	print_path(arr,arr[n]);
-	cout<<arr[n]<<"->";
-}
-void Solution_usingDP(vector<int> arr,int n){
-	vector<int> minimum_jump_array(n,-1);  //to store minimum jumps needed to reach every index
-	vector<int> jump_path_array(n,-1);    //path followed to reach that index
-
-	minimum_jump_array[0]=0;
-	jump_path_array[0]=0;
+void minimize_the_Heights_1(int n, int k, vector<int> arr){
+	int min_;
+	int max_;
+	int result=INT_MAX;
+	sort(all(arr));
 	for(int i=1;i<n;i++){
-		for(int j=0;j<i;j++){
-			if(j+arr[j]>=i){
-				if(minimum_jump_array[i]==-1){
-					minimum_jump_array[i]=minimum_jump_array[j]+1;
-					jump_path_array[i]=j;
-				}
-				else{
-					// minimum_jump_array[i]=min(minimum_jump_array[i],minimum_jump_array[j]+1);
-					if(minimum_jump_array[j]+1 < minimum_jump_array[i]){
-						minimum_jump_array[i]=minimum_jump_array[j]+1;
-						jump_path_array[i]=j;
-					}
-				}
-			}
-		}
+		min_=min(arr[0]+k,arr[i]-k);
+		max_=max(arr[i-1]+k,arr[n-1]-k);
+
+		result=min(result,max_ - min_);
 	}
-	cout<<minimum_jump_array[n-1];
-	cout<<nline;
-	print_path(jump_path_array,n-1);
-	cout<<n-1;
-	cout<<nline;
 }
 
-int usingLinear(vector<int> arr,int n){
+void minimize_the_Heights_2(int n, int k, vector<int> arr){
+	int min_;
+	int max_;
+	int result=INT_MAX;
+	sort(all(arr));
+	for(int i=1;i<n;i++){
+		if(arr[i]-k < 0)    //as in this ques heights can't be negative
+			continue;
+		min_=min(arr[0]+k,arr[i]-k);
+		max_=max(arr[i-1]+k,arr[n-1]-k);
+
+		result=min(result,max_ - min_);
+	}
 	
-	int ladder=arr[0];
-	int step=arr[0];
-	int jump=0;
-	int temp=0;
-	for(int i=1;i<n;i++){
-		if(n==1)
-			return 0;
-		if(i+arr[i]>ladder){
-			ladder=i+arr[i];
-			temp=i;
-		}
-		step--;
-		if(step==0){
-			cout<<temp<<" ";
-			jump++;
-			step=ladder-i;
-			// if(step<=0)
-			// 	return -1;
-		}
-	}
-	cout<<nline;
-	return jump;
 }
 
 
 void solve() {
-	int n;cin>>n;vector<int> arr;input_vec(arr,n);print_vec(arr);
+	int n,k;
+	cin>>n>>k;
+	vector<int> arr;
+	input_vec(arr,n);
+	minimize_the_Heights_1(n,k,arr);
+	minimize_the_Heights_2(n,k,arr);
 
-	Solution_usingDP(arr,n);  		//		O(n^2)
-	cout<<usingLinear(arr,n);    //		O(n)
-
+	
 }
 
 

@@ -86,7 +86,7 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 void reverseString(string s){
 	cout<<s<<nline;
 	int len=sz(s);
-	for(int i=0;i<=len/2;i++){
+	for(int i=0;i<len/2;i++){
 		char temp=s[i];
 		s[i]=s[len-1-i];
 		s[len-1-i]=temp;
@@ -97,7 +97,7 @@ void solve() {
 	string s;
 	getline(cin,s);
 	reverseString(s);
-
+// A man, a plan, a canal: Panama
 }
 
 

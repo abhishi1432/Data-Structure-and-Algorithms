@@ -1,5 +1,6 @@
 /*
 	A B H I S H E K    S I N G H
+	https://leetcode.com/problems/two-sum/
 */
 
 #include<bits/stdc++.h>
@@ -82,69 +83,27 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
 // bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}
 /*=================================================================*/
-void subarray_with_greaterSum(vector<long long> a,int n, int x){
-	/*
-		Time complexity is O(n)
-		Space complexity is O(n)
-		This i wrote myself and I checked this function for positve as well as negative elemnts in array and seems to be working fine
-		Don't know if it covers all the edge cases.
-
-		Update : does not work for many of the cases
-		Ex: 8 16
-			6 3 4 5 4 3 7 9
-	*/
-	vector<long long> sum;
-	long long s=0;
-	for(int i=0;i<n;i++){
-		s+=a[i];
-		sum.push_back(s);
+vector<int> twoSum(vector<int>& nums, int target) {
+	int l=(nums).size();
+	map<int,pair<int,int>> mp;
+	for(int i=0;i<l;i++){
+		mp[nums[i]]={mp[nums[i]].first+1,i};
 	}
-	debug(a);
-	debug(sum);
-	int low=0,high=n-1;
-	int res=n+1;
-	while(low<high){
-		if(sum[high]-sum[low]>x)
-			res=min(res,high-low);
-		if(sum[high-1]-sum[low]>x)
-			high--;
-		else{
-			low++;
-		}
-
-		/*
-		I compressed this code to smaller number of lines(See 102- 107)
-
-		if(sum[high]-sum[low]>x){
-			res=min(res,high-low);
-			if(sum[high-1]-sum[low]>x){
-				high--;
-			}
-			else
-				low++;
-		}
-		else{
-			if(sum[high-1]-sum[low]>x){
-				high--;
-			}
-			else
-				low++;
-		}
-		*/
+	for(int i=0;i<l;i++){
+		if(mp[target-nums[i]].first >= 1 && target-nums[i]!=nums[i] || target-nums[i]==nums[i] && mp[target-nums[i]].first > 1)
+			return {mp[target-nums[i]].second,i};
 	}
-	if(res>n)
-		cout<<"Not Possible"<<nline;
-	else
-		cout<<res<<nline;
+	return {-1,-1};
+	        
 }
 
 void solve() {
-	int n,x;
-	cin>>n>>x;
-	vector<long long> a;
-	input_vec(a,n);
-	subarray_with_greaterSum(a,n,x);  //don't know if it works for all cases or not.
-
+		int n,target;
+		cin>>n>>target;
+		vector<int> vec;
+		input_vec(vec,n);
+		print_vec(vec);
+		print_vec(twoSum(vec,target));
 }
 
 

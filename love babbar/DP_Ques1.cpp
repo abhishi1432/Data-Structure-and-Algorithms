@@ -82,68 +82,77 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
 // bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}
 /*=================================================================*/
-void subarray_with_greaterSum(vector<long long> a,int n, int x){
+
+int CoinChange(int n,int m, vector<int> arr){
 	/*
-		Time complexity is O(n)
-		Space complexity is O(n)
-		This i wrote myself and I checked this function for positve as well as negative elemnts in array and seems to be working fine
-		Don't know if it covers all the edge cases.
+	This finds the total number of ways to make sum n using m denominations given in arr, and 
+	thsese denominations are available in infinite amount.
 
-		Update : does not work for many of the cases
-		Ex: 8 16
-			6 3 4 5 4 3 7 9
+	Time complexity of this solution is O(n*m) + O(mlog(m)) = O(m*n)
+	Space complexity is O(m*n)
+	Source: Jenny's lecture
 	*/
-	vector<long long> sum;
-	long long s=0;
-	for(int i=0;i<n;i++){
-		s+=a[i];
-		sum.push_back(s);
-	}
-	debug(a);
-	debug(sum);
-	int low=0,high=n-1;
-	int res=n+1;
-	while(low<high){
-		if(sum[high]-sum[low]>x)
-			res=min(res,high-low);
-		if(sum[high-1]-sum[low]>x)
-			high--;
-		else{
-			low++;
-		}
-
-		/*
-		I compressed this code to smaller number of lines(See 102- 107)
-
-		if(sum[high]-sum[low]>x){
-			res=min(res,high-low);
-			if(sum[high-1]-sum[low]>x){
-				high--;
+	sort(all(arr));
+	vector<vector<int>> dp(m, vector<int>(n+1,0));
+	for(int i=0;i<m;i++)
+		dp[i][0]=1;
+	for(int j=0;j<=n;j++)
+		dp[0][j] = j%arr[0]==0 ? 1: 0; 
+	for(int i=1;i<m;i++){
+		for(int j=1;j<=n;j++){
+			if(arr[i]>j)
+				dp[i][j]=dp[i-1][j];
+			else{
+				dp[i][j] = dp[i-1][j] + dp[i][j-arr[i]];
 			}
-			else
-				low++;
 		}
-		else{
-			if(sum[high-1]-sum[low]>x){
-				high--;
-			}
-			else
-				low++;
-		}
-		*/
 	}
-	if(res>n)
-		cout<<"Not Possible"<<nline;
-	else
-		cout<<res<<nline;
+	for(int i=0;i<m;i++){
+		for(int j=0;j<=n;j++)
+			cout<<dp[i][j]<<" ";
+		cout<<nline;
+	}
+	return dp[m-1][n];
 }
+int minCoins_Helper(int nn,int m,vector<int> arr){
 
+ 	if(nn<=0)
+ 		return 0;
+ 	int ans=INT_MAX;
+ 	for(int i=0;i<m;i++){
+ 		if(nn-arr[i]>=0){
+ 			int subResult= minCoins_Helper(nn-arr[i],m,arr);
+ 			if (subResult!=INT_MAX && subResult+1<ans)
+ 			 		ans = subResult+1;
+ 		}
+ 	}
+ }
+
+int minCoins(int n,int m,vector<int> arr){
+	/*
+	This finds the minimum number of coins needed to make sum n using denominations given in arr
+	Time complexity is O(m^n) as we are using recursion
+	Space complexity is O(1)
+	Source: Anuj bhaiya
+	*/
+
+	int ans= minCoins_Helper(n,m,arr);
+	return ans;
+}
 void solve() {
-	int n,x;
-	cin>>n>>x;
-	vector<long long> a;
-	input_vec(a,n);
-	subarray_with_greaterSum(a,n,x);  //don't know if it works for all cases or not.
+
+	/*
+			4 3
+			1 2 3
+		
+	*/
+	int n,m;
+	cin>>n>>m;
+	vector<int> vec;
+	input_vec(vec,m);
+	// print_vec(vec);
+	// cout<<CoinChange(n,m,vec);
+	cout<<minCoins(n,m,vec);
 
 }
 

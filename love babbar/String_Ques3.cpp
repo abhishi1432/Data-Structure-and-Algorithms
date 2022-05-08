@@ -88,10 +88,24 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
 
 /*=================================================================*/
-
+void duplicateCharacter(string s){
+	unordered_map<char,int> map1;
+	int len=sz(s);
+	for(int i=0;i<len;i++){
+		map1[s[i]]++;
+	}
+	for(auto i:map1){
+		if(i.second>1)
+			cout<<i.first<<" ";
+	}
+	cout<<nline;
+}
 
 void solve() {
-	cout<<"Hllo";
+	string s;
+	getline(cin,s);
+	duplicateCharacter(s);
+
 
 }
 

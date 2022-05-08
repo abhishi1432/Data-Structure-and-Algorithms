@@ -1,0 +1,1824 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ve",
+				"vec"
+			],
+			[
+				"Cou",
+				"CountAndSay"
+			],
+			[
+				"min",
+				"minCoins"
+			],
+			[
+				"INT",
+				"INT_MAX"
+			],
+			[
+				"re",
+				"reverseString"
+			],
+			[
+				"IN",
+				"INT_MAX"
+			],
+			[
+				"c",
+				"CPP_template()"
+			],
+			[
+				"tra",
+				"trappingWater_method4"
+			],
+			[
+				"max",
+				"max_right"
+			],
+			[
+				"mx_",
+				"mx_left"
+			],
+			[
+				"find",
+				"find3numbers_usingSorting_and_TwoPointer"
+			],
+			[
+				"second",
+				"second_sell"
+			],
+			[
+				"firs",
+				"first_buy"
+			],
+			[
+				"bes",
+				"best_time_maxprofit3_method3"
+			],
+			[
+				"ma",
+				"maxSum"
+			],
+			[
+				"tem",
+				"temp2"
+			],
+			[
+				"print",
+				"print_vec"
+			],
+			[
+				"n",
+				"n_pos"
+			],
+			[
+				"trac",
+				"track1"
+			],
+			[
+				"ad",
+				"addEdge"
+			],
+			[
+				"Arr",
+				"ArrayChallenge"
+			],
+			[
+				"prin",
+				"printEdgeList"
+			],
+			[
+				"get",
+				"getWeight"
+			],
+			[
+				"des",
+				"destVertexID"
+			],
+			[
+				"set",
+				"setStateName"
+			],
+			[
+				"pus",
+				"push_back"
+			],
+			[
+				"state_",
+				"state_id"
+			],
+			[
+				"dest",
+				"destVertexID"
+			],
+			[
+				"extra",
+				"extractMax"
+			],
+			[
+				"extract",
+				"extractMax"
+			],
+			[
+				"Max",
+				"MaxHeap"
+			],
+			[
+				"He",
+				"MinHeapify"
+			],
+			[
+				"Min",
+				"MinHeapify"
+			],
+			[
+				"pr",
+				"printArray"
+			],
+			[
+				"heap",
+				"MinHeapify"
+			],
+			[
+				"inser",
+				"insertKey"
+			],
+			[
+				"curr",
+				"currSize"
+			],
+			[
+				"dele",
+				"deleteNode"
+			],
+			[
+				"qu",
+				"Queries"
+			],
+			[
+				"sele",
+				"selectivity"
+			],
+			[
+				"prit",
+				"print_vec"
+			],
+			[
+				"inse",
+				"insertKey"
+			],
+			[
+				"temp",
+				"tempNode"
+			],
+			[
+				"t",
+				"tempNode"
+			],
+			[
+				"queu",
+				"queue"
+			],
+			[
+				"ne",
+				"next"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "leetcode/Two Sum.cpp",
+			"settings":
+			{
+				"buffer_size": 5289,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					1,
+					1,
+					"insert",
+					{
+						"characters": "C"
+					},
+					"AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					2,
+					1,
+					"insert_completion",
+					{
+						"completion": "/*\n\tA B H I S H E K    S I N G H\n*/\n\n#include<bits/stdc++.h>\nusing namespace std;\nusing namespace chrono;\n\n#define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)\n#define MOD 1000000007\n#define MOD1 998244353\n#define INF 1e18\n#define nline \"\\n\"\n#define pb push_back\n#define ppb pop_back\n#define mp make_pair\n#define ff first\n#define ss second\n#define PI 3.141592653589793238462\n#define set_bits __builtin_popcountll\n#define sz(x) ((int)(x).size())\n#define all(x) (x).begin(), (x).end()\n#define all_rev(x) (x).rbegin(), (x).rend()\n\n#ifndef ONLINE_JUDGE\n#define debug(x) cerr << #x <<\" \"; _print(x); cerr << endl;\n#else\n#define debug(x);\n#endif\n\ntypedef long long ll;\ntypedef unsigned long long ull;\ntypedef long double lld;\n\n\n/*============================================================*/\n/*    debug() functions */\n\ntemplate <class T> void _print(T t) {cerr << t;}  \ntemplate <class T, class V> void _print(pair <T, V> p);\ntemplate <class T> void _print(vector <T> v);\ntemplate <class T> void _print(set <T> v);\ntemplate <class T, class V> void _print(map <T, V> v);\ntemplate <class T> void _print(multiset <T> v);\ntemplate <class T, class V> void _print(pair <T, V> p) {cerr << \"{\"; _print(p.ff); cerr << \",\"; _print(p.ss); cerr << \"}\";}\ntemplate <class T> void _print(vector <T> v) {cerr << \"[ \"; for (T i : v) {_print(i); cerr << \" \";} cerr << \"]\";}\ntemplate <class T> void _print(set <T> v) {cerr << \"[ \"; for (T i : v) {_print(i); cerr << \" \";} cerr << \"]\";}\ntemplate <class T> void _print(multiset <T> v) {cerr << \"[ \"; for (T i : v) {_print(i); cerr << \" \";} cerr << \"]\";}\ntemplate <class T, class V> void _print(map <T, V> v) {cerr << \"[ \"; for (auto i : v) {_print(i); cerr << \" \";} cerr << \"]\";}\n\n/*==============================================================*/\n/*    Newly added templates */\n\ntemplate <class T> void print_vec(vector<T> v);  //printing any vector\ntemplate <class T> void print_set(set<T> s);  //printing set of any datatype\ntemplate <class T> void input_vec(vector<T> &v , int n);  //taking input of n elements of any data type into a vector\ntemplate <class T, class V, class X>V binarySearch(vector<T> a, V n, X item);  //binary search on vector\ntemplate <class T> void print_vec(vector<T> v){ for(T i:v){ cout<<i<<\" \";}cout<<nline;} \ntemplate <class T> void print_set(set<T> s){for(T i:s){cout<<i<<\" \";}cout<<nline;}  \ntemplate <class T> void input_vec(vector<T> &v , int n){for(int i=0;i<n;i++){int temp;cin>>temp;v.pb(temp);}}   \ntemplate <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V low = 0; V high = n - 1; while(low<=high){{V mid = (low + high)/2; if (a[mid] == item) return mid; else if (a[mid] < item) low = mid + 1; else high = mid - 1;}} return -1;}\n\n/*===============================================================*/\n\n/*  Special puropose functions */\n\n// ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}\n// ll expo(ll a, ll b, ll mod) {ll res = 1; while (b > 0) {if (b & 1)res = (res * a) % mod; a = (a * a) % mod; b = b >> 1;} return res;}\n// void extendgcd(ll a, ll b, ll*v) {if (b == 0) {v[0] = 1; v[1] = 0; v[2] = a; return ;} extendgcd(b, a % b, v); ll x = v[1]; v[1] = v[0] - v[1] * (a / b); v[0] = x; return;} //pass an arry of size1 3\n// ll mminv(ll a, ll b) {ll arr[3]; extendgcd(a, b, arr); return arr[0];} //for non prime b\n// ll mminvprime(ll a, ll b) {return expo(a, b - 2, b);}\n// bool revsort(ll a, ll b) {return a > b;}\n// void swap(int &x, int &y) {int temp = x; x = y; y = temp;}\n// ll combination(ll n, ll r, ll m, ll *fact, ll *ifact) {ll val1 = fact[n]; ll val2 = ifact[n - r]; ll val3 = ifact[r]; return (((val1 * val2) % m) * val3) % m;}\n// void google(int t) {cout << \"Case #\" << t << \": \";}\n// vector<ll> sieve(int n) {int*arr = new int[n + 1](); vector<ll> vect; for (int i = 2; i <= n; i++)if (arr[i] == 0) {vect.push_back(i); for (int j = 2 * i; j <= n; j += i)arr[j] = 1;} return vect;}\n// ll mod_add(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a + b) % m) + m) % m;}\n// ll mod_mul(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a * b) % m) + m) % m;}\n// ll mod_sub(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) % m;}\n// ll mod_div(ll a, ll b, ll m) {a = a % m; b = b % m; return (mod_mul(a, mminvprime(b, m), m) + m) % m;}  //only for prime m\n// ll phin(ll n) {ll number = n; if (n % 2 == 0) {number /= 2; while (n % 2 == 0) n /= 2;} for (ll i = 3; i <= sqrt(n); i += 2) {if (n % i == 0) {while (n % i == 0)n /= i; number = (number / i * (i - 1));}} if (n > 1)number = (number / n * (n - 1)) ; return number;} //O(sqrt(N))\n// ll lcm(int a, int b){return (a / gcd(a, b)) * b;}\n// bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}\n/*=================================================================*/\n\n\nvoid solve() {\n\t\n\n}\n\n\nint main() {\n\tfastio();\n#ifndef ONLINE_JUDGE\n\tfreopen(\"error.txt\", \"w\", stderr);\n#endif\n\tauto start1 = high_resolution_clock::now();\n\tsolve();\n\tauto stop1 = high_resolution_clock::now();\n\tauto duration = duration_cast<microseconds>(stop1 - start1);\n#ifndef ONLINE_JUDGE\n\tcerr << \"Time: \" << duration . count() / 1000 << endl;\n#endif\n\treturn 0;\n}",
+						"format": "snippet",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "CPP_template()"
+					},
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAABAAAAQwAAAAAAAAAAjRQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					4,
+					1,
+					"left_delete",
+					null,
+					"AQAAAAAAAAAAAAAAAAAAAAAAAACNFAAALyoKCUEgQiBIIEkgUyBIIEUgSyAgICBTIEkgTiBHIEgKKi8KCiNpbmNsdWRlPGJpdHMvc3RkYysrLmg+CnVzaW5nIG5hbWVzcGFjZSBzdGQ7CnVzaW5nIG5hbWVzcGFjZSBjaHJvbm87CgojZGVmaW5lIGZhc3RpbygpIGlvc19iYXNlOjpzeW5jX3dpdGhfc3RkaW8oZmFsc2UpO2Npbi50aWUoTlVMTCk7Y291dC50aWUoTlVMTCkKI2RlZmluZSBNT0QgMTAwMDAwMDAwNwojZGVmaW5lIE1PRDEgOTk4MjQ0MzUzCiNkZWZpbmUgSU5GIDFlMTgKI2RlZmluZSBubGluZSAiXG4iCiNkZWZpbmUgcGIgcHVzaF9iYWNrCiNkZWZpbmUgcHBiIHBvcF9iYWNrCiNkZWZpbmUgbXAgbWFrZV9wYWlyCiNkZWZpbmUgZmYgZmlyc3QKI2RlZmluZSBzcyBzZWNvbmQKI2RlZmluZSBQSSAzLjE0MTU5MjY1MzU4OTc5MzIzODQ2MgojZGVmaW5lIHNldF9iaXRzIF9fYnVpbHRpbl9wb3Bjb3VudGxsCiNkZWZpbmUgc3ooeCkgKChpbnQpKHgpLnNpemUoKSkKI2RlZmluZSBhbGwoeCkgKHgpLmJlZ2luKCksICh4KS5lbmQoKQojZGVmaW5lIGFsbF9yZXYoeCkgKHgpLnJiZWdpbigpLCAoeCkucmVuZCgpCgojaWZuZGVmIE9OTElORV9KVURHRQojZGVmaW5lIGRlYnVnKHgpIGNlcnIgPDwgI3ggPDwiICI7IF9wcmludCh4KTsgY2VyciA8PCBlbmRsOwojZWxzZQojZGVmaW5lIGRlYnVnKHgpOwojZW5kaWYKCnR5cGVkZWYgbG9uZyBsb25nIGxsOwp0eXBlZGVmIHVuc2lnbmVkIGxvbmcgbG9uZyB1bGw7CnR5cGVkZWYgbG9uZyBkb3VibGUgbGxkOwoKCi8qPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09Ki8KLyogICAgZGVidWcoKSBmdW5jdGlvbnMgKi8KCnRlbXBsYXRlIDxjbGFzcyBUPiB2b2lkIF9wcmludChUIHQpIHtjZXJyIDw8IHQ7fSAgCnRlbXBsYXRlIDxjbGFzcyBULCBjbGFzcyBWPiB2b2lkIF9wcmludChwYWlyIDxULCBWPiBwKTsKdGVtcGxhdGUgPGNsYXNzIFQ+IHZvaWQgX3ByaW50KHZlY3RvciA8VD4gdik7CnRlbXBsYXRlIDxjbGFzcyBUPiB2b2lkIF9wcmludChzZXQgPFQ+IHYpOwp0ZW1wbGF0ZSA8Y2xhc3MgVCwgY2xhc3MgVj4gdm9pZCBfcHJpbnQobWFwIDxULCBWPiB2KTsKdGVtcGxhdGUgPGNsYXNzIFQ+IHZvaWQgX3ByaW50KG11bHRpc2V0IDxUPiB2KTsKdGVtcGxhdGUgPGNsYXNzIFQsIGNsYXNzIFY+IHZvaWQgX3ByaW50KHBhaXIgPFQsIFY+IHApIHtjZXJyIDw8ICJ7IjsgX3ByaW50KHAuZmYpOyBjZXJyIDw8ICIsIjsgX3ByaW50KHAuc3MpOyBjZXJyIDw8ICJ9Ijt9CnRlbXBsYXRlIDxjbGFzcyBUPiB2b2lkIF9wcmludCh2ZWN0b3IgPFQ+IHYpIHtjZXJyIDw8ICJbICI7IGZvciAoVCBpIDogdikge19wcmludChpKTsgY2VyciA8PCAiICI7fSBjZXJyIDw8ICJdIjt9CnRlbXBsYXRlIDxjbGFzcyBUPiB2b2lkIF9wcmludChzZXQgPFQ+IHYpIHtjZXJyIDw8ICJbICI7IGZvciAoVCBpIDogdikge19wcmludChpKTsgY2VyciA8PCAiICI7fSBjZXJyIDw8ICJdIjt9CnRlbXBsYXRlIDxjbGFzcyBUPiB2b2lkIF9wcmludChtdWx0aXNldCA8VD4gdikge2NlcnIgPDwgIlsgIjsgZm9yIChUIGkgOiB2KSB7X3ByaW50KGkpOyBjZXJyIDw8ICIgIjt9IGNlcnIgPDwgIl0iO30KdGVtcGxhdGUgPGNsYXNzIFQsIGNsYXNzIFY+IHZvaWQgX3ByaW50KG1hcCA8VCwgVj4gdikge2NlcnIgPDwgIlsgIjsgZm9yIChhdXRvIGkgOiB2KSB7X3ByaW50KGkpOyBjZXJyIDw8ICIgIjt9IGNlcnIgPDwgIl0iO30KCi8qPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0qLwovKiAgICBOZXdseSBhZGRlZCB0ZW1wbGF0ZXMgKi8KCnRlbXBsYXRlIDxjbGFzcyBUPiB2b2lkIHByaW50X3ZlYyh2ZWN0b3I8VD4gdik7ICAvL3ByaW50aW5nIGFueSB2ZWN0b3IKdGVtcGxhdGUgPGNsYXNzIFQ+IHZvaWQgcHJpbnRfc2V0KHNldDxUPiBzKTsgIC8vcHJpbnRpbmcgc2V0IG9mIGFueSBkYXRhdHlwZQp0ZW1wbGF0ZSA8Y2xhc3MgVD4gdm9pZCBpbnB1dF92ZWModmVjdG9yPFQ+ICZ2ICwgaW50IG4pOyAgLy90YWtpbmcgaW5wdXQgb2YgbiBlbGVtZW50cyBvZiBhbnkgZGF0YSB0eXBlIGludG8gYSB2ZWN0b3IKdGVtcGxhdGUgPGNsYXNzIFQsIGNsYXNzIFYsIGNsYXNzIFg+ViBiaW5hcnlTZWFyY2godmVjdG9yPFQ+IGEsIFYgbiwgWCBpdGVtKTsgIC8vYmluYXJ5IHNlYXJjaCBvbiB2ZWN0b3IKdGVtcGxhdGUgPGNsYXNzIFQ+IHZvaWQgcHJpbnRfdmVjKHZlY3RvcjxUPiB2KXsgZm9yKFQgaTp2KXsgY291dDw8aTw8IiAiO31jb3V0PDxubGluZTt9IAp0ZW1wbGF0ZSA8Y2xhc3MgVD4gdm9pZCBwcmludF9zZXQoc2V0PFQ+IHMpe2ZvcihUIGk6cyl7Y291dDw8aTw8IiAiO31jb3V0PDxubGluZTt9ICAKdGVtcGxhdGUgPGNsYXNzIFQ+IHZvaWQgaW5wdXRfdmVjKHZlY3RvcjxUPiAmdiAsIGludCBuKXtmb3IoaW50IGk9MDtpPG47aSsrKXtpbnQgdGVtcDtjaW4+PnRlbXA7di5wYih0ZW1wKTt9fSAgIAp0ZW1wbGF0ZSA8Y2xhc3MgVCwgY2xhc3MgViwgY2xhc3MgWD5WIGJpbmFyeVNlYXJjaCh2ZWN0b3I8VD4gYSwgViBuLCBYIGl0ZW0peyAgViBsb3cgPSAwOyBWIGhpZ2ggPSBuIC0gMTsgd2hpbGUobG93PD1oaWdoKXt7ViBtaWQgPSAobG93ICsgaGlnaCkvMjsgaWYgKGFbbWlkXSA9PSBpdGVtKSByZXR1cm4gbWlkOyBlbHNlIGlmIChhW21pZF0gPCBpdGVtKSBsb3cgPSBtaWQgKyAxOyBlbHNlIGhpZ2ggPSBtaWQgLSAxO319IHJldHVybiAtMTt9CgovKj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSovCgovKiAgU3BlY2lhbCBwdXJvcG9zZSBmdW5jdGlvbnMgKi8KCi8vIGxsIGdjZChsbCBhLCBsbCBiKSB7aWYgKGIgPiBhKSB7cmV0dXJuIGdjZChiLCBhKTt9IGlmIChiID09IDApIHtyZXR1cm4gYTt9IHJldHVybiBnY2QoYiwgYSAlIGIpO30KLy8gbGwgZXhwbyhsbCBhLCBsbCBiLCBsbCBtb2QpIHtsbCByZXMgPSAxOyB3aGlsZSAoYiA+IDApIHtpZiAoYiAmIDEpcmVzID0gKHJlcyAqIGEpICUgbW9kOyBhID0gKGEgKiBhKSAlIG1vZDsgYiA9IGIgPj4gMTt9IHJldHVybiByZXM7fQovLyB2b2lkIGV4dGVuZGdjZChsbCBhLCBsbCBiLCBsbCp2KSB7aWYgKGIgPT0gMCkge3ZbMF0gPSAxOyB2WzFdID0gMDsgdlsyXSA9IGE7IHJldHVybiA7fSBleHRlbmRnY2QoYiwgYSAlIGIsIHYpOyBsbCB4ID0gdlsxXTsgdlsxXSA9IHZbMF0gLSB2WzFdICogKGEgLyBiKTsgdlswXSA9IHg7IHJldHVybjt9IC8vcGFzcyBhbiBhcnJ5IG9mIHNpemUxIDMKLy8gbGwgbW1pbnYobGwgYSwgbGwgYikge2xsIGFyclszXTsgZXh0ZW5kZ2NkKGEsIGIsIGFycik7IHJldHVybiBhcnJbMF07fSAvL2ZvciBub24gcHJpbWUgYgovLyBsbCBtbWludnByaW1lKGxsIGEsIGxsIGIpIHtyZXR1cm4gZXhwbyhhLCBiIC0gMiwgYik7fQovLyBib29sIHJldnNvcnQobGwgYSwgbGwgYikge3JldHVybiBhID4gYjt9Ci8vIHZvaWQgc3dhcChpbnQgJngsIGludCAmeSkge2ludCB0ZW1wID0geDsgeCA9IHk7IHkgPSB0ZW1wO30KLy8gbGwgY29tYmluYXRpb24obGwgbiwgbGwgciwgbGwgbSwgbGwgKmZhY3QsIGxsICppZmFjdCkge2xsIHZhbDEgPSBmYWN0W25dOyBsbCB2YWwyID0gaWZhY3RbbiAtIHJdOyBsbCB2YWwzID0gaWZhY3Rbcl07IHJldHVybiAoKCh2YWwxICogdmFsMikgJSBtKSAqIHZhbDMpICUgbTt9Ci8vIHZvaWQgZ29vZ2xlKGludCB0KSB7Y291dCA8PCAiQ2FzZSAjIiA8PCB0IDw8ICI6ICI7fQovLyB2ZWN0b3I8bGw+IHNpZXZlKGludCBuKSB7aW50KmFyciA9IG5ldyBpbnRbbiArIDFdKCk7IHZlY3RvcjxsbD4gdmVjdDsgZm9yIChpbnQgaSA9IDI7IGkgPD0gbjsgaSsrKWlmIChhcnJbaV0gPT0gMCkge3ZlY3QucHVzaF9iYWNrKGkpOyBmb3IgKGludCBqID0gMiAqIGk7IGogPD0gbjsgaiArPSBpKWFycltqXSA9IDE7fSByZXR1cm4gdmVjdDt9Ci8vIGxsIG1vZF9hZGQobGwgYSwgbGwgYiwgbGwgbSkge2EgPSBhICUgbTsgYiA9IGIgJSBtOyByZXR1cm4gKCgoYSArIGIpICUgbSkgKyBtKSAlIG07fQovLyBsbCBtb2RfbXVsKGxsIGEsIGxsIGIsIGxsIG0pIHthID0gYSAlIG07IGIgPSBiICUgbTsgcmV0dXJuICgoKGEgKiBiKSAlIG0pICsgbSkgJSBtO30KLy8gbGwgbW9kX3N1YihsbCBhLCBsbCBiLCBsbCBtKSB7YSA9IGEgJSBtOyBiID0gYiAlIG07IHJldHVybiAoKChhIC0gYikgJSBtKSArIG0pICUgbTt9Ci8vIGxsIG1vZF9kaXYobGwgYSwgbGwgYiwgbGwgbSkge2EgPSBhICUgbTsgYiA9IGIgJSBtOyByZXR1cm4gKG1vZF9tdWwoYSwgbW1pbnZwcmltZShiLCBtKSwgbSkgKyBtKSAlIG07fSAgLy9vbmx5IGZvciBwcmltZSBtCi8vIGxsIHBoaW4obGwgbikge2xsIG51bWJlciA9IG47IGlmIChuICUgMiA9PSAwKSB7bnVtYmVyIC89IDI7IHdoaWxlIChuICUgMiA9PSAwKSBuIC89IDI7fSBmb3IgKGxsIGkgPSAzOyBpIDw9IHNxcnQobik7IGkgKz0gMikge2lmIChuICUgaSA9PSAwKSB7d2hpbGUgKG4gJSBpID09IDApbiAvPSBpOyBudW1iZXIgPSAobnVtYmVyIC8gaSAqIChpIC0gMSkpO319IGlmIChuID4gMSludW1iZXIgPSAobnVtYmVyIC8gbiAqIChuIC0gMSkpIDsgcmV0dXJuIG51bWJlcjt9IC8vTyhzcXJ0KE4pKQovLyBsbCBsY20oaW50IGEsIGludCBiKXtyZXR1cm4gKGEgLyBnY2QoYSwgYikpICogYjt9Ci8vIGJvb2wgY21wKGNvbnN0IHBhaXI8aW50LGludD4gJmEsY29uc3QgcGFpcjxpbnQsaW50PiZiKXtpZihhLnNlY29uZCA9PSBiLnNlY29uZCl7cmV0dXJuIGEuZmlyc3QgPCBiLmZpcnN0O31yZXR1cm4gYS5zZWNvbmQgPCBiLnNlY29uZDt9Ci8qPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0qLwoKCnZvaWQgc29sdmUoKSB7CgkKCn0KCgppbnQgbWFpbigpIHsKCWZhc3RpbygpOwojaWZuZGVmIE9OTElORV9KVURHRQoJZnJlb3BlbigiZXJyb3IudHh0IiwgInciLCBzdGRlcnIpOwojZW5kaWYKCWF1dG8gc3RhcnQxID0gaGlnaF9yZXNvbHV0aW9uX2Nsb2NrOjpub3coKTsKCXNvbHZlKCk7CglhdXRvIHN0b3AxID0gaGlnaF9yZXNvbHV0aW9uX2Nsb2NrOjpub3coKTsKCWF1dG8gZHVyYXRpb24gPSBkdXJhdGlvbl9jYXN0PG1pY3Jvc2Vjb25kcz4oc3RvcDEgLSBzdGFydDEpOwojaWZuZGVmIE9OTElORV9KVURHRQoJY2VyciA8PCAiVGltZTogIiA8PCBkdXJhdGlvbiAuIGNvdW50KCkgLyAxMDAwIDw8IGVuZGw7CiNlbmRpZgoJcmV0dXJuIDA7Cn0",
+					"AQAAAAAAAAABAAAAAAAAAAAAAACNFAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					5,
+					1,
+					"insert",
+					{
+						"characters": "#incldue"
+					},
+					"CAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAMAAAAAAAAAAAAAAAMAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAFAAAAAAAAAAAAAAAFAAAAAAAAAAYAAAAAAAAAAAAAAAYAAAAAAAAABwAAAAAAAAAAAAAABwAAAAAAAAAIAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					6,
+					3,
+					"left_delete",
+					null,
+					"AwAAAAcAAAAAAAAABwAAAAAAAAABAAAAZQYAAAAAAAAABgAAAAAAAAABAAAAdQUAAAAAAAAABQAAAAAAAAABAAAAZA",
+					"AQAAAAAAAAABAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					7,
+					1,
+					"insert",
+					{
+						"characters": "ude<str"
+					},
+					"BwAAAAUAAAAAAAAABgAAAAAAAAAAAAAABgAAAAAAAAAHAAAAAAAAAAAAAAAHAAAAAAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAACQAAAAAAAAAAAAAACQAAAAAAAAAKAAAAAAAAAAAAAAAKAAAAAAAAAAsAAAAAAAAAAAAAAAsAAAAAAAAADAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAABQAAAAAAAAAFAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					8,
+					3,
+					"left_delete",
+					null,
+					"AwAAAAsAAAAAAAAACwAAAAAAAAABAAAAcgoAAAAAAAAACgAAAAAAAAABAAAAdAkAAAAAAAAACQAAAAAAAAABAAAAcw",
+					"AQAAAAAAAAABAAAADAAAAAAAAAAMAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					9,
+					1,
+					"insert",
+					{
+						"characters": "stdc"
+					},
+					"BAAAAAkAAAAAAAAACgAAAAAAAAAAAAAACgAAAAAAAAALAAAAAAAAAAAAAAALAAAAAAAAAAwAAAAAAAAAAAAAAAwAAAAAAAAADQAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAACQAAAAAAAAAJAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					10,
+					4,
+					"left_delete",
+					null,
+					"BAAAAAwAAAAAAAAADAAAAAAAAAABAAAAYwsAAAAAAAAACwAAAAAAAAABAAAAZAoAAAAAAAAACgAAAAAAAAABAAAAdAkAAAAAAAAACQAAAAAAAAABAAAAcw",
+					"AQAAAAAAAAABAAAADQAAAAAAAAANAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					11,
+					1,
+					"insert",
+					{
+						"characters": "boits"
+					},
+					"BQAAAAkAAAAAAAAACgAAAAAAAAAAAAAACgAAAAAAAAALAAAAAAAAAAAAAAALAAAAAAAAAAwAAAAAAAAAAAAAAAwAAAAAAAAADQAAAAAAAAAAAAAADQAAAAAAAAAOAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAACQAAAAAAAAAJAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					12,
+					4,
+					"left_delete",
+					null,
+					"BAAAAA0AAAAAAAAADQAAAAAAAAABAAAAcwwAAAAAAAAADAAAAAAAAAABAAAAdAsAAAAAAAAACwAAAAAAAAABAAAAaQoAAAAAAAAACgAAAAAAAAABAAAAbw",
+					"AQAAAAAAAAABAAAADgAAAAAAAAAOAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					13,
+					1,
+					"insert",
+					{
+						"characters": "its/stdc"
+					},
+					"CAAAAAoAAAAAAAAACwAAAAAAAAAAAAAACwAAAAAAAAAMAAAAAAAAAAAAAAAMAAAAAAAAAA0AAAAAAAAAAAAAAA0AAAAAAAAADgAAAAAAAAAAAAAADgAAAAAAAAAPAAAAAAAAAAAAAAAPAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAEQAAAAAAAAAAAAAAEQAAAAAAAAASAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAACgAAAAAAAAAKAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					14,
+					1,
+					"insert",
+					{
+						"characters": "++.h>"
+					},
+					"BQAAABIAAAAAAAAAEwAAAAAAAAAAAAAAEwAAAAAAAAAUAAAAAAAAAAAAAAAUAAAAAAAAABUAAAAAAAAAAAAAABUAAAAAAAAAFgAAAAAAAAAAAAAAFgAAAAAAAAAXAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAEgAAAAAAAAASAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					15,
+					1,
+					"insert",
+					{
+						"characters": "\nusing"
+					},
+					"BgAAABcAAAAAAAAAGAAAAAAAAAAAAAAAGAAAAAAAAAAZAAAAAAAAAAAAAAAZAAAAAAAAABoAAAAAAAAAAAAAABoAAAAAAAAAGwAAAAAAAAAAAAAAGwAAAAAAAAAcAAAAAAAAAAAAAAAcAAAAAAAAAB0AAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAFwAAAAAAAAAXAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					16,
+					1,
+					"insert",
+					{
+						"characters": " namespcae"
+					},
+					"CgAAAB0AAAAAAAAAHgAAAAAAAAAAAAAAHgAAAAAAAAAfAAAAAAAAAAAAAAAfAAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAIQAAAAAAAAAAAAAAIQAAAAAAAAAiAAAAAAAAAAAAAAAiAAAAAAAAACMAAAAAAAAAAAAAACMAAAAAAAAAJAAAAAAAAAAAAAAAJAAAAAAAAAAlAAAAAAAAAAAAAAAlAAAAAAAAACYAAAAAAAAAAAAAACYAAAAAAAAAJwAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAHQAAAAAAAAAdAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					17,
+					2,
+					"left_delete",
+					null,
+					"AgAAACYAAAAAAAAAJgAAAAAAAAABAAAAZSUAAAAAAAAAJQAAAAAAAAABAAAAYQ",
+					"AQAAAAAAAAABAAAAJwAAAAAAAAAnAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					18,
+					1,
+					"insert",
+					{
+						"characters": "a"
+					},
+					"AQAAACUAAAAAAAAAJgAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAJQAAAAAAAAAlAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					19,
+					2,
+					"left_delete",
+					null,
+					"AgAAACUAAAAAAAAAJQAAAAAAAAABAAAAYSQAAAAAAAAAJAAAAAAAAAABAAAAYw",
+					"AQAAAAAAAAABAAAAJgAAAAAAAAAmAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					20,
+					1,
+					"insert",
+					{
+						"characters": "ace"
+					},
+					"AwAAACQAAAAAAAAAJQAAAAAAAAAAAAAAJQAAAAAAAAAmAAAAAAAAAAAAAAAmAAAAAAAAACcAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAJAAAAAAAAAAkAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					21,
+					1,
+					"insert",
+					{
+						"characters": " sttd"
+					},
+					"BQAAACcAAAAAAAAAKAAAAAAAAAAAAAAAKAAAAAAAAAApAAAAAAAAAAAAAAApAAAAAAAAACoAAAAAAAAAAAAAACoAAAAAAAAAKwAAAAAAAAAAAAAAKwAAAAAAAAAsAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAJwAAAAAAAAAnAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					22,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAACwAAAAAAAAALQAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAALAAAAAAAAAAsAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					23,
+					4,
+					"left_delete",
+					null,
+					"BAAAACwAAAAAAAAALAAAAAAAAAABAAAAOysAAAAAAAAAKwAAAAAAAAABAAAAZCoAAAAAAAAAKgAAAAAAAAABAAAAdCkAAAAAAAAAKQAAAAAAAAABAAAAdA",
+					"AQAAAAAAAAABAAAALQAAAAAAAAAtAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					24,
+					1,
+					"insert",
+					{
+						"characters": "d"
+					},
+					"AQAAACkAAAAAAAAAKgAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAKQAAAAAAAAApAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					25,
+					1,
+					"left_delete",
+					null,
+					"AQAAACkAAAAAAAAAKQAAAAAAAAABAAAAZA",
+					"AQAAAAAAAAABAAAAKgAAAAAAAAAqAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					26,
+					1,
+					"insert",
+					{
+						"characters": "td;"
+					},
+					"AwAAACkAAAAAAAAAKgAAAAAAAAAAAAAAKgAAAAAAAAArAAAAAAAAAAAAAAArAAAAAAAAACwAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAKQAAAAAAAAApAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					27,
+					1,
+					"insert",
+					{
+						"characters": "\n\n"
+					},
+					"AgAAACwAAAAAAAAALQAAAAAAAAAAAAAALQAAAAAAAAAuAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAALAAAAAAAAAAsAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					28,
+					1,
+					"insert",
+					{
+						"characters": "int"
+					},
+					"AwAAAC4AAAAAAAAALwAAAAAAAAAAAAAALwAAAAAAAAAwAAAAAAAAAAAAAAAwAAAAAAAAADEAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAALgAAAAAAAAAuAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					29,
+					1,
+					"insert",
+					{
+						"characters": " main"
+					},
+					"BQAAADEAAAAAAAAAMgAAAAAAAAAAAAAAMgAAAAAAAAAzAAAAAAAAAAAAAAAzAAAAAAAAADQAAAAAAAAAAAAAADQAAAAAAAAANQAAAAAAAAAAAAAANQAAAAAAAAA2AAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAMQAAAAAAAAAxAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					30,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAADYAAAAAAAAAOAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAANgAAAAAAAAA2AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					32,
+					1,
+					"insert_snippet",
+					{
+						"contents": "{$0}"
+					},
+					"AQAAADgAAAAAAAAAOgAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAOAAAAAAAAAA4AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					33,
+					1,
+					"run_macro_file",
+					{
+						"file": "res://Packages/Default/Add Line in Braces.sublime-macro"
+					},
+					"AwAAADkAAAAAAAAAOgAAAAAAAAAAAAAAOgAAAAAAAAA7AAAAAAAAAAAAAAA6AAAAAAAAADsAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAOQAAAAAAAAA5AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					34,
+					1,
+					"insert",
+					{
+						"characters": "return"
+					},
+					"BgAAADsAAAAAAAAAPAAAAAAAAAAAAAAAPAAAAAAAAAA9AAAAAAAAAAAAAAA9AAAAAAAAAD4AAAAAAAAAAAAAAD4AAAAAAAAAPwAAAAAAAAAAAAAAPwAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAEEAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAOwAAAAAAAAA7AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					35,
+					1,
+					"insert",
+					{
+						"characters": " 0;"
+					},
+					"AwAAAEEAAAAAAAAAQgAAAAAAAAAAAAAAQgAAAAAAAABDAAAAAAAAAAAAAABDAAAAAAAAAEQAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQQAAAAAAAABBAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					38,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AgAAADkAAAAAAAAAOgAAAAAAAAAAAAAAOgAAAAAAAAA7AAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAOQAAAAAAAAA5AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					52,
+					1,
+					"insert",
+					{
+						"characters": "\n\nC"
+					},
+					"BAAAAEgAAAAAAAAASQAAAAAAAAAAAAAAOgAAAAAAAAA6AAAAAAAAAAEAAAAJSAAAAAAAAABJAAAAAAAAAAAAAABJAAAAAAAAAEoAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAASAAAAAAAAABIAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					57,
+					1,
+					"reindent",
+					null,
+					"AQAAADoAAAAAAAAAOwAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAOgAAAAAAAAA6AAAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					58,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AwAAADsAAAAAAAAAPAAAAAAAAAAAAAAAPAAAAAAAAAA9AAAAAAAAAAAAAAA6AAAAAAAAADoAAAAAAAAAAQAAAAk",
+					"AQAAAAAAAAABAAAAOwAAAAAAAAA7AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					60,
+					1,
+					"reindent",
+					null,
+					"AQAAADoAAAAAAAAAOwAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAOgAAAAAAAAA6AAAAAAAAAAAAAAAAgEBA"
+				],
+				[
+					62,
+					1,
+					"insert",
+					{
+						"characters": "in"
+					},
+					"AwAAAD0AAAAAAAAAPgAAAAAAAAAAAAAAOgAAAAAAAAA6AAAAAAAAAAEAAAAJPQAAAAAAAAA+AAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAPQAAAAAAAAA9AAAAAAAAAAAAAAAAgEBA"
+				],
+				[
+					63,
+					1,
+					"left_delete",
+					null,
+					"AQAAAD0AAAAAAAAAPQAAAAAAAAABAAAAbg",
+					"AQAAAAAAAAABAAAAPgAAAAAAAAA+AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					64,
+					1,
+					"insert",
+					{
+						"characters": "fnde"
+					},
+					"BAAAAD0AAAAAAAAAPgAAAAAAAAAAAAAAPgAAAAAAAAA/AAAAAAAAAAAAAAA/AAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAQQAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAPQAAAAAAAAA9AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					65,
+					5,
+					"left_delete",
+					null,
+					"BQAAAEAAAAAAAAAAQAAAAAAAAAABAAAAZT8AAAAAAAAAPwAAAAAAAAABAAAAZD4AAAAAAAAAPgAAAAAAAAABAAAAbj0AAAAAAAAAPQAAAAAAAAABAAAAZjwAAAAAAAAAPAAAAAAAAAABAAAAaQ",
+					"AQAAAAAAAAABAAAAQQAAAAAAAABBAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					66,
+					1,
+					"insert",
+					{
+						"characters": "#ifn"
+					},
+					"BAAAADwAAAAAAAAAPQAAAAAAAAAAAAAAPQAAAAAAAAA+AAAAAAAAAAAAAAA+AAAAAAAAAD8AAAAAAAAAAAAAAD8AAAAAAAAAQAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAPAAAAAAAAAA8AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					67,
+					1,
+					"insert",
+					{
+						"characters": "def"
+					},
+					"AwAAAEAAAAAAAAAAQQAAAAAAAAAAAAAAQQAAAAAAAABCAAAAAAAAAAAAAABCAAAAAAAAAEMAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQAAAAAAAAABAAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					68,
+					1,
+					"insert",
+					{
+						"characters": " ONLINER"
+					},
+					"CAAAAEMAAAAAAAAARAAAAAAAAAAAAAAARAAAAAAAAABFAAAAAAAAAAAAAABFAAAAAAAAAEYAAAAAAAAAAAAAAEYAAAAAAAAARwAAAAAAAAAAAAAARwAAAAAAAABIAAAAAAAAAAAAAABIAAAAAAAAAEkAAAAAAAAAAAAAAEkAAAAAAAAASgAAAAAAAAAAAAAASgAAAAAAAABLAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQwAAAAAAAABDAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					69,
+					1,
+					"left_delete",
+					null,
+					"AQAAAEoAAAAAAAAASgAAAAAAAAABAAAAUg",
+					"AQAAAAAAAAABAAAASwAAAAAAAABLAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					70,
+					1,
+					"insert",
+					{
+						"characters": "_JUDGE"
+					},
+					"BgAAAEoAAAAAAAAASwAAAAAAAAAAAAAASwAAAAAAAABMAAAAAAAAAAAAAABMAAAAAAAAAE0AAAAAAAAAAAAAAE0AAAAAAAAATgAAAAAAAAAAAAAATgAAAAAAAABPAAAAAAAAAAAAAABPAAAAAAAAAFAAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAASgAAAAAAAABKAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					71,
+					1,
+					"insert",
+					{
+						"characters": "\nfre"
+					},
+					"BQAAAFAAAAAAAAAAUQAAAAAAAAAAAAAAUQAAAAAAAABSAAAAAAAAAAAAAABSAAAAAAAAAFMAAAAAAAAAAAAAAFMAAAAAAAAAVAAAAAAAAAAAAAAAVAAAAAAAAABVAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAUAAAAAAAAABQAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					72,
+					1,
+					"insert",
+					{
+						"characters": "opem"
+					},
+					"BAAAAFUAAAAAAAAAVgAAAAAAAAAAAAAAVgAAAAAAAABXAAAAAAAAAAAAAABXAAAAAAAAAFgAAAAAAAAAAAAAAFgAAAAAAAAAWQAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAVQAAAAAAAABVAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					73,
+					1,
+					"left_delete",
+					null,
+					"AQAAAFgAAAAAAAAAWAAAAAAAAAABAAAAbQ",
+					"AQAAAAAAAAABAAAAWQAAAAAAAABZAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					74,
+					1,
+					"insert",
+					{
+						"characters": "n"
+					},
+					"AQAAAFgAAAAAAAAAWQAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAWAAAAAAAAABYAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					75,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAFkAAAAAAAAAWwAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAWQAAAAAAAABZAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					77,
+					1,
+					"left_delete",
+					null,
+					"AQAAAGoAAAAAAAAAagAAAAAAAAABAAAAQw",
+					"AQAAAAAAAAABAAAAawAAAAAAAABrAAAAAAAAAAAAAAAAwFhA"
+				],
+				[
+					78,
+					1,
+					"insert",
+					{
+						"characters": "C"
+					},
+					"AQAAAGoAAAAAAAAAawAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAagAAAAAAAABqAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					79,
+					1,
+					"insert_completion",
+					{
+						"completion": "/*\n\tA B H I S H E K    S I N G H\n*/\n\n#include<bits/stdc++.h>\nusing namespace std;\nusing namespace chrono;\n\n#define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)\n#define MOD 1000000007\n#define MOD1 998244353\n#define INF 1e18\n#define nline \"\\n\"\n#define pb push_back\n#define ppb pop_back\n#define mp make_pair\n#define ff first\n#define ss second\n#define PI 3.141592653589793238462\n#define set_bits __builtin_popcountll\n#define sz(x) ((int)(x).size())\n#define all(x) (x).begin(), (x).end()\n#define all_rev(x) (x).rbegin(), (x).rend()\n\n#ifndef ONLINE_JUDGE\n#define debug(x) cerr << #x <<\" \"; _print(x); cerr << endl;\n#else\n#define debug(x);\n#endif\n\ntypedef long long ll;\ntypedef unsigned long long ull;\ntypedef long double lld;\n\n\n/*============================================================*/\n/*    debug() functions */\n\ntemplate <class T> void _print(T t) {cerr << t;}  \ntemplate <class T, class V> void _print(pair <T, V> p);\ntemplate <class T> void _print(vector <T> v);\ntemplate <class T> void _print(set <T> v);\ntemplate <class T, class V> void _print(map <T, V> v);\ntemplate <class T> void _print(multiset <T> v);\ntemplate <class T, class V> void _print(pair <T, V> p) {cerr << \"{\"; _print(p.ff); cerr << \",\"; _print(p.ss); cerr << \"}\";}\ntemplate <class T> void _print(vector <T> v) {cerr << \"[ \"; for (T i : v) {_print(i); cerr << \" \";} cerr << \"]\";}\ntemplate <class T> void _print(set <T> v) {cerr << \"[ \"; for (T i : v) {_print(i); cerr << \" \";} cerr << \"]\";}\ntemplate <class T> void _print(multiset <T> v) {cerr << \"[ \"; for (T i : v) {_print(i); cerr << \" \";} cerr << \"]\";}\ntemplate <class T, class V> void _print(map <T, V> v) {cerr << \"[ \"; for (auto i : v) {_print(i); cerr << \" \";} cerr << \"]\";}\n\n/*==============================================================*/\n/*    Newly added templates */\n\ntemplate <class T> void print_vec(vector<T> v);  //printing any vector\ntemplate <class T> void print_set(set<T> s);  //printing set of any datatype\ntemplate <class T> void input_vec(vector<T> &v , int n);  //taking input of n elements of any data type into a vector\ntemplate <class T, class V, class X>V binarySearch(vector<T> a, V n, X item);  //binary search on vector\ntemplate <class T> void print_vec(vector<T> v){ for(T i:v){ cout<<i<<\" \";}cout<<nline;} \ntemplate <class T> void print_set(set<T> s){for(T i:s){cout<<i<<\" \";}cout<<nline;}  \ntemplate <class T> void input_vec(vector<T> &v , int n){for(int i=0;i<n;i++){int temp;cin>>temp;v.pb(temp);}}   \ntemplate <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V low = 0; V high = n - 1; while(low<=high){{V mid = (low + high)/2; if (a[mid] == item) return mid; else if (a[mid] < item) low = mid + 1; else high = mid - 1;}} return -1;}\n\n/*===============================================================*/\n\n/*  Special puropose functions */\n\n// ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}\n// ll expo(ll a, ll b, ll mod) {ll res = 1; while (b > 0) {if (b & 1)res = (res * a) % mod; a = (a * a) % mod; b = b >> 1;} return res;}\n// void extendgcd(ll a, ll b, ll*v) {if (b == 0) {v[0] = 1; v[1] = 0; v[2] = a; return ;} extendgcd(b, a % b, v); ll x = v[1]; v[1] = v[0] - v[1] * (a / b); v[0] = x; return;} //pass an arry of size1 3\n// ll mminv(ll a, ll b) {ll arr[3]; extendgcd(a, b, arr); return arr[0];} //for non prime b\n// ll mminvprime(ll a, ll b) {return expo(a, b - 2, b);}\n// bool revsort(ll a, ll b) {return a > b;}\n// void swap(int &x, int &y) {int temp = x; x = y; y = temp;}\n// ll combination(ll n, ll r, ll m, ll *fact, ll *ifact) {ll val1 = fact[n]; ll val2 = ifact[n - r]; ll val3 = ifact[r]; return (((val1 * val2) % m) * val3) % m;}\n// void google(int t) {cout << \"Case #\" << t << \": \";}\n// vector<ll> sieve(int n) {int*arr = new int[n + 1](); vector<ll> vect; for (int i = 2; i <= n; i++)if (arr[i] == 0) {vect.push_back(i); for (int j = 2 * i; j <= n; j += i)arr[j] = 1;} return vect;}\n// ll mod_add(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a + b) % m) + m) % m;}\n// ll mod_mul(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a * b) % m) + m) % m;}\n// ll mod_sub(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) % m;}\n// ll mod_div(ll a, ll b, ll m) {a = a % m; b = b % m; return (mod_mul(a, mminvprime(b, m), m) + m) % m;}  //only for prime m\n// ll phin(ll n) {ll number = n; if (n % 2 == 0) {number /= 2; while (n % 2 == 0) n /= 2;} for (ll i = 3; i <= sqrt(n); i += 2) {if (n % i == 0) {while (n % i == 0)n /= i; number = (number / i * (i - 1));}} if (n > 1)number = (number / n * (n - 1)) ; return number;} //O(sqrt(N))\n// ll lcm(int a, int b){return (a / gcd(a, b)) * b;}\n// bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}\n/*=================================================================*/\n\n\nvoid solve() {\n\t\n\n}\n\n\nint main() {\n\tfastio();\n#ifndef ONLINE_JUDGE\n\tfreopen(\"error.txt\", \"w\", stderr);\n#endif\n\tauto start1 = high_resolution_clock::now();\n\tsolve();\n\tauto stop1 = high_resolution_clock::now();\n\tauto duration = duration_cast<microseconds>(stop1 - start1);\n#ifndef ONLINE_JUDGE\n\tcerr << \"Time: \" << duration . count() / 1000 << endl;\n#endif\n\treturn 0;\n}",
+						"format": "snippet",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "CPP_template()"
+					},
+					"AgAAAGoAAAAAAAAAagAAAAAAAAABAAAAQ2oAAAAAAAAA9xQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAawAAAAAAAABrAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					85,
+					1,
+					"paste",
+					null,
+					"AgAAAFIAAAAAAAAAdAAAAAAAAAAAAAAAdAAAAAAAAAB0AAAAAAAAAAkAAABmcmVvcGVuKCk",
+					"AQAAAAAAAAABAAAAWwAAAAAAAABSAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					86,
+					1,
+					"insert",
+					{
+						"characters": "\nfreop"
+					},
+					"BwAAAHQAAAAAAAAAdQAAAAAAAAAAAAAAdQAAAAAAAAB2AAAAAAAAAAAAAAB2AAAAAAAAAHcAAAAAAAAAAAAAAHcAAAAAAAAAeAAAAAAAAAAAAAAAeAAAAAAAAAB5AAAAAAAAAAAAAAB5AAAAAAAAAHoAAAAAAAAAAAAAAHoAAAAAAAAAewAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAdAAAAAAAAAB0AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					87,
+					1,
+					"insert_completion",
+					{
+						"completion": "freopen",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "freopen"
+					},
+					"AgAAAHYAAAAAAAAAdgAAAAAAAAAFAAAAZnJlb3B2AAAAAAAAAH0AAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAewAAAAAAAAB7AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					88,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAH0AAAAAAAAAfwAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAfQAAAAAAAAB9AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					89,
+					1,
+					"insert_snippet",
+					{
+						"contents": "\"$0\""
+					},
+					"AQAAAH4AAAAAAAAAgAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAfgAAAAAAAAB+AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					90,
+					1,
+					"insert",
+					{
+						"characters": "input.t"
+					},
+					"BwAAAH8AAAAAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAACBAAAAAAAAAAAAAACBAAAAAAAAAIIAAAAAAAAAAAAAAIIAAAAAAAAAgwAAAAAAAAAAAAAAgwAAAAAAAACEAAAAAAAAAAAAAACEAAAAAAAAAIUAAAAAAAAAAAAAAIUAAAAAAAAAhgAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAfwAAAAAAAAB/AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					91,
+					1,
+					"insert",
+					{
+						"characters": "xt"
+					},
+					"AgAAAIYAAAAAAAAAhwAAAAAAAAAAAAAAhwAAAAAAAACIAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAhgAAAAAAAACGAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					93,
+					1,
+					"insert",
+					{
+						"characters": ","
+					},
+					"AQAAAIkAAAAAAAAAigAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAiQAAAAAAAACJAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					94,
+					1,
+					"insert_snippet",
+					{
+						"contents": "\"$0\""
+					},
+					"AQAAAIoAAAAAAAAAjAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAigAAAAAAAACKAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					95,
+					1,
+					"insert",
+					{
+						"characters": "r+"
+					},
+					"AgAAAIsAAAAAAAAAjAAAAAAAAAAAAAAAjAAAAAAAAACNAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAiwAAAAAAAACLAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					97,
+					1,
+					"insert",
+					{
+						"characters": ",stderr"
+					},
+					"BwAAAI4AAAAAAAAAjwAAAAAAAAAAAAAAjwAAAAAAAACQAAAAAAAAAAAAAACQAAAAAAAAAJEAAAAAAAAAAAAAAJEAAAAAAAAAkgAAAAAAAAAAAAAAkgAAAAAAAACTAAAAAAAAAAAAAACTAAAAAAAAAJQAAAAAAAAAAAAAAJQAAAAAAAAAlQAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAjgAAAAAAAACOAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					99,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAAJYAAAAAAAAAlwAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAlgAAAAAAAACWAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					100,
+					1,
+					"insert",
+					{
+						"characters": "\nfreope"
+					},
+					"CAAAAJcAAAAAAAAAmAAAAAAAAAAAAAAAmAAAAAAAAACZAAAAAAAAAAAAAACZAAAAAAAAAJoAAAAAAAAAAAAAAJoAAAAAAAAAmwAAAAAAAAAAAAAAmwAAAAAAAACcAAAAAAAAAAAAAACcAAAAAAAAAJ0AAAAAAAAAAAAAAJ0AAAAAAAAAngAAAAAAAAAAAAAAngAAAAAAAACfAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAlwAAAAAAAACXAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					101,
+					1,
+					"insert",
+					{
+						"characters": "mn"
+					},
+					"AgAAAJ8AAAAAAAAAoAAAAAAAAAAAAAAAoAAAAAAAAAChAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAnwAAAAAAAACfAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					102,
+					2,
+					"left_delete",
+					null,
+					"AgAAAKAAAAAAAAAAoAAAAAAAAAABAAAAbp8AAAAAAAAAnwAAAAAAAAABAAAAbQ",
+					"AQAAAAAAAAABAAAAoQAAAAAAAAChAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					103,
+					1,
+					"insert",
+					{
+						"characters": "n"
+					},
+					"AQAAAJ8AAAAAAAAAoAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAnwAAAAAAAACfAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					104,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAKAAAAAAAAAAogAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAoAAAAAAAAACgAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					105,
+					1,
+					"insert_snippet",
+					{
+						"contents": "\"$0\""
+					},
+					"AQAAAKEAAAAAAAAAowAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAoQAAAAAAAAChAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					106,
+					1,
+					"insert",
+					{
+						"characters": "output.t"
+					},
+					"CAAAAKIAAAAAAAAAowAAAAAAAAAAAAAAowAAAAAAAACkAAAAAAAAAAAAAACkAAAAAAAAAKUAAAAAAAAAAAAAAKUAAAAAAAAApgAAAAAAAAAAAAAApgAAAAAAAACnAAAAAAAAAAAAAACnAAAAAAAAAKgAAAAAAAAAAAAAAKgAAAAAAAAAqQAAAAAAAAAAAAAAqQAAAAAAAACqAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAogAAAAAAAACiAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					107,
+					1,
+					"insert",
+					{
+						"characters": "xt"
+					},
+					"AgAAAKoAAAAAAAAAqwAAAAAAAAAAAAAAqwAAAAAAAACsAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAqgAAAAAAAACqAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					109,
+					1,
+					"insert",
+					{
+						"characters": ",:"
+					},
+					"AgAAAK0AAAAAAAAArgAAAAAAAAAAAAAArgAAAAAAAACvAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAArQAAAAAAAACtAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					110,
+					1,
+					"left_delete",
+					null,
+					"AQAAAK4AAAAAAAAArgAAAAAAAAABAAAAOg",
+					"AQAAAAAAAAABAAAArwAAAAAAAACvAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					111,
+					1,
+					"insert_snippet",
+					{
+						"contents": "\"$0\""
+					},
+					"AQAAAK4AAAAAAAAAsAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAArgAAAAAAAACuAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					112,
+					1,
+					"insert",
+					{
+						"characters": "r"
+					},
+					"AQAAAK8AAAAAAAAAsAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAArwAAAAAAAACvAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					113,
+					1,
+					"left_delete",
+					null,
+					"AQAAAK8AAAAAAAAArwAAAAAAAAABAAAAcg",
+					"AQAAAAAAAAABAAAAsAAAAAAAAACwAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					114,
+					1,
+					"insert",
+					{
+						"characters": "w"
+					},
+					"AQAAAK8AAAAAAAAAsAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAArwAAAAAAAACvAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					118,
+					1,
+					"left_delete",
+					null,
+					"AQAAAIwAAAAAAAAAjAAAAAAAAAABAAAAKw",
+					"AQAAAAAAAAABAAAAjQAAAAAAAACNAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					121,
+					1,
+					"insert",
+					{
+						"characters": ","
+					},
+					"AQAAALAAAAAAAAAAsQAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAsAAAAAAAAACwAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					124,
+					3,
+					"left_delete",
+					null,
+					"AwAAAJMAAAAAAAAAkwAAAAAAAAABAAAAcpIAAAAAAAAAkgAAAAAAAAABAAAAcpEAAAAAAAAAkQAAAAAAAAABAAAAZQ",
+					"AQAAAAAAAAABAAAAlAAAAAAAAACUAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					125,
+					1,
+					"insert",
+					{
+						"characters": "in"
+					},
+					"AgAAAJEAAAAAAAAAkgAAAAAAAAAAAAAAkgAAAAAAAACTAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAkQAAAAAAAACRAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					128,
+					1,
+					"insert",
+					{
+						"characters": "stdout"
+					},
+					"BgAAALAAAAAAAAAAsQAAAAAAAAAAAAAAsQAAAAAAAACyAAAAAAAAAAAAAACyAAAAAAAAALMAAAAAAAAAAAAAALMAAAAAAAAAtAAAAAAAAAAAAAAAtAAAAAAAAAC1AAAAAAAAAAAAAAC1AAAAAAAAALYAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAsAAAAAAAAACwAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					130,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAALcAAAAAAAAAuAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAtwAAAAAAAAC3AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					133,
+					1,
+					"insert",
+					{
+						"characters": "\n\n\n\n"
+					},
+					"CwAAALgAAAAAAAAAuQAAAAAAAAAAAAAAuQAAAAAAAAC6AAAAAAAAAAAAAAC6AAAAAAAAALsAAAAAAAAAAAAAALsAAAAAAAAAvAAAAAAAAAAAAAAAuQAAAAAAAAC5AAAAAAAAAAEAAAAJuwAAAAAAAAC8AAAAAAAAAAAAAAC8AAAAAAAAAL0AAAAAAAAAAAAAALoAAAAAAAAAugAAAAAAAAABAAAACbwAAAAAAAAAvQAAAAAAAAAAAAAAvQAAAAAAAAC+AAAAAAAAAAAAAAC7AAAAAAAAALsAAAAAAAAAAQAAAAk",
+					"AQAAAAAAAAABAAAAuAAAAAAAAAC4AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					136,
+					2,
+					"left_delete",
+					null,
+					"AwAAAMsAAAAAAAAAywAAAAAAAACOFAAACi8qCglBIEIgSCBJIFMgSCBFIEsgICAgUyBJIE4gRyBICiovCgojaW5jbHVkZTxiaXRzL3N0ZGMrKy5oPgp1c2luZyBuYW1lc3BhY2Ugc3RkOwp1c2luZyBuYW1lc3BhY2UgY2hyb25vOwoKI2RlZmluZSBmYXN0aW8oKSBpb3NfYmFzZTo6c3luY193aXRoX3N0ZGlvKGZhbHNlKTtjaW4udGllKE5VTEwpO2NvdXQudGllKE5VTEwpCiNkZWZpbmUgTU9EIDEwMDAwMDAwMDcKI2RlZmluZSBNT0QxIDk5ODI0NDM1MwojZGVmaW5lIElORiAxZTE4CiNkZWZpbmUgbmxpbmUgIlxuIgojZGVmaW5lIHBiIHB1c2hfYmFjawojZGVmaW5lIHBwYiBwb3BfYmFjawojZGVmaW5lIG1wIG1ha2VfcGFpcgojZGVmaW5lIGZmIGZpcnN0CiNkZWZpbmUgc3Mgc2Vjb25kCiNkZWZpbmUgUEkgMy4xNDE1OTI2NTM1ODk3OTMyMzg0NjIKI2RlZmluZSBzZXRfYml0cyBfX2J1aWx0aW5fcG9wY291bnRsbAojZGVmaW5lIHN6KHgpICgoaW50KSh4KS5zaXplKCkpCiNkZWZpbmUgYWxsKHgpICh4KS5iZWdpbigpLCAoeCkuZW5kKCkKI2RlZmluZSBhbGxfcmV2KHgpICh4KS5yYmVnaW4oKSwgKHgpLnJlbmQoKQoKI2lmbmRlZiBPTkxJTkVfSlVER0UKI2RlZmluZSBkZWJ1Zyh4KSBjZXJyIDw8ICN4IDw8IiAiOyBfcHJpbnQoeCk7IGNlcnIgPDwgZW5kbDsKI2Vsc2UKI2RlZmluZSBkZWJ1Zyh4KTsKI2VuZGlmCgp0eXBlZGVmIGxvbmcgbG9uZyBsbDsKdHlwZWRlZiB1bnNpZ25lZCBsb25nIGxvbmcgdWxsOwp0eXBlZGVmIGxvbmcgZG91YmxlIGxsZDsKCgovKj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSovCi8qICAgIGRlYnVnKCkgZnVuY3Rpb25zICovCgp0ZW1wbGF0ZSA8Y2xhc3MgVD4gdm9pZCBfcHJpbnQoVCB0KSB7Y2VyciA8PCB0O30gIAp0ZW1wbGF0ZSA8Y2xhc3MgVCwgY2xhc3MgVj4gdm9pZCBfcHJpbnQocGFpciA8VCwgVj4gcCk7CnRlbXBsYXRlIDxjbGFzcyBUPiB2b2lkIF9wcmludCh2ZWN0b3IgPFQ+IHYpOwp0ZW1wbGF0ZSA8Y2xhc3MgVD4gdm9pZCBfcHJpbnQoc2V0IDxUPiB2KTsKdGVtcGxhdGUgPGNsYXNzIFQsIGNsYXNzIFY+IHZvaWQgX3ByaW50KG1hcCA8VCwgVj4gdik7CnRlbXBsYXRlIDxjbGFzcyBUPiB2b2lkIF9wcmludChtdWx0aXNldCA8VD4gdik7CnRlbXBsYXRlIDxjbGFzcyBULCBjbGFzcyBWPiB2b2lkIF9wcmludChwYWlyIDxULCBWPiBwKSB7Y2VyciA8PCAieyI7IF9wcmludChwLmZmKTsgY2VyciA8PCAiLCI7IF9wcmludChwLnNzKTsgY2VyciA8PCAifSI7fQp0ZW1wbGF0ZSA8Y2xhc3MgVD4gdm9pZCBfcHJpbnQodmVjdG9yIDxUPiB2KSB7Y2VyciA8PCAiWyAiOyBmb3IgKFQgaSA6IHYpIHtfcHJpbnQoaSk7IGNlcnIgPDwgIiAiO30gY2VyciA8PCAiXSI7fQp0ZW1wbGF0ZSA8Y2xhc3MgVD4gdm9pZCBfcHJpbnQoc2V0IDxUPiB2KSB7Y2VyciA8PCAiWyAiOyBmb3IgKFQgaSA6IHYpIHtfcHJpbnQoaSk7IGNlcnIgPDwgIiAiO30gY2VyciA8PCAiXSI7fQp0ZW1wbGF0ZSA8Y2xhc3MgVD4gdm9pZCBfcHJpbnQobXVsdGlzZXQgPFQ+IHYpIHtjZXJyIDw8ICJbICI7IGZvciAoVCBpIDogdikge19wcmludChpKTsgY2VyciA8PCAiICI7fSBjZXJyIDw8ICJdIjt9CnRlbXBsYXRlIDxjbGFzcyBULCBjbGFzcyBWPiB2b2lkIF9wcmludChtYXAgPFQsIFY+IHYpIHtjZXJyIDw8ICJbICI7IGZvciAoYXV0byBpIDogdikge19wcmludChpKTsgY2VyciA8PCAiICI7fSBjZXJyIDw8ICJdIjt9CgovKj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09Ki8KLyogICAgTmV3bHkgYWRkZWQgdGVtcGxhdGVzICovCgp0ZW1wbGF0ZSA8Y2xhc3MgVD4gdm9pZCBwcmludF92ZWModmVjdG9yPFQ+IHYpOyAgLy9wcmludGluZyBhbnkgdmVjdG9yCnRlbXBsYXRlIDxjbGFzcyBUPiB2b2lkIHByaW50X3NldChzZXQ8VD4gcyk7ICAvL3ByaW50aW5nIHNldCBvZiBhbnkgZGF0YXR5cGUKdGVtcGxhdGUgPGNsYXNzIFQ+IHZvaWQgaW5wdXRfdmVjKHZlY3RvcjxUPiAmdiAsIGludCBuKTsgIC8vdGFraW5nIGlucHV0IG9mIG4gZWxlbWVudHMgb2YgYW55IGRhdGEgdHlwZSBpbnRvIGEgdmVjdG9yCnRlbXBsYXRlIDxjbGFzcyBULCBjbGFzcyBWLCBjbGFzcyBYPlYgYmluYXJ5U2VhcmNoKHZlY3RvcjxUPiBhLCBWIG4sIFggaXRlbSk7ICAvL2JpbmFyeSBzZWFyY2ggb24gdmVjdG9yCnRlbXBsYXRlIDxjbGFzcyBUPiB2b2lkIHByaW50X3ZlYyh2ZWN0b3I8VD4gdil7IGZvcihUIGk6dil7IGNvdXQ8PGk8PCIgIjt9Y291dDw8bmxpbmU7fSAKdGVtcGxhdGUgPGNsYXNzIFQ+IHZvaWQgcHJpbnRfc2V0KHNldDxUPiBzKXtmb3IoVCBpOnMpe2NvdXQ8PGk8PCIgIjt9Y291dDw8bmxpbmU7fSAgCnRlbXBsYXRlIDxjbGFzcyBUPiB2b2lkIGlucHV0X3ZlYyh2ZWN0b3I8VD4gJnYgLCBpbnQgbil7Zm9yKGludCBpPTA7aTxuO2krKyl7aW50IHRlbXA7Y2luPj50ZW1wO3YucGIodGVtcCk7fX0gICAKdGVtcGxhdGUgPGNsYXNzIFQsIGNsYXNzIFYsIGNsYXNzIFg+ViBiaW5hcnlTZWFyY2godmVjdG9yPFQ+IGEsIFYgbiwgWCBpdGVtKXsgIFYgbG93ID0gMDsgViBoaWdoID0gbiAtIDE7IHdoaWxlKGxvdzw9aGlnaCl7e1YgbWlkID0gKGxvdyArIGhpZ2gpLzI7IGlmIChhW21pZF0gPT0gaXRlbSkgcmV0dXJuIG1pZDsgZWxzZSBpZiAoYVttaWRdIDwgaXRlbSkgbG93ID0gbWlkICsgMTsgZWxzZSBoaWdoID0gbWlkIC0gMTt9fSByZXR1cm4gLTE7fQoKLyo9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0qLwoKLyogIFNwZWNpYWwgcHVyb3Bvc2UgZnVuY3Rpb25zICovCgovLyBsbCBnY2QobGwgYSwgbGwgYikge2lmIChiID4gYSkge3JldHVybiBnY2QoYiwgYSk7fSBpZiAoYiA9PSAwKSB7cmV0dXJuIGE7fSByZXR1cm4gZ2NkKGIsIGEgJSBiKTt9Ci8vIGxsIGV4cG8obGwgYSwgbGwgYiwgbGwgbW9kKSB7bGwgcmVzID0gMTsgd2hpbGUgKGIgPiAwKSB7aWYgKGIgJiAxKXJlcyA9IChyZXMgKiBhKSAlIG1vZDsgYSA9IChhICogYSkgJSBtb2Q7IGIgPSBiID4+IDE7fSByZXR1cm4gcmVzO30KLy8gdm9pZCBleHRlbmRnY2QobGwgYSwgbGwgYiwgbGwqdikge2lmIChiID09IDApIHt2WzBdID0gMTsgdlsxXSA9IDA7IHZbMl0gPSBhOyByZXR1cm4gO30gZXh0ZW5kZ2NkKGIsIGEgJSBiLCB2KTsgbGwgeCA9IHZbMV07IHZbMV0gPSB2WzBdIC0gdlsxXSAqIChhIC8gYik7IHZbMF0gPSB4OyByZXR1cm47fSAvL3Bhc3MgYW4gYXJyeSBvZiBzaXplMSAzCi8vIGxsIG1taW52KGxsIGEsIGxsIGIpIHtsbCBhcnJbM107IGV4dGVuZGdjZChhLCBiLCBhcnIpOyByZXR1cm4gYXJyWzBdO30gLy9mb3Igbm9uIHByaW1lIGIKLy8gbGwgbW1pbnZwcmltZShsbCBhLCBsbCBiKSB7cmV0dXJuIGV4cG8oYSwgYiAtIDIsIGIpO30KLy8gYm9vbCByZXZzb3J0KGxsIGEsIGxsIGIpIHtyZXR1cm4gYSA+IGI7fQovLyB2b2lkIHN3YXAoaW50ICZ4LCBpbnQgJnkpIHtpbnQgdGVtcCA9IHg7IHggPSB5OyB5ID0gdGVtcDt9Ci8vIGxsIGNvbWJpbmF0aW9uKGxsIG4sIGxsIHIsIGxsIG0sIGxsICpmYWN0LCBsbCAqaWZhY3QpIHtsbCB2YWwxID0gZmFjdFtuXTsgbGwgdmFsMiA9IGlmYWN0W24gLSByXTsgbGwgdmFsMyA9IGlmYWN0W3JdOyByZXR1cm4gKCgodmFsMSAqIHZhbDIpICUgbSkgKiB2YWwzKSAlIG07fQovLyB2b2lkIGdvb2dsZShpbnQgdCkge2NvdXQgPDwgIkNhc2UgIyIgPDwgdCA8PCAiOiAiO30KLy8gdmVjdG9yPGxsPiBzaWV2ZShpbnQgbikge2ludCphcnIgPSBuZXcgaW50W24gKyAxXSgpOyB2ZWN0b3I8bGw+IHZlY3Q7IGZvciAoaW50IGkgPSAyOyBpIDw9IG47IGkrKylpZiAoYXJyW2ldID09IDApIHt2ZWN0LnB1c2hfYmFjayhpKTsgZm9yIChpbnQgaiA9IDIgKiBpOyBqIDw9IG47IGogKz0gaSlhcnJbal0gPSAxO30gcmV0dXJuIHZlY3Q7fQovLyBsbCBtb2RfYWRkKGxsIGEsIGxsIGIsIGxsIG0pIHthID0gYSAlIG07IGIgPSBiICUgbTsgcmV0dXJuICgoKGEgKyBiKSAlIG0pICsgbSkgJSBtO30KLy8gbGwgbW9kX211bChsbCBhLCBsbCBiLCBsbCBtKSB7YSA9IGEgJSBtOyBiID0gYiAlIG07IHJldHVybiAoKChhICogYikgJSBtKSArIG0pICUgbTt9Ci8vIGxsIG1vZF9zdWIobGwgYSwgbGwgYiwgbGwgbSkge2EgPSBhICUgbTsgYiA9IGIgJSBtOyByZXR1cm4gKCgoYSAtIGIpICUgbSkgKyBtKSAlIG07fQovLyBsbCBtb2RfZGl2KGxsIGEsIGxsIGIsIGxsIG0pIHthID0gYSAlIG07IGIgPSBiICUgbTsgcmV0dXJuIChtb2RfbXVsKGEsIG1taW52cHJpbWUoYiwgbSksIG0pICsgbSkgJSBtO30gIC8vb25seSBmb3IgcHJpbWUgbQovLyBsbCBwaGluKGxsIG4pIHtsbCBudW1iZXIgPSBuOyBpZiAobiAlIDIgPT0gMCkge251bWJlciAvPSAyOyB3aGlsZSAobiAlIDIgPT0gMCkgbiAvPSAyO30gZm9yIChsbCBpID0gMzsgaSA8PSBzcXJ0KG4pOyBpICs9IDIpIHtpZiAobiAlIGkgPT0gMCkge3doaWxlIChuICUgaSA9PSAwKW4gLz0gaTsgbnVtYmVyID0gKG51bWJlciAvIGkgKiAoaSAtIDEpKTt9fSBpZiAobiA+IDEpbnVtYmVyID0gKG51bWJlciAvIG4gKiAobiAtIDEpKSA7IHJldHVybiBudW1iZXI7fSAvL08oc3FydChOKSkKLy8gbGwgbGNtKGludCBhLCBpbnQgYil7cmV0dXJuIChhIC8gZ2NkKGEsIGIpKSAqIGI7fQovLyBib29sIGNtcChjb25zdCBwYWlyPGludCxpbnQ+ICZhLGNvbnN0IHBhaXI8aW50LGludD4mYil7aWYoYS5zZWNvbmQgPT0gYi5zZWNvbmQpe3JldHVybiBhLmZpcnN0IDwgYi5maXJzdDt9cmV0dXJuIGEuc2Vjb25kIDwgYi5zZWNvbmQ7fQovKj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09Ki8KCgp2b2lkIHNvbHZlKCkgewoJCgp9CgoKaW50IG1haW4oKSB7CglmYXN0aW8oKTsKI2lmbmRlZiBPTkxJTkVfSlVER0UKCWZyZW9wZW4oImVycm9yLnR4dCIsICJ3Iiwgc3RkZXJyKTsKI2VuZGlmCglhdXRvIHN0YXJ0MSA9IGhpZ2hfcmVzb2x1dGlvbl9jbG9jazo6bm93KCk7Cglzb2x2ZSgpOwoJYXV0byBzdG9wMSA9IGhpZ2hfcmVzb2x1dGlvbl9jbG9jazo6bm93KCk7CglhdXRvIGR1cmF0aW9uID0gZHVyYXRpb25fY2FzdDxtaWNyb3NlY29uZHM+KHN0b3AxIC0gc3RhcnQxKTsKI2lmbmRlZiBPTkxJTkVfSlVER0UKCWNlcnIgPDwgIlRpbWU6ICIgPDwgZHVyYXRpb24gLiBjb3VudCgpIC8gMTAwMCA8PCBlbmRsOwojZW5kaWYKCXJldHVybiAwOwp9vAAAAAAAAAC8AAAAAAAAAAEAAAAJyQAAAAAAAADJAAAAAAAAAAEAAAAK",
+					"AQAAAAAAAAABAAAAywAAAAAAAABZFQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					139,
+					1,
+					"reindent",
+					null,
+					"AQAAALoAAAAAAAAAuwAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAugAAAAAAAAC6AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					140,
+					1,
+					"insert",
+					{
+						"characters": "int"
+					},
+					"AwAAALsAAAAAAAAAvAAAAAAAAAAAAAAAvAAAAAAAAAC9AAAAAAAAAAAAAAC9AAAAAAAAAL4AAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAuwAAAAAAAAC7AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					141,
+					1,
+					"insert",
+					{
+						"characters": " in"
+					},
+					"AwAAAL4AAAAAAAAAvwAAAAAAAAAAAAAAvwAAAAAAAADAAAAAAAAAAAAAAADAAAAAAAAAAMEAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAvgAAAAAAAAC+AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					142,
+					2,
+					"left_delete",
+					null,
+					"AgAAAMAAAAAAAAAAwAAAAAAAAAABAAAAbr8AAAAAAAAAvwAAAAAAAAABAAAAaQ",
+					"AQAAAAAAAAABAAAAwQAAAAAAAADBAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					143,
+					1,
+					"insert",
+					{
+						"characters": "n;"
+					},
+					"AgAAAL8AAAAAAAAAwAAAAAAAAAAAAAAAwAAAAAAAAADBAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAvwAAAAAAAAC/AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					144,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AgAAAMEAAAAAAAAAwgAAAAAAAAAAAAAAwgAAAAAAAADDAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAwQAAAAAAAADBAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					145,
+					1,
+					"insert",
+					{
+						"characters": "cin>>n"
+					},
+					"BgAAAMMAAAAAAAAAxAAAAAAAAAAAAAAAxAAAAAAAAADFAAAAAAAAAAAAAADFAAAAAAAAAMYAAAAAAAAAAAAAAMYAAAAAAAAAxwAAAAAAAAAAAAAAxwAAAAAAAADIAAAAAAAAAAAAAADIAAAAAAAAAMkAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAwwAAAAAAAADDAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					146,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAAMkAAAAAAAAAygAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAyQAAAAAAAADJAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					147,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AgAAAMoAAAAAAAAAywAAAAAAAAAAAAAAywAAAAAAAADMAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAygAAAAAAAADKAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					148,
+					1,
+					"insert",
+					{
+						"characters": "cout<<"
+					},
+					"BgAAAMwAAAAAAAAAzQAAAAAAAAAAAAAAzQAAAAAAAADOAAAAAAAAAAAAAADOAAAAAAAAAM8AAAAAAAAAAAAAAM8AAAAAAAAA0AAAAAAAAAAAAAAA0AAAAAAAAADRAAAAAAAAAAAAAADRAAAAAAAAANIAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAzAAAAAAAAADMAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					149,
+					1,
+					"insert_snippet",
+					{
+						"contents": "\"$0\""
+					},
+					"AQAAANIAAAAAAAAA1AAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA0gAAAAAAAADSAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					150,
+					1,
+					"insert",
+					{
+						"characters": "n:"
+					},
+					"AgAAANMAAAAAAAAA1AAAAAAAAAAAAAAA1AAAAAAAAADVAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA0wAAAAAAAADTAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					151,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAANUAAAAAAAAA1gAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA1QAAAAAAAADVAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					153,
+					1,
+					"insert",
+					{
+						"characters": "<<n;"
+					},
+					"BAAAANcAAAAAAAAA2AAAAAAAAAAAAAAA2AAAAAAAAADZAAAAAAAAAAAAAADZAAAAAAAAANoAAAAAAAAAAAAAANoAAAAAAAAA2wAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA1wAAAAAAAADXAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					154,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AgAAANsAAAAAAAAA3AAAAAAAAAAAAAAA3AAAAAAAAADdAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA2wAAAAAAAADbAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					159,
+					1,
+					"reindent",
+					null,
+					"AQAAALkAAAAAAAAAugAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAuQAAAAAAAAC5AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					160,
+					1,
+					"insert",
+					{
+						"characters": "#endi"
+					},
+					"BgAAALoAAAAAAAAAuwAAAAAAAAAAAAAA3gAAAAAAAADeAAAAAAAAAAEAAAAJuwAAAAAAAAC8AAAAAAAAAAAAAAC8AAAAAAAAAL0AAAAAAAAAAAAAAL0AAAAAAAAAvgAAAAAAAAAAAAAAvgAAAAAAAAC/AAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAugAAAAAAAAC6AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					161,
+					1,
+					"left_delete",
+					null,
+					"AQAAAL4AAAAAAAAAvgAAAAAAAAABAAAAaQ",
+					"AQAAAAAAAAABAAAAvwAAAAAAAAC/AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					162,
+					1,
+					"insert",
+					{
+						"characters": "if"
+					},
+					"AgAAAL4AAAAAAAAAvwAAAAAAAAAAAAAAvwAAAAAAAADAAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAvgAAAAAAAAC+AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					163,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AgAAAMAAAAAAAAAAwQAAAAAAAAAAAAAAwQAAAAAAAADCAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAwAAAAAAAAADAAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					166,
+					4,
+					"left_delete",
+					null,
+					"BQAAADwAAAAAAAAAPAAAAAAAAACEAAAAI2lmbmRlZiBPTkxJTkVfSlVER0UKCWZyZW9wZW4oImVycm9yLnR4dCIsICJ3Iiwgc3RkZXJyKTsKCWZyZW9wZW4oImlucHV0LnR4dCIsInIiLHN0ZGluKTsKCWZyZW9wZW4oIm91dHB1dC50eHQiLCJ3IixzdGRvdXQpOwoJI2VuZGlmPQAAAAAAAAA9AAAAAAAAAAEAAAAJOwAAAAAAAAA7AAAAAAAAAAEAAAAJOgAAAAAAAAA6AAAAAAAAAAEAAAAKOQAAAAAAAAA5AAAAAAAAAAEAAAAK",
+					"AQAAAAAAAAABAAAAwAAAAAAAAAA8AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					170,
+					1,
+					"insert",
+					{
+						"characters": "CP"
+					},
+					"AwAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAGwAAAAjaW5jbHVkZTxiaXRzL3N0ZGMrKy5oPgp1c2luZyBuYW1lc3BhY2Ugc3RkOwoKaW50IG1haW4oKXsKCglpbnQgbjsKCWNpbj4+bjsKCWNvdXQ8PCJuOiAiPDxuOwoKCgoJcmV0dXJuIDA7Cn0BAAAAAAAAAAIAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAAAAAAAAAABsAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					171,
+					1,
+					"insert_completion",
+					{
+						"completion": "/*\n\tA B H I S H E K    S I N G H\n*/\n\n#include<bits/stdc++.h>\nusing namespace std;\nusing namespace chrono;\n\n#define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)\n#define MOD 1000000007\n#define MOD1 998244353\n#define INF 1e18\n#define nline \"\\n\"\n#define pb push_back\n#define ppb pop_back\n#define mp make_pair\n#define ff first\n#define ss second\n#define PI 3.141592653589793238462\n#define set_bits __builtin_popcountll\n#define sz(x) ((int)(x).size())\n#define all(x) (x).begin(), (x).end()\n#define all_rev(x) (x).rbegin(), (x).rend()\n\n#ifndef ONLINE_JUDGE\n#define debug(x) cerr << #x <<\" \"; _print(x); cerr << endl;\n#else\n#define debug(x);\n#endif\n\ntypedef long long ll;\ntypedef unsigned long long ull;\ntypedef long double lld;\n\n\n/*============================================================*/\n/*    debug() functions */\n\ntemplate <class T> void _print(T t) {cerr << t;}  \ntemplate <class T, class V> void _print(pair <T, V> p);\ntemplate <class T> void _print(vector <T> v);\ntemplate <class T> void _print(set <T> v);\ntemplate <class T, class V> void _print(map <T, V> v);\ntemplate <class T> void _print(multiset <T> v);\ntemplate <class T, class V> void _print(pair <T, V> p) {cerr << \"{\"; _print(p.ff); cerr << \",\"; _print(p.ss); cerr << \"}\";}\ntemplate <class T> void _print(vector <T> v) {cerr << \"[ \"; for (T i : v) {_print(i); cerr << \" \";} cerr << \"]\";}\ntemplate <class T> void _print(set <T> v) {cerr << \"[ \"; for (T i : v) {_print(i); cerr << \" \";} cerr << \"]\";}\ntemplate <class T> void _print(multiset <T> v) {cerr << \"[ \"; for (T i : v) {_print(i); cerr << \" \";} cerr << \"]\";}\ntemplate <class T, class V> void _print(map <T, V> v) {cerr << \"[ \"; for (auto i : v) {_print(i); cerr << \" \";} cerr << \"]\";}\n\n/*==============================================================*/\n/*    Newly added templates */\n\ntemplate <class T> void print_vec(vector<T> v);  //printing any vector\ntemplate <class T> void print_set(set<T> s);  //printing set of any datatype\ntemplate <class T> void input_vec(vector<T> &v , int n);  //taking input of n elements of any data type into a vector\ntemplate <class T, class V, class X>V binarySearch(vector<T> a, V n, X item);  //binary search on vector\ntemplate <class T> void print_vec(vector<T> v){ for(T i:v){ cout<<i<<\" \";}cout<<nline;} \ntemplate <class T> void print_set(set<T> s){for(T i:s){cout<<i<<\" \";}cout<<nline;}  \ntemplate <class T> void input_vec(vector<T> &v , int n){for(int i=0;i<n;i++){int temp;cin>>temp;v.pb(temp);}}   \ntemplate <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V low = 0; V high = n - 1; while(low<=high){{V mid = (low + high)/2; if (a[mid] == item) return mid; else if (a[mid] < item) low = mid + 1; else high = mid - 1;}} return -1;}\n\n/*===============================================================*/\n\n/*  Special puropose functions */\n\n// ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}\n// ll expo(ll a, ll b, ll mod) {ll res = 1; while (b > 0) {if (b & 1)res = (res * a) % mod; a = (a * a) % mod; b = b >> 1;} return res;}\n// void extendgcd(ll a, ll b, ll*v) {if (b == 0) {v[0] = 1; v[1] = 0; v[2] = a; return ;} extendgcd(b, a % b, v); ll x = v[1]; v[1] = v[0] - v[1] * (a / b); v[0] = x; return;} //pass an arry of size1 3\n// ll mminv(ll a, ll b) {ll arr[3]; extendgcd(a, b, arr); return arr[0];} //for non prime b\n// ll mminvprime(ll a, ll b) {return expo(a, b - 2, b);}\n// bool revsort(ll a, ll b) {return a > b;}\n// void swap(int &x, int &y) {int temp = x; x = y; y = temp;}\n// ll combination(ll n, ll r, ll m, ll *fact, ll *ifact) {ll val1 = fact[n]; ll val2 = ifact[n - r]; ll val3 = ifact[r]; return (((val1 * val2) % m) * val3) % m;}\n// void google(int t) {cout << \"Case #\" << t << \": \";}\n// vector<ll> sieve(int n) {int*arr = new int[n + 1](); vector<ll> vect; for (int i = 2; i <= n; i++)if (arr[i] == 0) {vect.push_back(i); for (int j = 2 * i; j <= n; j += i)arr[j] = 1;} return vect;}\n// ll mod_add(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a + b) % m) + m) % m;}\n// ll mod_mul(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a * b) % m) + m) % m;}\n// ll mod_sub(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) % m;}\n// ll mod_div(ll a, ll b, ll m) {a = a % m; b = b % m; return (mod_mul(a, mminvprime(b, m), m) + m) % m;}  //only for prime m\n// ll phin(ll n) {ll number = n; if (n % 2 == 0) {number /= 2; while (n % 2 == 0) n /= 2;} for (ll i = 3; i <= sqrt(n); i += 2) {if (n % i == 0) {while (n % i == 0)n /= i; number = (number / i * (i - 1));}} if (n > 1)number = (number / n * (n - 1)) ; return number;} //O(sqrt(N))\n// ll lcm(int a, int b){return (a / gcd(a, b)) * b;}\n// bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}\n/*=================================================================*/\n\n\nvoid solve() {\n\t\n\n}\n\n\nint main() {\n\tfastio();\n#ifndef ONLINE_JUDGE\n\tfreopen(\"error.txt\", \"w\", stderr);\n#endif\n\tauto start1 = high_resolution_clock::now();\n\tsolve();\n\tauto stop1 = high_resolution_clock::now();\n\tauto duration = duration_cast<microseconds>(stop1 - start1);\n#ifndef ONLINE_JUDGE\n\tcerr << \"Time: \" << duration . count() / 1000 << endl;\n#endif\n\treturn 0;\n}",
+						"format": "snippet",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "CPP_template()"
+					},
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAACAAAAQ1AAAAAAAAAAAI0UAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAgAAAAAAAAACAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					174,
+					1,
+					"insert",
+					{
+						"characters": "\tint"
+					},
+					"BAAAAC4TAAAAAAAALxMAAAAAAAAAAAAALxMAAAAAAAAwEwAAAAAAAAAAAAAwEwAAAAAAADETAAAAAAAAAAAAADETAAAAAAAAMhMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAALhMAAAAAAAAuEwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					175,
+					1,
+					"insert",
+					{
+						"characters": " n;"
+					},
+					"AwAAADITAAAAAAAAMxMAAAAAAAAAAAAAMxMAAAAAAAA0EwAAAAAAAAAAAAA0EwAAAAAAADUTAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAMhMAAAAAAAAyEwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					176,
+					1,
+					"insert",
+					{
+						"characters": "\ncin>>n"
+					},
+					"CAAAADUTAAAAAAAANhMAAAAAAAAAAAAANhMAAAAAAAA4EwAAAAAAAAAAAAA4EwAAAAAAADkTAAAAAAAAAAAAADkTAAAAAAAAOhMAAAAAAAAAAAAAOhMAAAAAAAA7EwAAAAAAAAAAAAA7EwAAAAAAADwTAAAAAAAAAAAAADwTAAAAAAAAPRMAAAAAAAAAAAAAPRMAAAAAAAA+EwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAANRMAAAAAAAA1EwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					177,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAAD4TAAAAAAAAPxMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAPhMAAAAAAAA+EwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					178,
+					1,
+					"insert",
+					{
+						"characters": "\ncout"
+					},
+					"BgAAAD8TAAAAAAAAQBMAAAAAAAAAAAAAQBMAAAAAAABCEwAAAAAAAAAAAABCEwAAAAAAAEMTAAAAAAAAAAAAAEMTAAAAAAAARBMAAAAAAAAAAAAARBMAAAAAAABFEwAAAAAAAAAAAABFEwAAAAAAAEYTAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAPxMAAAAAAAA/EwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					179,
+					1,
+					"insert",
+					{
+						"characters": "<<n;"
+					},
+					"BAAAAEYTAAAAAAAARxMAAAAAAAAAAAAARxMAAAAAAABIEwAAAAAAAAAAAABIEwAAAAAAAEkTAAAAAAAAAAAAAEkTAAAAAAAAShMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAARhMAAAAAAABGEwAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "leetcode/input.txt",
+			"settings":
+			{
+				"buffer_size": 1,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					1,
+					1,
+					"insert",
+					{
+						"characters": "I"
+					},
+					"AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					2,
+					1,
+					"left_delete",
+					null,
+					"AQAAAAAAAAAAAAAAAAAAAAAAAAABAAAASQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					3,
+					1,
+					"insert",
+					{
+						"characters": "1"
+					},
+					"AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "leetcode/output.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "leetcode/error.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					1,
+					1,
+					"insert",
+					{
+						"characters": "error"
+					},
+					"BQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAMAAAAAAAAAAAAAAAMAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAFAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					2,
+					5,
+					"left_delete",
+					null,
+					"BQAAAAQAAAAAAAAABAAAAAAAAAABAAAAcgMAAAAAAAAAAwAAAAAAAAABAAAAbwIAAAAAAAAAAgAAAAAAAAABAAAAcgEAAAAAAAAAAQAAAAAAAAABAAAAcgAAAAAAAAAAAAAAAAAAAAABAAAAZQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAFAAAAAAAAAAUAAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/F/Tech learn and project/coding/CPP practice/leetcode"
+	],
+	"file_history":
+	[
+		"/F/Tech learn and project/coding/CPP practice/love babbar/String_ques7.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/DP_Ques1.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques10.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques11.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/String_ques2.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/String_ques1.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/String_ques3.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/String_ques5.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques36.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_Ques35.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/error.txt",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/output.txt",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/input.txt",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques34.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques30.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques33.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques32.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques31.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques29.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques19.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques28.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques26.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques18.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques25.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/fileInput (1).txt.crdownload",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques9.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques24.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques23.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques22.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques21.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques20.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/LinkedList.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/friend_class.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/Codevita2022_ques1.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/Codevita2022_ques2.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/Codevita2022_ques4.py",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/graph_adjacencyList_cycleCheck_Directed.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/graph_adjacencyList_cycleCheck_Undirected.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/segmentTree_range_Query.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/deepti.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/shubham_chocolate.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/graph_adjacencyList_SimpleUsingArrayOfVector_gfg.cpp",
+		"/C/Users/Abhishek Wisteli/Desktop/Screenshot 2022-02-04 100917.png",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/graph_adjacencyList_ComplexUsingYoutube.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/prakhar.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/output.txt",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/bianryheap.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/Stack.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/Queue.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/Binarytree.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/BinaryTreeViaArray.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/BinarySearchTree.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/temp.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/anupamq2.cpp",
+		"/C/Users/Abhishek Wisteli/AppData/Roaming/Sublime Text/Packages/User/CPP_template.sublime-snippet",
+		"/G/Desktop Folders/Tech learn and project/coding/CPP practice/output.txt",
+		"/G/Desktop Folders/Tech learn and project/coding/CPP practice/error.txt",
+		"/G/Desktop Folders/Tech learn and project/coding/CPP practice/input.txt",
+		"/G/Desktop Folders/Tech learn and project/coding/CPP practice/hello.cpp",
+		"/C/Users/Abhishek Wisteli/AppData/Roaming/Sublime Text/Packages/User/hello.cpp"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"path": "F:\\Tech learn and project\\coding\\CPP practice\\leetcode"
+		}
+	],
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "leetcode/Two Sum.cpp",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5289,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4938,
+								4938
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1386.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "leetcode/input.txt",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1,
+								1
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "leetcode/output.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "leetcode/error.txt",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				2
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.714833759591,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.5,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 191.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/CPP.sublime-build",
+	"project": "",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"last_automatic_layout":
+		[
+			[
+				0,
+				0,
+				1,
+				2
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		]
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 193.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}
