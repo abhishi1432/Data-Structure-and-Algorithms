@@ -1,7 +1,5 @@
 /*
 	A B H I S H E K    S I N G H
-	Find the Union and Intersection of the two sorted arrays.
-	https://practice.geeksforgeeks.org/problems/union-of-two-arrays/0
 */
 
 #include<bits/stdc++.h>
@@ -43,12 +41,15 @@ template <class T, class V> void _print(pair <T, V> p);
 template <class T> void _print(vector <T> v);
 template <class T> void _print(set <T> v);
 template <class T, class V> void _print(map <T, V> v);
+template <class T, class V> void _print(unordered_map <T, V> v);
 template <class T> void _print(multiset <T> v);
 template <class T, class V> void _print(pair <T, V> p) {cerr << "{"; _print(p.ff); cerr << ","; _print(p.ss); cerr << "}";}
 template <class T> void _print(vector <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
+template <class T, class V> void _print(unordered_map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
+
 
 /*==============================================================*/
 /*    Newly added templates */
@@ -82,71 +83,69 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll mod_div(ll a, ll b, ll m) {a = a % m; b = b % m; return (mod_mul(a, mminvprime(b, m), m) + m) % m;}  //only for prime m
 // ll phin(ll n) {ll number = n; if (n % 2 == 0) {number /= 2; while (n % 2 == 0) n /= 2;} for (ll i = 3; i <= sqrt(n); i += 2) {if (n % i == 0) {while (n % i == 0)n /= i; number = (number / i * (i - 1));}} if (n > 1)number = (number / n * (n - 1)) ; return number;} //O(sqrt(N))
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
-
+// bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}
 /*=================================================================*/
-void doUnion(vector<int> arr1,vector<int> arr2){
 
-	vector<int> ans(100001,0);
-	for(auto i:arr1){
-		ans[i]++;
-	}
-	for(auto i:arr2){
-		ans[i]++;
-	}
-	for(int i=0;i<100001;i++){
-		if (ans[i]>0)
-			cout<<i<<" ";
-	}
-	cout<<nline;
+int coinChange_Helper(vector<int>& coins, int amount,vector<int> dp){
+        if (amount==0)
+            return 0;
+        int mincoin=INT_MAX;
+        for(int i=0;i<coins.size();i++){
+            int localMin=INT_MAX;
+            if (amount - coins[i]>=0){
+                if (dp[amount-coins[i]]!=-2)
+                    localMin =dp[amount - coins[i]];
+                else
+                    localMin= coinChange_Helper(coins,amount-coins[i],dp);
+                if (localMin!=INT_MAX && localMin!=-1)
+                    mincoin=min(localMin+1,mincoin);
+            }
+        }
+        mincoin = (mincoin==INT_MAX ? -1 : mincoin);
+        dp[amount]=mincoin;
+        return mincoin;
+    }
 
+int coinChange(vector<int>& coins, int amount){
+
+	/*
+	This is the top-down approach and was giving TLE in leetcode.
+	*/
+    vector<int> dp(amount+1,-2);
+    dp[0]=0;
+    int ans = coinChange_Helper(coins,amount,dp);
+    return ans;
 }
 
-void doIntersection(vector<int> arr1,vector<int> arr2){
-	vector<int> ans(100001,0);
-	for(auto i:arr1){
-		ans[i]=1;
-	}
-	for(auto i:arr2){
-		if (ans[i]>=1){
-			ans[i]++;
+int coinChange2(vector<int>& coins, int amount){
+
+/*
+	This is bottom up approach
+	time complexity is O(amount * number of denominations)
+
+*/
+	vector<int> dp(amount+1,INT_MAX);
+	dp[0]=0;
+	for(int i=1;i<=amount;i++){
+		for(int j=0;j<coins.size();j++){
+			if(i-coins[j]>=0)
+				dp[i]=min(dp[i],dp[i-coins[j]]+1);
 		}
 	}
-	for(int i=0;i<100001;i++){
-		if (ans[i]>1)
-			cout<<i<<" ";
-	}
-	cout<<nline;
+	return (dp[amount]==INT_MAX ? -1 : dp[amount]);
 }
 
-
-
 void solve() {
-	
-	vector<int> arr1={1,2,3,4,5,5,5};
-	vector<int> arr2={2,5,6,7,8};
-	doUnion(arr1,arr2);
-	doIntersection(arr1,arr2);
+	int amt;
+	int n;
+	cin>>n;
+	cin>>amt;
+	vector<int> coin;
+	input_vec(coin,n);
+	// int mincoin = coinChange(coin,amt);
+	// cout<<mincoin<<nline;
+	cout<<coinChange2(coin,amt);
 
-	
-	/*For sorted arrays we can use modified version of 'merging two sorted arrays' algorithm
-		
-		-----Union------
-
-		i=0,j=0
-		comapre a[i] with b[j]
-			print smaller element
-			increase index of array of smaller element keeping other(i or j) constant
-
-		if both are equal print any 
-			increase both i and j
-
-		-----Intersection------
-		i=0,j=0
-		compare a[i] with b[j]
-			increase index of smaller element
-		if both are equal print any
-			increase both index i and j
-	*/
 }
 
 

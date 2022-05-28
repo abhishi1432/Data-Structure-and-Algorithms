@@ -1,5 +1,7 @@
 /*
 	A B H I S H E K    S I N G H
+	Write a program to cyclically rotate an array by one and by K.
+	https://practice.geeksforgeeks.org/problems/cyclically-rotate-an-array-by-one/0
 */
 
 #include<bits/stdc++.h>

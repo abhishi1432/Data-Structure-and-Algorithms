@@ -1,5 +1,6 @@
 /*
 	A B H I S H E K    S I N G H
+	https://leetcode.com/problems/product-of-array-except-self/
 */
 
 #include<bits/stdc++.h>
@@ -87,7 +88,31 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 /*=================================================================*/
 vector<int> productExceptSelf(vector<int>& nums){
 	int n=nums.size();
-	vector<long long> suffix(n,0);
+	vector<int> suffix(n,0);
+	vector<int> prefix(n,0);
+	vector<int> result(n,0);
+	int prod_suffix=1,prod_prefix=1;
+	prefix[0]=nums[0];
+	suffix[n-1]=nums[n-1];
+	for(int i=1;i<n;i++){
+		prefix[i]=prefix[i-1]*nums[i];
+		suffix[n-1-i]=suffix[n-i]*nums[n-1-i];
+	}
+	debug(prefix);
+	debug(suffix);
+	for(int i=0;i<n;i++){
+		if(i==0){
+			if(i!=n-1)
+				result[i]=suffix[i+1];
+		}
+		else if(i==n-1){
+			if(i!=0)
+				result[i]=prefix[i-1];
+		}
+		else
+			result[i]=prefix[i-1]*suffix[i+1];
+	}
+	debug(result)
 }
 
 void solve() {

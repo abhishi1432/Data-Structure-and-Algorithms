@@ -1,5 +1,6 @@
 /*
 	A B H I S H E K    S I N G H
+	Find the "Kth" max and min element of an array  - https://practice.geeksforgeeks.org/problems/kth-smallest-element/0
 */
 
 #include<bits/stdc++.h>

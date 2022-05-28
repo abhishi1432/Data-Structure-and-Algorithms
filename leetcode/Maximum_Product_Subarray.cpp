@@ -1,7 +1,6 @@
 /*
 	A B H I S H E K    S I N G H
-	Find the Union and Intersection of the two sorted arrays.
-	https://practice.geeksforgeeks.org/problems/union-of-two-arrays/0
+	https://leetcode.com/problems/maximum-product-subarray/
 */
 
 #include<bits/stdc++.h>
@@ -43,12 +42,15 @@ template <class T, class V> void _print(pair <T, V> p);
 template <class T> void _print(vector <T> v);
 template <class T> void _print(set <T> v);
 template <class T, class V> void _print(map <T, V> v);
+template <class T, class V> void _print(unordered_map <T, V> v);
 template <class T> void _print(multiset <T> v);
 template <class T, class V> void _print(pair <T, V> p) {cerr << "{"; _print(p.ff); cerr << ","; _print(p.ss); cerr << "}";}
 template <class T> void _print(vector <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
+template <class T, class V> void _print(unordered_map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
+
 
 /*==============================================================*/
 /*    Newly added templates */
@@ -72,7 +74,7 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll mminv(ll a, ll b) {ll arr[3]; extendgcd(a, b, arr); return arr[0];} //for non prime b
 // ll mminvprime(ll a, ll b) {return expo(a, b - 2, b);}
 // bool revsort(ll a, ll b) {return a > b;}
-// void swap(int &x, int &y) {int temp = x; x = y; y = temp;}
+void swap(int &x, int &y) {int temp = x; x = y; y = temp;}
 // ll combination(ll n, ll r, ll m, ll *fact, ll *ifact) {ll val1 = fact[n]; ll val2 = ifact[n - r]; ll val3 = ifact[r]; return (((val1 * val2) % m) * val3) % m;}
 // void google(int t) {cout << "Case #" << t << ": ";}
 // vector<ll> sieve(int n) {int*arr = new int[n + 1](); vector<ll> vect; for (int i = 2; i <= n; i++)if (arr[i] == 0) {vect.push_back(i); for (int j = 2 * i; j <= n; j += i)arr[j] = 1;} return vect;}
@@ -82,71 +84,29 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll mod_div(ll a, ll b, ll m) {a = a % m; b = b % m; return (mod_mul(a, mminvprime(b, m), m) + m) % m;}  //only for prime m
 // ll phin(ll n) {ll number = n; if (n % 2 == 0) {number /= 2; while (n % 2 == 0) n /= 2;} for (ll i = 3; i <= sqrt(n); i += 2) {if (n % i == 0) {while (n % i == 0)n /= i; number = (number / i * (i - 1));}} if (n > 1)number = (number / n * (n - 1)) ; return number;} //O(sqrt(N))
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
-
+// bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}
 /*=================================================================*/
-void doUnion(vector<int> arr1,vector<int> arr2){
-
-	vector<int> ans(100001,0);
-	for(auto i:arr1){
-		ans[i]++;
+int maxProduct(vector<int>& nums){
+	int currMin=1,currMax=1;
+	int maxProd=nums[0];
+	int n=nums.size();
+	for(int i=0;i<n;i++){
+		if(nums[i]<0)
+			swap(currMax,currMin);
+		currMax=max(currMax*nums[i],nums[i]);
+		currMin=min(currMin*nums[i],nums[i]);
+		maxProd=max(maxProd,currMax);
 	}
-	for(auto i:arr2){
-		ans[i]++;
-	}
-	for(int i=0;i<100001;i++){
-		if (ans[i]>0)
-			cout<<i<<" ";
-	}
-	cout<<nline;
+	return maxProd;
 
 }
-
-void doIntersection(vector<int> arr1,vector<int> arr2){
-	vector<int> ans(100001,0);
-	for(auto i:arr1){
-		ans[i]=1;
-	}
-	for(auto i:arr2){
-		if (ans[i]>=1){
-			ans[i]++;
-		}
-	}
-	for(int i=0;i<100001;i++){
-		if (ans[i]>1)
-			cout<<i<<" ";
-	}
-	cout<<nline;
-}
-
-
 
 void solve() {
-	
-	vector<int> arr1={1,2,3,4,5,5,5};
-	vector<int> arr2={2,5,6,7,8};
-	doUnion(arr1,arr2);
-	doIntersection(arr1,arr2);
-
-	
-	/*For sorted arrays we can use modified version of 'merging two sorted arrays' algorithm
-		
-		-----Union------
-
-		i=0,j=0
-		comapre a[i] with b[j]
-			print smaller element
-			increase index of array of smaller element keeping other(i or j) constant
-
-		if both are equal print any 
-			increase both i and j
-
-		-----Intersection------
-		i=0,j=0
-		compare a[i] with b[j]
-			increase index of smaller element
-		if both are equal print any
-			increase both index i and j
-	*/
+	int n;
+	cin>>n;
+	vector<int> vec;
+	input_vec(vec,n);
+	cout<<maxProduct(vec);
 }
 
 

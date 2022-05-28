@@ -1,5 +1,8 @@
 /*
 	A B H I S H E K    S I N G H
+    find Largest sum contiguous Subarray [V. IMP] 
+    find Largest product contiguous Subarray [V. IMP] 
+    https://www.geeksforgeeks.org/maximum-product-subarray-set-3/
 */
 
 #include<bits/stdc++.h>

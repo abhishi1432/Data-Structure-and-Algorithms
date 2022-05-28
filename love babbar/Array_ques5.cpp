@@ -1,5 +1,7 @@
 /*
 	A B H I S H E K    S I N G H
+	Move all the negative elements to one side of the array 
+	https://practice.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s/0
 */
 
 #include<bits/stdc++.h>

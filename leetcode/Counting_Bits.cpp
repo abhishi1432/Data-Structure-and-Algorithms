@@ -1,7 +1,5 @@
 /*
 	A B H I S H E K    S I N G H
-	Find the Union and Intersection of the two sorted arrays.
-	https://practice.geeksforgeeks.org/problems/union-of-two-arrays/0
 */
 
 #include<bits/stdc++.h>
@@ -43,12 +41,15 @@ template <class T, class V> void _print(pair <T, V> p);
 template <class T> void _print(vector <T> v);
 template <class T> void _print(set <T> v);
 template <class T, class V> void _print(map <T, V> v);
+template <class T, class V> void _print(unordered_map <T, V> v);
 template <class T> void _print(multiset <T> v);
 template <class T, class V> void _print(pair <T, V> p) {cerr << "{"; _print(p.ff); cerr << ","; _print(p.ss); cerr << "}";}
 template <class T> void _print(vector <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
+template <class T, class V> void _print(unordered_map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
+
 
 /*==============================================================*/
 /*    Newly added templates */
@@ -82,71 +83,82 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll mod_div(ll a, ll b, ll m) {a = a % m; b = b % m; return (mod_mul(a, mminvprime(b, m), m) + m) % m;}  //only for prime m
 // ll phin(ll n) {ll number = n; if (n % 2 == 0) {number /= 2; while (n % 2 == 0) n /= 2;} for (ll i = 3; i <= sqrt(n); i += 2) {if (n % i == 0) {while (n % i == 0)n /= i; number = (number / i * (i - 1));}} if (n > 1)number = (number / n * (n - 1)) ; return number;} //O(sqrt(N))
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
-
+// bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}
 /*=================================================================*/
-void doUnion(vector<int> arr1,vector<int> arr2){
 
-	vector<int> ans(100001,0);
-	for(auto i:arr1){
-		ans[i]++;
-	}
-	for(auto i:arr2){
-		ans[i]++;
-	}
-	for(int i=0;i<100001;i++){
-		if (ans[i]>0)
-			cout<<i<<" ";
-	}
-	cout<<nline;
+vector<int> countBits(int n){
+	/*
+	Time complexity is O(n)
+	Space complexity is O(n)
+	Concept: No. of 1's in any number is equal to = 1 + nu. of 1's in (that number- largest power of 2 less than or equal to that number)
+	Ex. number of 1's in 0 =0
+		number of 1's in 1=1
+		number if 1's in 2= 1 + (no. of 1's in 2-2 = no. of 1's in 0 = 0) =1
+		number of 1's in 3= 1+ (no. of 1's in 3-2 = no. of 1's in 1 = 1) = 2
+		number of 1's in 4= 1+ (no. of 1's in 4-4 = no. of 1's in 0 = 0) = 1
+		number of 1's in 5= 1+ (no. of 1's in 5-4 = no. of 1's in 1 = 1) = 2
 
-}
-
-void doIntersection(vector<int> arr1,vector<int> arr2){
-	vector<int> ans(100001,0);
-	for(auto i:arr1){
-		ans[i]=1;
-	}
-	for(auto i:arr2){
-		if (ans[i]>=1){
-			ans[i]++;
+	*/
+	vector<int> ans;
+	int check=1;
+	for(int i=0;i<=n;i++){
+		if(i==0)
+			ans.push_back(0);
+		else if(i==1)
+			ans.push_back(1);
+		else{
+			if(check*2 == i)
+				check*=2;
+			ans.push_back(1+ans[i-check]);
 		}
 	}
-	for(int i=0;i<100001;i++){
-		if (ans[i]>1)
-			cout<<i<<" ";
-	}
-	cout<<nline;
+	return ans;
 }
 
-
-
-void solve() {
-	
-	vector<int> arr1={1,2,3,4,5,5,5};
-	vector<int> arr2={2,5,6,7,8};
-	doUnion(arr1,arr2);
-	doIntersection(arr1,arr2);
-
-	
-	/*For sorted arrays we can use modified version of 'merging two sorted arrays' algorithm
-		
-		-----Union------
-
-		i=0,j=0
-		comapre a[i] with b[j]
-			print smaller element
-			increase index of array of smaller element keeping other(i or j) constant
-
-		if both are equal print any 
-			increase both i and j
-
-		-----Intersection------
-		i=0,j=0
-		compare a[i] with b[j]
-			increase index of smaller element
-		if both are equal print any
-			increase both index i and j
+int helper_countBits2(int n){
+	/*
+	Time complexity of this helper function is O(log n)
+	This uses long division method to count the number of 1's in any number n
 	*/
+	int ans=0;
+	while(n!=0){
+		n%2 ?  ans++:ans;
+		n=n/2;
+	}
+	return ans;
+}
+vector<int> countBits2(int n){
+	/*
+	Time complexity is O(nlogn)
+	space complexity is O(1)
+	*/
+	vector<int> ans;
+	for(int i=0;i<=n;i++){
+		ans.push_back(helper_countBits2(i));
+	}
+	return ans;
+}
+
+vector<int> countBits3(int n){
+	/*
+	Time complexity is O(n)
+	space complexity is O(n)
+	For even numbers :  number of 1's in x is equal to = no. of 1's in x/2
+	For odd number : number  of 1's in x is equal to = 1+ no. of 1's in x/2  
+	*/
+	vector<int> ans;
+	ans.push_back(0);
+	for(int i=1;i<=n;i++){
+		ans.push_back(i%2 + ans[i/2]);
+	}
+	return ans;
+}
+void solve() {
+	int n;
+	cin>>n;
+	print_vec(countBits(n));
+	print_vec(countBits2(n));
+	print_vec(countBits3(n));
 }
 
 

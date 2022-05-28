@@ -134,10 +134,30 @@ int minCoins(int n,int m,vector<int> arr){
 	Time complexity is O(m^n) as we are using recursion
 	Space complexity is O(1)
 	Source: Anuj bhaiya
+	This is top-down approach using recursion(For top-down using recursion and memoization see leetcode folder DailyChallange_CoinChnage problem)
 	*/
 
 	int ans= minCoins_Helper(n,m,arr);
 	return ans;
+}
+
+int coinChange2(vector<int>& coins, int amount){
+
+/*
+	This finds the minimum number of coins needed to make amount .
+	This is bottom up approach
+	time complexity is O(amount * number of denominations)
+
+*/
+	vector<int> dp(amount+1,INT_MAX);
+	dp[0]=0;
+	for(int i=1;i<=amount;i++){
+		for(int j=0;j<coins.size();j++){
+			if(i-coins[j]>=0)
+				dp[i]=min(dp[i],dp[i-coins[j]]+1);
+		}
+	}
+	return (dp[amount]==INT_MAX ? -1 : dp[amount]);
 }
 void solve() {
 

@@ -1,7 +1,7 @@
 /*
 	A B H I S H E K    S I N G H
-	Find the Union and Intersection of the two sorted arrays.
-	https://practice.geeksforgeeks.org/problems/union-of-two-arrays/0
+	Write a program to cyclically rotate an array by k.
+	https://www.geeksforgeeks.org/array-rotation/
 */
 
 #include<bits/stdc++.h>
@@ -66,13 +66,13 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 
 /*  Special puropose functions */
 
-// ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
+ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 // ll expo(ll a, ll b, ll mod) {ll res = 1; while (b > 0) {if (b & 1)res = (res * a) % mod; a = (a * a) % mod; b = b >> 1;} return res;}
 // void extendgcd(ll a, ll b, ll*v) {if (b == 0) {v[0] = 1; v[1] = 0; v[2] = a; return ;} extendgcd(b, a % b, v); ll x = v[1]; v[1] = v[0] - v[1] * (a / b); v[0] = x; return;} //pass an arry of size1 3
 // ll mminv(ll a, ll b) {ll arr[3]; extendgcd(a, b, arr); return arr[0];} //for non prime b
 // ll mminvprime(ll a, ll b) {return expo(a, b - 2, b);}
 // bool revsort(ll a, ll b) {return a > b;}
-// void swap(int &x, int &y) {int temp = x; x = y; y = temp;}
+void swap(int &x, int &y) {int temp = x; x = y; y = temp;}
 // ll combination(ll n, ll r, ll m, ll *fact, ll *ifact) {ll val1 = fact[n]; ll val2 = ifact[n - r]; ll val3 = ifact[r]; return (((val1 * val2) % m) * val3) % m;}
 // void google(int t) {cout << "Case #" << t << ": ";}
 // vector<ll> sieve(int n) {int*arr = new int[n + 1](); vector<ll> vect; for (int i = 2; i <= n; i++)if (arr[i] == 0) {vect.push_back(i); for (int j = 2 * i; j <= n; j += i)arr[j] = 1;} return vect;}
@@ -84,69 +84,98 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
 
 /*=================================================================*/
-void doUnion(vector<int> arr1,vector<int> arr2){
+void rotate_by_one(vector<int> arr){
 
-	vector<int> ans(100001,0);
-	for(auto i:arr1){
-		ans[i]++;
+	int last=arr[sz(arr)-1];
+	for(int i=sz(arr)-1;i>0;i--)
+		arr[i]=arr[i-1];
+	arr[0]=last;
+	print_vec(arr);
+}
+
+void rotate_by_one_M2(vector<int> arr){
+	int current=0,last=sz(arr)-1;
+	while(current<last){
+		swap(arr[current],arr[last]);
+		current++;
 	}
-	for(auto i:arr2){
-		ans[i]++;
+	print_vec(arr);
+}
+
+void rotate_by_K(vector<int> arr,int k){    
+
+	 /*     Complexity is O(n)
+	        Auxilary space O(d)    */
+
+	k=k%(sz(arr)-1);
+	vector<int> temp;
+	int i=sz(arr)-1;
+	while(k--){
+		temp.pb(arr[i]);
+		i--;
 	}
-	for(int i=0;i<100001;i++){
-		if (ans[i]>0)
-			cout<<i<<" ";
+	debug(temp)
+	/*    sz(temp) is k   */
+	for(i=sz(arr)-1-sz(temp);i>=0;i--){
+		arr[i+sz(temp)]=arr[i];
 	}
-	cout<<nline;
+	for(int i=0;i<sz(temp);i++){
+		arr[sz(temp)-1-i]=temp[i];
+	}
+	print_vec(arr);
 
 }
 
-void doIntersection(vector<int> arr1,vector<int> arr2){
-	vector<int> ans(100001,0);
-	for(auto i:arr1){
-		ans[i]=1;
-	}
-	for(auto i:arr2){
-		if (ans[i]>=1){
-			ans[i]++;
+void rotate_by_K_M2(vector<int> arr,int k){    
+
+	 /*  dividing array into gcd(n,k) sets and then sliding elements in that sets.  
+	 		Ex. n=12, k=3 
+	 			gcd(12,3) = 3 , so we will divide array into 3 sets as shown below.
+	     ---------------------------------------------------------------------
+	     |    |     |     |    |     |     |    |     |     |    |     |     | 
+	     ---------------------------------------------------------------------
+		   S1    S2    S3   S1   S2    S3    S1    S2    S3   S1    S2    S3     <= set number
+
+
+	 	  Complexity is O(n)
+	      Auxilary space O(1)    */
+
+	int n=sz(arr);
+	k=k%n;
+	int g_c_d=gcd(n,k);
+	for(int i=0;i<g_c_d;i++){
+		int temp=arr[i];
+		int j=i;
+		debug(arr)
+		while(true){
+			int l=j+k;
+			if(l>=n)
+				l=l-n;
+			if(l==i)
+				break;
+			arr[j]=arr[l];
+			j=l;
 		}
+		arr[j]=temp;
 	}
-	for(int i=0;i<100001;i++){
-		if (ans[i]>1)
-			cout<<i<<" ";
-	}
-	cout<<nline;
+	print_vec(arr);
+
 }
 
 
 
 void solve() {
+	int n;cin>>n;vector<int> arr;input_vec(arr,n);print_vec(arr);
+
+
+	// rotate_by_one(arr);
+	// rotate_by_one_M2(arr);
 	
-	vector<int> arr1={1,2,3,4,5,5,5};
-	vector<int> arr2={2,5,6,7,8};
-	doUnion(arr1,arr2);
-	doIntersection(arr1,arr2);
+	int k=2;
+	rotate_by_K(arr,k);   //clockwise
+	rotate_by_K_M2(arr,k);   //anti-clockwise
 
-	
-	/*For sorted arrays we can use modified version of 'merging two sorted arrays' algorithm
-		
-		-----Union------
 
-		i=0,j=0
-		comapre a[i] with b[j]
-			print smaller element
-			increase index of array of smaller element keeping other(i or j) constant
-
-		if both are equal print any 
-			increase both i and j
-
-		-----Intersection------
-		i=0,j=0
-		compare a[i] with b[j]
-			increase index of smaller element
-		if both are equal print any
-			increase both index i and j
-	*/
 }
 
 
