@@ -87,16 +87,93 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}
 /*=================================================================*/
 
-vector<vector<int>> threeSum(vector<int>& nums,int k){
-	
+vector<vector<int>> threeSum_naive(vector<int>& nums){
+	/*
+		This is the naive solution.
+		Time complexity : O(n^3 * log k) where k is the number of triplets in solution
+		Used set so as to remove the duplicate triplets.
+	*/
+	vector<vector<int>> result1;
+	set<vector<int>> result;
+	int len = nums.size();
+	for(int i=0;i<len;i++){
+		for(int j=i+1;j<len;j++){
+			for(int k=j+1;k<len;k++){
+				if(nums[i]+nums[j]+nums[k]==0){
+					vector<int> xx= {nums[i],nums[j],nums[k]};
+					sort(all(xx));
+					result.insert(xx);
+					// cout<<nums[i]<<" "<<nums[j]<<" "<<nums[k]<<nline;
+				}
+			}
+		}
+	}
+	for(auto it: result){
+		result1.push_back(it);
+	}
+	return result1;
 }
 
+vector<vector<int>> threeSum(vector<int>& nums){
+	/*
+	Time complexity of this function is O(n^2)
+	Space complexity is O(1)
+
+	Here i have used two pointer approach insted of using j and k loops
+	Sorting is done so as to use two pointer and to not include duplicates in result.
+	*/
+	vector<vector<int>> result;
+	sort(nums.begin(),nums.end());
+	// print_vec(nums);
+	int len=nums.size();
+	if(len<3)    //if len is less than 3 then no triplets
+		return result;   
+	if(nums[0]<=0){       //if first element is +ve then no triplet can give 0 sum
+		for(int i=0;i<len;i++){
+			if(i!=0)
+				if(nums[i]==nums[i-1])    //to ensure not to include duplicates
+					continue;  
+			int low=i+1,high=len-1;
+			int prev_l=INT_MAX,prev_h=INT_MAX;
+			while(low<high){
+				if (nums[low]==prev_l){    //to ensure not to include duplicates
+					low++;
+					continue;
+				}
+				if(nums[high]==prev_h){   //to ensure not to include duplicates
+					high--;
+					continue;
+				}
+				int temp=nums[i]+nums[low]+nums[high];
+				if(temp==0){
+					result.push_back({nums[i],nums[low],nums[high]});
+					prev_l=nums[low];
+					prev_h=nums[high];
+					low++;
+					high--;
+				}
+				else if(temp<0){    //if sum is -ve it means we need to add a greater number so increase lower bound
+					prev_l=nums[low];
+					low++;
+				} 
+				else{        //if sum is +ve it means we need to add a smaller number so decrease higher bound
+					prev_h=nums[high];
+					high--;
+				}
+			}	
+		}
+	}
+	for(int i=0;i<result.size();i++){
+		cout<<result[i][0]<<" "<<result[i][1]<<" "<<result[i][2]<<nline;
+	}
+	return result;
+}
 void solve() {
-	int n,k;
-	cin>>n>>k;
+	int n;
+	cin>>n;
 	vector<int> vec;
 	input_vec(vec,n);
-	threeSum(vec,k);
+	threeSum(vec);
 
 }
 
