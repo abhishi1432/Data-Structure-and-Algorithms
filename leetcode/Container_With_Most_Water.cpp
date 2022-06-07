@@ -87,8 +87,46 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}
 /*=================================================================*/
 
-int maxArea(vector<int>& height){
+int maxArea_naive(vector<int>& height){
 
+	/*
+		Time complexity is O(n^2)
+	*/
+	int len=height.size();
+	int result=INT_MIN;
+	for(int i=0;i<len;i++){
+		// int min_val=height[i];
+		for(int j=i+1;j<len;j++){
+			// if(height[j]<min_val)
+			// 	min_val = height[j];
+			int temp= (j-i) * min(height[i],height[j]);
+			if(temp>result)
+			result =temp; 
+
+		}
+	}
+	return result;
+}
+
+int maxArea(vector<int>& height) {
+	int len = height.size();
+	int low = 0, high = len-1;
+	int result = INT_MIN;
+	int height_low = height[low],height_high = height[high];
+	while(low<high){
+		result = max(result , min(height_low,height_high)* (high-low));
+		if(height[low]<=height[high]){
+			low++;
+			if(height[low]>height_low)
+				height_low = height[low];
+		}
+		else{
+			high--;
+			if(height[high]>height_high)
+				height_high = height[high];
+		}
+	}
+	return result;
 }
 
 void solve() {
@@ -96,6 +134,7 @@ void solve() {
 	cin>>n;
 	vector<int> vec;
 	input_vec(vec,n);
+	cout<<maxArea_naive(vec)<<nline;
 	cout<<maxArea(vec)<<nline;
 
 }

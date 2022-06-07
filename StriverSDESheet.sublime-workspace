@@ -1,0 +1,708 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"IN",
+				"INT_MIN"
+			],
+			[
+				"MA",
+				"INT_MAX"
+			],
+			[
+				"co",
+				"coinChange2"
+			],
+			[
+				"coinch",
+				"coinChange"
+			],
+			[
+				"minco",
+				"mincoin"
+			],
+			[
+				"coin",
+				"coinChange"
+			],
+			[
+				"ma",
+				"maxSum"
+			],
+			[
+				"for",
+				"for_sum2"
+			],
+			[
+				"ve",
+				"vec"
+			],
+			[
+				"bin",
+				"bit_no"
+			],
+			[
+				"max",
+				"maxProd"
+			],
+			[
+				"curr",
+				"currMin"
+			],
+			[
+				"cur",
+				"currMin"
+			],
+			[
+				"cum",
+				"currMax"
+			],
+			[
+				"Cou",
+				"CountAndSay"
+			],
+			[
+				"min",
+				"minCoins"
+			],
+			[
+				"INT",
+				"INT_MAX"
+			],
+			[
+				"re",
+				"reverseString"
+			],
+			[
+				"c",
+				"CPP_template()"
+			],
+			[
+				"tra",
+				"trappingWater_method4"
+			],
+			[
+				"mx_",
+				"mx_left"
+			],
+			[
+				"find",
+				"find3numbers_usingSorting_and_TwoPointer"
+			],
+			[
+				"second",
+				"second_sell"
+			],
+			[
+				"firs",
+				"first_buy"
+			],
+			[
+				"bes",
+				"best_time_maxprofit3_method3"
+			],
+			[
+				"tem",
+				"temp2"
+			],
+			[
+				"print",
+				"print_vec"
+			],
+			[
+				"n",
+				"n_pos"
+			],
+			[
+				"trac",
+				"track1"
+			],
+			[
+				"ad",
+				"addEdge"
+			],
+			[
+				"Arr",
+				"ArrayChallenge"
+			],
+			[
+				"prin",
+				"printEdgeList"
+			],
+			[
+				"get",
+				"getWeight"
+			],
+			[
+				"des",
+				"destVertexID"
+			],
+			[
+				"set",
+				"setStateName"
+			],
+			[
+				"pus",
+				"push_back"
+			],
+			[
+				"state_",
+				"state_id"
+			],
+			[
+				"dest",
+				"destVertexID"
+			],
+			[
+				"extra",
+				"extractMax"
+			],
+			[
+				"extract",
+				"extractMax"
+			],
+			[
+				"Max",
+				"MaxHeap"
+			],
+			[
+				"He",
+				"MinHeapify"
+			],
+			[
+				"Min",
+				"MinHeapify"
+			],
+			[
+				"pr",
+				"printArray"
+			],
+			[
+				"heap",
+				"MinHeapify"
+			],
+			[
+				"inser",
+				"insertKey"
+			],
+			[
+				"dele",
+				"deleteNode"
+			],
+			[
+				"qu",
+				"Queries"
+			],
+			[
+				"sele",
+				"selectivity"
+			],
+			[
+				"prit",
+				"print_vec"
+			],
+			[
+				"inse",
+				"insertKey"
+			],
+			[
+				"temp",
+				"tempNode"
+			],
+			[
+				"t",
+				"tempNode"
+			],
+			[
+				"queu",
+				"queue"
+			],
+			[
+				"ne",
+				"next"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/F/Tech learn and project/coding/StriverSDESheet/StriverSDESheet/input.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					1,
+					"insert",
+					{
+						"characters": "1"
+					},
+					"AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					6,
+					1,
+					"left_delete",
+					null,
+					"AQAAAAAAAAAAAAAAAAAAAAAAAAABAAAAMQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		},
+		{
+			"file": "/F/Tech learn and project/coding/StriverSDESheet/StriverSDESheet/output.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					4,
+					1,
+					"left_delete",
+					null,
+					"AQAAAAAAAAAAAAAAAAAAAAAAAAABAAAAMQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		},
+		{
+			"file": "/F/Tech learn and project/coding/StriverSDESheet/StriverSDESheet/error.txt",
+			"settings":
+			{
+				"buffer_size": 1,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					1,
+					1,
+					"insert",
+					{
+						"characters": "error"
+					},
+					"BQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAMAAAAAAAAAAAAAAAMAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAFAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					2,
+					5,
+					"left_delete",
+					null,
+					"BQAAAAQAAAAAAAAABAAAAAAAAAABAAAAcgMAAAAAAAAAAwAAAAAAAAABAAAAbwIAAAAAAAAAAgAAAAAAAAABAAAAcgEAAAAAAAAAAQAAAAAAAAABAAAAcgAAAAAAAAAAAAAAAAAAAAABAAAAZQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAFAAAAAAAAAAUAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					6,
+					1,
+					"left_delete",
+					null,
+					"AQAAAAAAAAAAAAAAAAAAAAAAAAALAAAAbiAxClRpbWU6IDA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAALAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/F/Tech learn and project/coding/StriverSDESheet/StriverSDESheet"
+	],
+	"file_history":
+	[
+		"/F/Tech learn and project/coding/StriverSDESheet/StriverSDESheet/ques1.cpp",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/Three_Sum.cpp",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/DailyChallange_CoinChange.cpp",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/error.txt",
+		"/E/json",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/Container_With_Most_Water.cpp",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/Missing_Number.cpp",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/Counting_Bits.cpp",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/Kira_amazon.cpp",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/Climbing_Stairs.cpp",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/Reverse_Bits.cpp",
+		"/C/Users/Abhishek Wisteli/Desktop/backupProcessingPipeline.js",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/Number_Of_1_Bits.cpp",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/Sum_Of_Two_Integers.cpp",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/Search_In_Rotated_Sorted_Array.cpp",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/Minimum_In_Rotated_Sorted_Array.cpp",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/Product_Of_Array_Except_Self.cpp",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/Maximum_Subarray.cpp",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/Maximum_Product_Subarray.cpp",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/Maximum_Product_Of_Three_Numbers.cpp",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/Contains_Duplicate.cpp",
+		"/C/Users/Abhishek Wisteli/AppData/Roaming/Sublime Text/Packages/User/CPP_template.sublime-snippet",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/Two_Sum.cpp",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/Best_Time_To_Buy_And_Sell_Stock.cpp",
+		"/F/Tech learn and project/coding/CPP practice/leetcode/Two Sum.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/String_ques7.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/DP_Ques1.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques10.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques11.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/String_ques2.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/String_ques1.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/String_ques3.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/String_ques5.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques36.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_Ques35.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/error.txt",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/output.txt",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/input.txt",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques34.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques30.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques33.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques32.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques31.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques29.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques19.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques28.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques26.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques18.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques25.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/fileInput (1).txt.crdownload",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques9.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques24.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques23.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques22.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques21.cpp",
+		"/F/Tech learn and project/coding/CPP practice/love babbar/Array_ques20.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/LinkedList.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/friend_class.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/Codevita2022_ques1.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/Codevita2022_ques2.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/Codevita2022_ques4.py",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/graph_adjacencyList_cycleCheck_Directed.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/graph_adjacencyList_cycleCheck_Undirected.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/segmentTree_range_Query.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/deepti.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/shubham_chocolate.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/graph_adjacencyList_SimpleUsingArrayOfVector_gfg.cpp",
+		"/C/Users/Abhishek Wisteli/Desktop/Screenshot 2022-02-04 100917.png",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/graph_adjacencyList_ComplexUsingYoutube.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/prakhar.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/output.txt",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/bianryheap.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/Stack.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/Queue.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/Binarytree.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/BinaryTreeViaArray.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/BinarySearchTree.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/temp.cpp",
+		"/F/Tech learn and project/coding/CPP practice/learn DS/anupamq2.cpp",
+		"/G/Desktop Folders/Tech learn and project/coding/CPP practice/output.txt",
+		"/G/Desktop Folders/Tech learn and project/coding/CPP practice/error.txt",
+		"/G/Desktop Folders/Tech learn and project/coding/CPP practice/input.txt",
+		"/G/Desktop Folders/Tech learn and project/coding/CPP practice/hello.cpp",
+		"/C/Users/Abhishek Wisteli/AppData/Roaming/Sublime Text/Packages/User/hello.cpp"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"path": "F:\\Tech learn and project\\coding\\StriverSDESheet\\StriverSDESheet"
+		}
+	],
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/F/Tech learn and project/coding/StriverSDESheet/StriverSDESheet/input.txt",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "/F/Tech learn and project/coding/StriverSDESheet/StriverSDESheet/output.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/F/Tech learn and project/coding/StriverSDESheet/StriverSDESheet/error.txt",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 40.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				2
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.748081841432,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.5,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 120.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/CPP.sublime-build",
+	"project": "",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"last_automatic_layout":
+		[
+			[
+				0,
+				0,
+				1,
+				2
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		]
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 193.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}
