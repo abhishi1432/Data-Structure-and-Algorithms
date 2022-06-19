@@ -87,81 +87,53 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}
 /*=================================================================*/
 
-int climbStairs(int n){
-	vector<int> arr = {1,2};
-	int m=2;
-	vector<vector<int>> dp(m, vector<int>(n+1,0));
-	for(int i=0;i<m;i++)
-		dp[i][0]=1;
-	for(int j=0;j<=n;j++)
-		dp[0][j] = j%arr[0]==0 ? 1: 0; 
-	for(int i=1;i<m;i++){
-		for(int j=1;j<=n;j++){
-			if(arr[i]>j)
-				dp[i][j]=dp[i-1][j];
-			else{
-				dp[i][j] = dp[i-1][j] + dp[i][j-arr[i]];
-			}
-		}
-	}
-	return dp[m-1][n];
+int climbStairs_naive(int n){
+	/*
+	Recursion : Time Complexity of this code is O(2^n)
+	*/
+	if(n<0)
+		return 0;
+	if(n==0)
+		return 1;
+	return climbStairs_naive(n-1)+climbStairs_naive(n-2);
+}
+int climbStairs(int n,vector<long> dp){
+	/*
+		using recursion and memoization
+		This code is also giving TLE in leetcode
+	*/
+	if(n<0)
+        return 0;
+    if(n==0)
+        return 1;
+    if(n-1>=0 && n-2>=0){
+        if(dp[n-1]==-1 && dp[n-2]==-1)
+            dp[n] = climbStairs(n-1,dp)+climbStairs(n-2,dp);
+        else if (dp[n-1] == -1)
+            dp[n] = climbStairs(n-1, dp)  + dp[n-2];
+        else if (dp[n-2] == -1)
+            dp[n] = dp[n-1]+ climbStairs(n-2, dp);
+        else
+            dp[n] = dp[n-1]+dp[n-2];
+    }
+    return dp[n];
 }
 
-int CoinChange(int n,int m, vector<int> arr){
+int climbStairs_usingDP(int n){
 	/*
-	This finds the total number of ways to make sum n using m denominations given in arr, and 
-	thsese denominations are available in infinite amount.
-
-	Time complexity of this solution is O(n*m) + O(mlog(m)) = O(m*n)
-	Space complexity is O(m*n)
-	Source: Jenny's lecture
+		==> Here we will calculate the n+1th fibonacci like term strting from first two terms  as 1 and 1.
+		==> Time complexity of this solution is O(n) and Space in O(n)
+		==> space can be optimized by using two varibles to store the last two fibonacci terms.
+		==> REfrence : https://youtu.be/Y0lT9Fck7qI
 	*/
-	sort(all(arr));
-	vector<vector<int>> dp(m, vector<int>(n+1,0));
-	for(int i=0;i<m;i++)
-		dp[i][0]=1;
-	for(int j=0;j<=n;j++)
-		dp[0][j] = j%arr[0]==0 ? 1: 0; 
-	for(int i=1;i<m;i++){
-		for(int j=1;j<=n;j++){
-			if(arr[i]>j)
-				dp[i][j]=dp[i-1][j];
-			else{
-				dp[i][j] = dp[i-1][j] + dp[i][j-arr[i]];
-			}
-		}
+	int one=1,two=1;
+	for(int i=1;i<n;i++){
+		int temp=one;
+		one = one+two;
+		two =temp;
 	}
-	for(int i=0;i<m;i++){
-		for(int j=0;j<=n;j++)
-			cout<<dp[i][j]<<" ";
-		cout<<nline;
-	}
-	return dp[m-1][n];
-}
-int minCoins_Helper(int nn,int m,vector<int> arr){
+	return one;
 
- 	if(nn<=0)
- 		return 0;
- 	int ans=INT_MAX;
- 	for(int i=0;i<m;i++){
- 		if(nn-arr[i]>=0){
- 			int subResult= minCoins_Helper(nn-arr[i],m,arr);
- 			if (subResult!=INT_MAX && subResult+1<ans)
- 			 		ans = subResult+1;
- 		}
- 	}
- }
-
-int minCoins(int n,int m,vector<int> arr){
-	/*
-	This finds the minimum number of coins needed to make sum n using denominations given in arr
-	Time complexity is O(m^n) as we are using recursion
-	Space complexity is O(1)
-	Source: Anuj bhaiya
-	*/
-
-	int ans= minCoins_Helper(n,m,arr);
-	return ans;
 }
 void solve() {
 
@@ -170,14 +142,24 @@ void solve() {
 			1 2 3
 		
 	*/
-	int n,m;
-	cin>>n>>m;
-	vector<int> vec;
-	input_vec(vec,m);
-	// print_vec(vec);
-	cout<<CoinChange(n,m,vec);
-	cout<<minCoins(n,m,vec);
+	int n;
+	cin>>n;
+	cout<<climbStairs_naive(n)<<nline;
 
+
+	vector<long> dp(n+1,-1);
+    dp[0]=1;
+    dp[1]=1;
+    if(n==1)
+        cout<< 1<<nline;
+    else if(n==2)
+        cout<< 2<<nline;
+    else{
+        dp[2] = 2;
+        cout<<climbStairs(n,dp)<<nline;
+    }
+
+    cout<<climbStairs_usingDP(n);
 }
 
 

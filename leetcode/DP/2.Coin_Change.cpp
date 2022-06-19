@@ -41,15 +41,12 @@ template <class T, class V> void _print(pair <T, V> p);
 template <class T> void _print(vector <T> v);
 template <class T> void _print(set <T> v);
 template <class T, class V> void _print(map <T, V> v);
-template <class T, class V> void _print(unordered_map <T, V> v);
 template <class T> void _print(multiset <T> v);
 template <class T, class V> void _print(pair <T, V> p) {cerr << "{"; _print(p.ff); cerr << ","; _print(p.ss); cerr << "}";}
 template <class T> void _print(vector <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
-template <class T, class V> void _print(unordered_map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
-
 
 /*==============================================================*/
 /*    Newly added templates */
@@ -83,54 +80,13 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll mod_div(ll a, ll b, ll m) {a = a % m; b = b % m; return (mod_mul(a, mminvprime(b, m), m) + m) % m;}  //only for prime m
 // ll phin(ll n) {ll number = n; if (n % 2 == 0) {number /= 2; while (n % 2 == 0) n /= 2;} for (ll i = 3; i <= sqrt(n); i += 2) {if (n % i == 0) {while (n % i == 0)n /= i; number = (number / i * (i - 1));}} if (n > 1)number = (number / n * (n - 1)) ; return number;} //O(sqrt(N))
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
-// bool cmp(const pair<int,int> &a,const pair<int,int>&b){if(a.second == b.second){return a.first < b.first;}return a.second < b.second;}
+
 /*=================================================================*/
 
 
 void solve() {
-	int m,n;
-	cin>>m>>n;
-	int row=max(m,n);
-	vector<vector<int>> vec( row , vector<int> (row, 0)); 
-	for(int i=0;i<m;i++){
-		for(int j=0;j<n;j++){
-			int x;
-			cin>>x;
-			vec[i][j]=x;
-		}
-	}
-	for(int i=0;i<row;i++){
-		for(int j=0;j<row;j++){
-			cout<<vec[i][j]<<" ";
-		}
-		cout<<nline;
-	}
-	map<int,vector<int>> ans;
-	int maxSum=0;
-	for(int i=0;i<row;i++){
-		int low=0,high=row-1,mid=i;;
-		int sum=0,sum2=0;
-		vector<int> for_sum;
-		vector<int> for_sum2;
-		
-		while(low<=i){
-			sum+=vec[low][mid];
-			for_sum.push_back(vec[low][mid]);
-			sum2+=vec[row-1-mid][row-1-low];
-			for_sum2.push_back(vec[row-1-mid][row-1-low]);
-			low++;
-			mid--;
-		}
-		ans[sum]=for_sum;
-		ans[sum2]=for_sum2;
-		maxSum=max(sum2,maxSum);
-		maxSum=max(sum,maxSum);
-	}
-	cout<<maxSum<<nline;
-	sort(ans[maxSum].begin(),ans[maxSum].end(),greater<>());
-	for(int i=0;i<ans[maxSum].size();i++){
-		cout<<ans[maxSum][i]<<" ";
-	}
+	
+
 }
 
 

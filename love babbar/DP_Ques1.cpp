@@ -107,11 +107,11 @@ int CoinChange(int n,int m, vector<int> arr){
 			}
 		}
 	}
-	for(int i=0;i<m;i++){
-		for(int j=0;j<=n;j++)
-			cout<<dp[i][j]<<" ";
-		cout<<nline;
-	}
+	// for(int i=0;i<m;i++){
+	// 	for(int j=0;j<=n;j++)
+	// 		cout<<dp[i][j]<<" ";
+	// 	cout<<nline;
+	// }
 	return dp[m-1][n];
 }
 int minCoins_Helper(int nn,int m,vector<int> arr){
@@ -171,8 +171,8 @@ void solve() {
 	vector<int> vec;
 	input_vec(vec,m);
 	// print_vec(vec);
-	// cout<<CoinChange(n,m,vec);
-	cout<<minCoins(n,m,vec);
+	// cout<<CoinChange(n,m,vec)<<nline;
+	cout<<minCoins(n,m,vec)<<nline;
 
 }
 
