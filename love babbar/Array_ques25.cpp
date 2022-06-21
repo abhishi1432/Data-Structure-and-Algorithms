@@ -118,7 +118,7 @@ int findLongestConseqSubseq(vector<int> arr, int N){
  	if(n==0)
  		return 0;
  	sort(nums.begin(),nums.end());
- 	print_vec(nums);
+ 	// print_vec(nums);
  	int prev_elem=nums[0];
  	int ans=1;
  	int result=1;
@@ -129,6 +129,23 @@ int findLongestConseqSubseq(vector<int> arr, int N){
  	}
  	return result;
  }
+int findLongestConseqSubseq_hashing(vector<int>nums,int n){
+	map<int,int>mp;
+	for(int i=0;i<n;i++){
+		mp[nums[i]]++;
+	}
+	int prev_elem =INT_MAX;
+	int result=1,ans=1;
+	for(auto itr:mp){
+		if(prev_elem+1==itr.first)
+			ans++;
+		else
+			ans=1;
+		prev_elem=itr.first;
+		result=max(result,ans);
+	}
+	return result;
+}
 
 void solve() {
 	int n;
@@ -139,6 +156,7 @@ void solve() {
 	// print_vec(arr);
 	cout<<findLongestConseqSubseq(arr,n)<<nline;
 	cout<<findLongestConseqSubseq_sort(arr,n)<<nline;
+	cout<<findLongestConseqSubseq_hashing(arr,n)<<nline;
 }
 
 
