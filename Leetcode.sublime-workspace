@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"max",
+				"maxSubArray"
+			],
+			[
+				"print",
+				"print_vec"
+			],
+			[
 				"clim",
 				"climbStairs_usingDP"
 			],
@@ -46,10 +54,6 @@
 			[
 				"bin",
 				"bit_no"
-			],
-			[
-				"max",
-				"maxProd"
 			],
 			[
 				"curr",
@@ -110,10 +114,6 @@
 			[
 				"tem",
 				"temp2"
-			],
-			[
-				"print",
-				"print_vec"
 			],
 			[
 				"n",
@@ -231,6 +231,1148 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "Leetcode/Maximum_sum_subarray.cpp",
+			"settings":
+			{
+				"buffer_size": 5616,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					1,
+					1,
+					"insert",
+					{
+						"characters": "C"
+					},
+					"AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					2,
+					1,
+					"insert_completion",
+					{
+						"completion": "/*\n\tA B H I S H E K    S I N G H\n*/\n\n#include<bits/stdc++.h>\nusing namespace std;\nusing namespace chrono;\n\n#define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)\n#define MOD 1000000007\n#define MOD1 998244353\n#define INF 1e18\n#define nline \"\\n\"\n#define pb push_back\n#define ppb pop_back\n#define mp make_pair\n#define ff first\n#define ss second\n#define PI 3.141592653589793238462\n#define set_bits __builtin_popcountll\n#define sz(x) ((int)(x).size())\n#define all(x) (x).begin(), (x).end()\n#define all_rev(x) (x).rbegin(), (x).rend()\n\n#ifndef ONLINE_JUDGE\n#define debug(x) cerr << #x <<\" \"; _print(x); cerr << endl;\n#else\n#define debug(x);\n#endif\n\ntypedef long long ll;\ntypedef unsigned long long ull;\ntypedef long double lld;\n\n\n/*============================================================*/\n/*    debug() functions */\n\ntemplate <class T> void _print(T t) {cerr << t;}  \ntemplate <class T, class V> void _print(pair <T, V> p);\ntemplate <class T> void _print(vector <T> v);\ntemplate <class T> void _print(set <T> v);\ntemplate <class T, class V> void _print(map <T, V> v);\ntemplate <class T> void _print(multiset <T> v);\ntemplate <class T, class V> void _print(pair <T, V> p) {cerr << \"{\"; _print(p.ff); cerr << \",\"; _print(p.ss); cerr << \"}\";}\ntemplate <class T> void _print(vector <T> v) {cerr << \"[ \"; for (T i : v) {_print(i); cerr << \" \";} cerr << \"]\";}\ntemplate <class T> void _print(set <T> v) {cerr << \"[ \"; for (T i : v) {_print(i); cerr << \" \";} cerr << \"]\";}\ntemplate <class T> void _print(multiset <T> v) {cerr << \"[ \"; for (T i : v) {_print(i); cerr << \" \";} cerr << \"]\";}\ntemplate <class T, class V> void _print(map <T, V> v) {cerr << \"[ \"; for (auto i : v) {_print(i); cerr << \" \";} cerr << \"]\";}\n\n/*==============================================================*/\n/*    Newly added templates */\n\ntemplate <class T> void print_vec(vector<T> v);  //printing any vector\ntemplate <class T> void print_set(set<T> s);  //printing set of any datatype\ntemplate <class T> void input_vec(vector<T> &v , int n);  //taking input of n elements of any data type into a vector\ntemplate <class T, class V, class X>V binarySearch(vector<T> a, V n, X item);  //binary search on vector\ntemplate <class T> void print_vec(vector<T> v){ for(T i:v){ cout<<i<<\" \";}cout<<nline;} \ntemplate <class T> void print_set(set<T> s){for(T i:s){cout<<i<<\" \";}cout<<nline;}  \ntemplate <class T> void input_vec(vector<T> &v , int n){for(int i=0;i<n;i++){int temp;cin>>temp;v.pb(temp);}}   \ntemplate <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V low = 0; V high = n - 1; while(low<=high){{V mid = (low + high)/2; if (a[mid] == item) return mid; else if (a[mid] < item) low = mid + 1; else high = mid - 1;}} return -1;}\n\n/*===============================================================*/\n\n/*  Special puropose functions */\n\n// ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}\n// ll expo(ll a, ll b, ll mod) {ll res = 1; while (b > 0) {if (b & 1)res = (res * a) % mod; a = (a * a) % mod; b = b >> 1;} return res;}\n// void extendgcd(ll a, ll b, ll*v) {if (b == 0) {v[0] = 1; v[1] = 0; v[2] = a; return ;} extendgcd(b, a % b, v); ll x = v[1]; v[1] = v[0] - v[1] * (a / b); v[0] = x; return;} //pass an arry of size1 3\n// ll mminv(ll a, ll b) {ll arr[3]; extendgcd(a, b, arr); return arr[0];} //for non prime b\n// ll mminvprime(ll a, ll b) {return expo(a, b - 2, b);}\n// bool revsort(ll a, ll b) {return a > b;}\n// void swap(int &x, int &y) {int temp = x; x = y; y = temp;}\n// ll combination(ll n, ll r, ll m, ll *fact, ll *ifact) {ll val1 = fact[n]; ll val2 = ifact[n - r]; ll val3 = ifact[r]; return (((val1 * val2) % m) * val3) % m;}\n// void google(int t) {cout << \"Case #\" << t << \": \";}\n// vector<ll> sieve(int n) {int*arr = new int[n + 1](); vector<ll> vect; for (int i = 2; i <= n; i++)if (arr[i] == 0) {vect.push_back(i); for (int j = 2 * i; j <= n; j += i)arr[j] = 1;} return vect;}\n// ll mod_add(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a + b) % m) + m) % m;}\n// ll mod_mul(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a * b) % m) + m) % m;}\n// ll mod_sub(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) % m;}\n// ll mod_div(ll a, ll b, ll m) {a = a % m; b = b % m; return (mod_mul(a, mminvprime(b, m), m) + m) % m;}  //only for prime m\n// ll phin(ll n) {ll number = n; if (n % 2 == 0) {number /= 2; while (n % 2 == 0) n /= 2;} for (ll i = 3; i <= sqrt(n); i += 2) {if (n % i == 0) {while (n % i == 0)n /= i; number = (number / i * (i - 1));}} if (n > 1)number = (number / n * (n - 1)) ; return number;} //O(sqrt(N))\n// ll lcm(int a, int b){return (a / gcd(a, b)) * b;}\n\n/*=================================================================*/\n\n\nvoid solve() {\n\t\n\n}\n\n\nint main() {\n\tfastio();\n#ifndef ONLINE_JUDGE\n\tfreopen(\"error.txt\", \"w\", stderr);\n#endif\n\tauto start1 = high_resolution_clock::now();\n\tsolve();\n\tauto stop1 = high_resolution_clock::now();\n\tauto duration = duration_cast<microseconds>(stop1 - start1);\n#ifndef ONLINE_JUDGE\n\tcerr << \"Time: \" << duration . count() / 1000 << endl;\n#endif\n\treturn 0;\n}",
+						"format": "snippet",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "CPP_template()"
+					},
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAABAAAAQwAAAAAAAAAABBQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					5,
+					1,
+					"paste",
+					null,
+					"AQAAAJMSAAAAAAAAaRQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACTEgAAAAAAAJMSAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					8,
+					1,
+					"unindent",
+					null,
+					"DgAAALgSAAAAAAAAuBIAAAAAAAAEAAAAICAgIOsSAAAAAAAA6xIAAAAAAAAEAAAAICAgIAUTAAAAAAAABRMAAAAAAAAEAAAAICAgICgTAAAAAAAAKBMAAAAAAAAEAAAAICAgIC4TAAAAAAAALhMAAAAAAAAEAAAAICAgIGMTAAAAAAAAYxMAAAAAAAAEAAAAICAgII4TAAAAAAAAjhMAAAAAAAAEAAAAICAgILgTAAAAAAAAuBMAAAAAAAAEAAAAICAgIMITAAAAAAAAwhMAAAAAAAAEAAAAICAgIOQTAAAAAAAA5BMAAAAAAAAEAAAAICAgIAUUAAAAAAAABRQAAAAAAAAEAAAAICAgIA8UAAAAAAAADxQAAAAAAAAEAAAAICAgIBUUAAAAAAAAFRQAAAAAAAAEAAAAICAgICwUAAAAAAAALBQAAAAAAAAEAAAAICAgIA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADAEgAAAAAAAGkUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					10,
+					4,
+					"left_delete",
+					null,
+					"BAAAAC8UAAAAAAAALxQAAAAAAAABAAAAIC4UAAAAAAAALhQAAAAAAAABAAAAIC0UAAAAAAAALRQAAAAAAAABAAAAICwUAAAAAAAALBQAAAAAAAABAAAAIA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAwFAAAAAAAADAUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					14,
+					1,
+					"insert",
+					{
+						"characters": "int"
+					},
+					"AwAAAD8UAAAAAAAAQBQAAAAAAAAAAAAAQBQAAAAAAABBFAAAAAAAAAAAAABBFAAAAAAAAEIUAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA/FAAAAAAAAD8UAAAAAAAAAAAAAACASEA"
+				],
+				[
+					15,
+					1,
+					"insert",
+					{
+						"characters": " n;"
+					},
+					"AwAAAEIUAAAAAAAAQxQAAAAAAAAAAAAAQxQAAAAAAABEFAAAAAAAAAAAAABEFAAAAAAAAEUUAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABCFAAAAAAAAEIUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					16,
+					1,
+					"insert",
+					{
+						"characters": "\ncon"
+					},
+					"BQAAAEUUAAAAAAAARhQAAAAAAAAAAAAARhQAAAAAAABHFAAAAAAAAAAAAABHFAAAAAAAAEgUAAAAAAAAAAAAAEgUAAAAAAAASRQAAAAAAAAAAAAASRQAAAAAAABKFAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABFFAAAAAAAAEUUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					17,
+					1,
+					"left_delete",
+					null,
+					"AQAAAEkUAAAAAAAASRQAAAAAAAABAAAAbg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABKFAAAAAAAAEoUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					18,
+					1,
+					"insert",
+					{
+						"characters": "in"
+					},
+					"AgAAAEkUAAAAAAAAShQAAAAAAAAAAAAAShQAAAAAAABLFAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABJFAAAAAAAAEkUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					19,
+					3,
+					"left_delete",
+					null,
+					"AwAAAEoUAAAAAAAAShQAAAAAAAABAAAAbkkUAAAAAAAASRQAAAAAAAABAAAAaUgUAAAAAAAASBQAAAAAAAABAAAAbw",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABLFAAAAAAAAEsUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					20,
+					1,
+					"insert",
+					{
+						"characters": "in>>n;"
+					},
+					"BgAAAEgUAAAAAAAASRQAAAAAAAAAAAAASRQAAAAAAABKFAAAAAAAAAAAAABKFAAAAAAAAEsUAAAAAAAAAAAAAEsUAAAAAAAATBQAAAAAAAAAAAAATBQAAAAAAABNFAAAAAAAAAAAAABNFAAAAAAAAE4UAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABIFAAAAAAAAEgUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					21,
+					1,
+					"insert",
+					{
+						"characters": "\nvec"
+					},
+					"BQAAAE4UAAAAAAAATxQAAAAAAAAAAAAATxQAAAAAAABQFAAAAAAAAAAAAABQFAAAAAAAAFEUAAAAAAAAAAAAAFEUAAAAAAAAUhQAAAAAAAAAAAAAUhQAAAAAAABTFAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABOFAAAAAAAAE4UAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					22,
+					1,
+					"insert",
+					{
+						"characters": "tor<int"
+					},
+					"BwAAAFMUAAAAAAAAVBQAAAAAAAAAAAAAVBQAAAAAAABVFAAAAAAAAAAAAABVFAAAAAAAAFYUAAAAAAAAAAAAAFYUAAAAAAAAVxQAAAAAAAAAAAAAVxQAAAAAAABYFAAAAAAAAAAAAABYFAAAAAAAAFkUAAAAAAAAAAAAAFkUAAAAAAAAWhQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABTFAAAAAAAAFMUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					23,
+					1,
+					"insert",
+					{
+						"characters": ">ar"
+					},
+					"AwAAAFoUAAAAAAAAWxQAAAAAAAAAAAAAWxQAAAAAAABcFAAAAAAAAAAAAABcFAAAAAAAAF0UAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABaFAAAAAAAAFoUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					24,
+					1,
+					"insert",
+					{
+						"characters": "r;"
+					},
+					"AgAAAF0UAAAAAAAAXhQAAAAAAAAAAAAAXhQAAAAAAABfFAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABdFAAAAAAAAF0UAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					25,
+					1,
+					"insert",
+					{
+						"characters": "\nin"
+					},
+					"BAAAAF8UAAAAAAAAYBQAAAAAAAAAAAAAYBQAAAAAAABhFAAAAAAAAAAAAABhFAAAAAAAAGIUAAAAAAAAAAAAAGIUAAAAAAAAYxQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABfFAAAAAAAAF8UAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					26,
+					1,
+					"insert_completion",
+					{
+						"completion": "int",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "int"
+					},
+					"AgAAAGEUAAAAAAAAYRQAAAAAAAACAAAAaW5hFAAAAAAAAGQUAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABjFAAAAAAAAGMUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					27,
+					1,
+					"left_delete",
+					null,
+					"AQAAAGMUAAAAAAAAYxQAAAAAAAABAAAAdA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABkFAAAAAAAAGQUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					28,
+					1,
+					"insert",
+					{
+						"characters": "p"
+					},
+					"AQAAAGMUAAAAAAAAZBQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABjFAAAAAAAAGMUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					29,
+					1,
+					"insert_completion",
+					{
+						"completion": "input_vec",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "input_vec"
+					},
+					"AgAAAGEUAAAAAAAAYRQAAAAAAAADAAAAaW5wYRQAAAAAAABqFAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABkFAAAAAAAAGQUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					30,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAGoUAAAAAAAAbBQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABqFAAAAAAAAGoUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					31,
+					1,
+					"insert",
+					{
+						"characters": "arr,m"
+					},
+					"BQAAAGsUAAAAAAAAbBQAAAAAAAAAAAAAbBQAAAAAAABtFAAAAAAAAAAAAABtFAAAAAAAAG4UAAAAAAAAAAAAAG4UAAAAAAAAbxQAAAAAAAAAAAAAbxQAAAAAAABwFAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABrFAAAAAAAAGsUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					32,
+					1,
+					"left_delete",
+					null,
+					"AQAAAG8UAAAAAAAAbxQAAAAAAAABAAAAbQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABwFAAAAAAAAHAUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					33,
+					1,
+					"insert",
+					{
+						"characters": "n"
+					},
+					"AQAAAG8UAAAAAAAAcBQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABvFAAAAAAAAG8UAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					35,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAAHEUAAAAAAAAchQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABxFAAAAAAAAHEUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					36,
+					1,
+					"insert",
+					{
+						"characters": "\ncout<<"
+					},
+					"CAAAAHIUAAAAAAAAcxQAAAAAAAAAAAAAcxQAAAAAAAB0FAAAAAAAAAAAAAB0FAAAAAAAAHUUAAAAAAAAAAAAAHUUAAAAAAAAdhQAAAAAAAAAAAAAdhQAAAAAAAB3FAAAAAAAAAAAAAB3FAAAAAAAAHgUAAAAAAAAAAAAAHgUAAAAAAAAeRQAAAAAAAAAAAAAeRQAAAAAAAB6FAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAByFAAAAAAAAHIUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					37,
+					1,
+					"insert",
+					{
+						"characters": "ma"
+					},
+					"AgAAAHoUAAAAAAAAexQAAAAAAAAAAAAAexQAAAAAAAB8FAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB6FAAAAAAAAHoUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					38,
+					1,
+					"insert_completion",
+					{
+						"completion": "main",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "main"
+					},
+					"AgAAAHoUAAAAAAAAehQAAAAAAAACAAAAbWF6FAAAAAAAAH4UAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB8FAAAAAAAAHwUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					39,
+					2,
+					"left_delete",
+					null,
+					"AgAAAH0UAAAAAAAAfRQAAAAAAAABAAAAbnwUAAAAAAAAfBQAAAAAAAABAAAAaQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB+FAAAAAAAAH4UAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					40,
+					1,
+					"insert",
+					{
+						"characters": "x"
+					},
+					"AQAAAHwUAAAAAAAAfRQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB8FAAAAAAAAHwUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					43,
+					1,
+					"insert_completion",
+					{
+						"completion": "maxSubArray",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "maxSubArray"
+					},
+					"AgAAAHoUAAAAAAAAehQAAAAAAAADAAAAbWF4ehQAAAAAAACFFAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB9FAAAAAAAAH0UAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					44,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAIUUAAAAAAAAhxQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACFFAAAAAAAAIUUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					45,
+					1,
+					"insert",
+					{
+						"characters": "arr"
+					},
+					"AwAAAIYUAAAAAAAAhxQAAAAAAAAAAAAAhxQAAAAAAACIFAAAAAAAAAAAAACIFAAAAAAAAIkUAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACGFAAAAAAAAIYUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					47,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAAIoUAAAAAAAAixQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACKFAAAAAAAAIoUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					49,
+					1,
+					"insert",
+					{
+						"characters": "<<nl"
+					},
+					"BAAAAIoUAAAAAAAAixQAAAAAAAAAAAAAixQAAAAAAACMFAAAAAAAAAAAAACMFAAAAAAAAI0UAAAAAAAAAAAAAI0UAAAAAAAAjhQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACKFAAAAAAAAIoUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					50,
+					1,
+					"insert_completion",
+					{
+						"completion": "nline",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "nline"
+					},
+					"AgAAAIwUAAAAAAAAjBQAAAAAAAACAAAAbmyMFAAAAAAAAJEUAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACOFAAAAAAAAI4UAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					55,
+					1,
+					"left_delete",
+					null,
+					"AQAAALUSAAAAAAAAtRIAAAAAAAABAAAAIA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAC2EgAAAAAAALYSAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		},
+		{
+			"file": "Leetcode/input.txt",
+			"settings":
+			{
+				"buffer_size": 11,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					1,
+					"insert",
+					{
+						"characters": "hello"
+					},
+					"BQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAMAAAAAAAAAAAAAAAMAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAFAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					4,
+					1,
+					"insert",
+					{
+						"characters": " this"
+					},
+					"BQAAAAUAAAAAAAAABgAAAAAAAAAAAAAABgAAAAAAAAAHAAAAAAAAAAAAAAAHAAAAAAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAACQAAAAAAAAAAAAAACQAAAAAAAAAKAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAFAAAAAAAAAAUAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					5,
+					1,
+					"insert",
+					{
+						"characters": " is"
+					},
+					"AwAAAAoAAAAAAAAACwAAAAAAAAAAAAAACwAAAAAAAAAMAAAAAAAAAAAAAAAMAAAAAAAAAA0AAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAKAAAAAAAAAAoAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					6,
+					1,
+					"insert",
+					{
+						"characters": " abhihsek"
+					},
+					"CQAAAA0AAAAAAAAADgAAAAAAAAAAAAAADgAAAAAAAAAPAAAAAAAAAAAAAAAPAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAEQAAAAAAAAAAAAAAEQAAAAAAAAASAAAAAAAAAAAAAAASAAAAAAAAABMAAAAAAAAAAAAAABMAAAAAAAAAFAAAAAAAAAAAAAAAFAAAAAAAAAAVAAAAAAAAAAAAAAAVAAAAAAAAABYAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAANAAAAAAAAAA0AAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					7,
+					1,
+					"insert",
+					{
+						"characters": " isngh"
+					},
+					"BgAAABYAAAAAAAAAFwAAAAAAAAAAAAAAFwAAAAAAAAAYAAAAAAAAAAAAAAAYAAAAAAAAABkAAAAAAAAAAAAAABkAAAAAAAAAGgAAAAAAAAAAAAAAGgAAAAAAAAAbAAAAAAAAAAAAAAAbAAAAAAAAABwAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAWAAAAAAAAABYAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					8,
+					10,
+					"left_delete",
+					null,
+					"CgAAABsAAAAAAAAAGwAAAAAAAAABAAAAaBoAAAAAAAAAGgAAAAAAAAABAAAAZxkAAAAAAAAAGQAAAAAAAAABAAAAbhgAAAAAAAAAGAAAAAAAAAABAAAAcxcAAAAAAAAAFwAAAAAAAAABAAAAaRYAAAAAAAAAFgAAAAAAAAABAAAAIBUAAAAAAAAAFQAAAAAAAAABAAAAaxQAAAAAAAAAFAAAAAAAAAABAAAAZRMAAAAAAAAAEwAAAAAAAAABAAAAcxIAAAAAAAAAEgAAAAAAAAABAAAAaA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAcAAAAAAAAABwAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					9,
+					1,
+					"insert",
+					{
+						"characters": "shek"
+					},
+					"BAAAABIAAAAAAAAAEwAAAAAAAAAAAAAAEwAAAAAAAAAUAAAAAAAAAAAAAAAUAAAAAAAAABUAAAAAAAAAAAAAABUAAAAAAAAAFgAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAASAAAAAAAAABIAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					10,
+					1,
+					"insert",
+					{
+						"characters": " singh"
+					},
+					"BgAAABYAAAAAAAAAFwAAAAAAAAAAAAAAFwAAAAAAAAAYAAAAAAAAAAAAAAAYAAAAAAAAABkAAAAAAAAAAAAAABkAAAAAAAAAGgAAAAAAAAAAAAAAGgAAAAAAAAAbAAAAAAAAAAAAAAAbAAAAAAAAABwAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAWAAAAAAAAABYAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					13,
+					1,
+					"left_delete",
+					null,
+					"AQAAAAAAAAAAAAAAAAAAAAAAAAAcAAAAaGVsbG8gdGhpcyBpcyBhYmhpc2hlayBzaW5naA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					17,
+					1,
+					"insert",
+					{
+						"characters": "6"
+					},
+					"AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					18,
+					1,
+					"insert",
+					{
+						"characters": " 2"
+					},
+					"AgAAAAEAAAAAAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAADAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					19,
+					1,
+					"insert",
+					{
+						"characters": "\n3"
+					},
+					"AgAAAAMAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAFAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAADAAAAAAAAAAMAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					20,
+					1,
+					"insert",
+					{
+						"characters": " 2"
+					},
+					"AgAAAAUAAAAAAAAABgAAAAAAAAAAAAAABgAAAAAAAAAHAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAFAAAAAAAAAAUAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					21,
+					1,
+					"insert",
+					{
+						"characters": " 1"
+					},
+					"AgAAAAcAAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAJAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAHAAAAAAAAAAcAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					22,
+					1,
+					"insert",
+					{
+						"characters": " 5"
+					},
+					"AgAAAAkAAAAAAAAACgAAAAAAAAAAAAAACgAAAAAAAAALAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAJAAAAAAAAAAkAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					23,
+					1,
+					"insert",
+					{
+						"characters": " 6"
+					},
+					"AgAAAAsAAAAAAAAADAAAAAAAAAAAAAAADAAAAAAAAAANAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAALAAAAAAAAAAsAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					24,
+					1,
+					"insert",
+					{
+						"characters": " 4"
+					},
+					"AgAAAA0AAAAAAAAADgAAAAAAAAAAAAAADgAAAAAAAAAPAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAANAAAAAAAAAA0AAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					27,
+					8,
+					"left_delete",
+					null,
+					"CAAAAA4AAAAAAAAADgAAAAAAAAABAAAANA0AAAAAAAAADQAAAAAAAAABAAAAIAwAAAAAAAAADAAAAAAAAAABAAAANgsAAAAAAAAACwAAAAAAAAABAAAAIAoAAAAAAAAACgAAAAAAAAABAAAANQkAAAAAAAAACQAAAAAAAAABAAAAIAgAAAAAAAAACAAAAAAAAAABAAAAMQcAAAAAAAAABwAAAAAAAAABAAAAIA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAPAAAAAAAAAA8AAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					28,
+					1,
+					"insert",
+					{
+						"characters": " 3"
+					},
+					"AgAAAAcAAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAJAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAHAAAAAAAAAAcAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					29,
+					1,
+					"insert",
+					{
+						"characters": " 1"
+					},
+					"AgAAAAkAAAAAAAAACgAAAAAAAAAAAAAACgAAAAAAAAALAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAJAAAAAAAAAAkAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					30,
+					1,
+					"insert",
+					{
+						"characters": " 2"
+					},
+					"AgAAAAsAAAAAAAAADAAAAAAAAAAAAAAADAAAAAAAAAANAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAALAAAAAAAAAAsAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					31,
+					1,
+					"insert",
+					{
+						"characters": " 45"
+					},
+					"AwAAAA0AAAAAAAAADgAAAAAAAAAAAAAADgAAAAAAAAAPAAAAAAAAAAAAAAAPAAAAAAAAABAAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAANAAAAAAAAAA0AAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					32,
+					1,
+					"left_delete",
+					null,
+					"AQAAAA8AAAAAAAAADwAAAAAAAAABAAAANQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAQAAAAAAAAABAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					33,
+					1,
+					"insert",
+					{
+						"characters": " 5"
+					},
+					"AgAAAA8AAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAARAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAPAAAAAAAAAA8AAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					34,
+					1,
+					"insert",
+					{
+						"characters": " 56"
+					},
+					"AwAAABEAAAAAAAAAEgAAAAAAAAAAAAAAEgAAAAAAAAATAAAAAAAAAAAAAAATAAAAAAAAABQAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAARAAAAAAAAABEAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					35,
+					1,
+					"left_delete",
+					null,
+					"AQAAABMAAAAAAAAAEwAAAAAAAAABAAAANg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAUAAAAAAAAABQAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					36,
+					1,
+					"insert",
+					{
+						"characters": " 6"
+					},
+					"AgAAABMAAAAAAAAAFAAAAAAAAAAAAAAAFAAAAAAAAAAVAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAATAAAAAAAAABMAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					39,
+					1,
+					"left_delete",
+					null,
+					"AQAAAAIAAAAAAAAAAgAAAAAAAAABAAAAMg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAADAAAAAAAAAAMAAAAAAAAAAAAAAACAYUA"
+				],
+				[
+					40,
+					1,
+					"insert",
+					{
+						"characters": "4"
+					},
+					"AQAAAAIAAAAAAAAAAwAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					42,
+					1,
+					"left_delete",
+					null,
+					"AQAAAAAAAAAAAAAAAAAAAAAAAAABAAAANg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					43,
+					1,
+					"insert",
+					{
+						"characters": "9"
+					},
+					"AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					49,
+					1,
+					"left_delete",
+					null,
+					"AQAAAAQAAAAAAAAABAAAAAAAAAARAAAAMyAyIDMgMSAyIDQgNSA1IDY",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAVAAAAAAAAAAQAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					50,
+					1,
+					"insert_snippet",
+					{
+						"contents": "\"$0\""
+					},
+					"AQAAAAQAAAAAAAAABgAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAEAAAAAAAAAAQAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					51,
+					1,
+					"insert",
+					{
+						"characters": "3"
+					},
+					"AQAAAAUAAAAAAAAABgAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAFAAAAAAAAAAUAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					53,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAAcAAAAAAAAACAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAHAAAAAAAAAAcAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					54,
+					4,
+					"left_delete",
+					null,
+					"BAAAAAcAAAAAAAAABwAAAAAAAAABAAAAIAYAAAAAAAAABgAAAAAAAAABAAAAIgUAAAAAAAAABQAAAAAAAAABAAAAMwQAAAAAAAAABAAAAAAAAAABAAAAIg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					55,
+					1,
+					"insert",
+					{
+						"characters": "6"
+					},
+					"AQAAAAQAAAAAAAAABQAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAEAAAAAAAAAAQAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					56,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAAUAAAAAAAAABgAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAFAAAAAAAAAAUAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					57,
+					2,
+					"left_delete",
+					null,
+					"AgAAAAUAAAAAAAAABQAAAAAAAAABAAAAIAQAAAAAAAAABAAAAAAAAAABAAAANg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAGAAAAAAAAAAYAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					58,
+					1,
+					"insert",
+					{
+						"characters": "3"
+					},
+					"AQAAAAQAAAAAAAAABQAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAEAAAAAAAAAAQAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					59,
+					1,
+					"insert",
+					{
+						"characters": " 6"
+					},
+					"AgAAAAUAAAAAAAAABgAAAAAAAAAAAAAABgAAAAAAAAAHAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAFAAAAAAAAAAUAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					60,
+					1,
+					"insert",
+					{
+						"characters": " 7"
+					},
+					"AgAAAAcAAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAJAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAHAAAAAAAAAAcAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					61,
+					1,
+					"insert",
+					{
+						"characters": " 10"
+					},
+					"AwAAAAkAAAAAAAAACgAAAAAAAAAAAAAACgAAAAAAAAALAAAAAAAAAAAAAAALAAAAAAAAAAwAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAJAAAAAAAAAAkAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					63,
+					3,
+					"left_delete",
+					null,
+					"AwAAAAIAAAAAAAAAAgAAAAAAAAABAAAANAEAAAAAAAAAAQAAAAAAAAABAAAAIAAAAAAAAAAAAAAAAAAAAAABAAAAOQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAADAAAAAAAAAAMAAAAAAAAAAAAAAACAUEA"
+				],
+				[
+					64,
+					1,
+					"insert",
+					{
+						"characters": "4"
+					},
+					"AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					65,
+					1,
+					"insert",
+					{
+						"characters": " 4"
+					},
+					"AgAAAAEAAAAAAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAADAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					68,
+					1,
+					"insert",
+					{
+						"characters": "5"
+					},
+					"AgAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAwAAAA0IDQKMyA2IDcgMTA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					69,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAAEAAAAAAAAAAgAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					70,
+					1,
+					"insert",
+					{
+						"characters": " 1"
+					},
+					"AgAAAAIAAAAAAAAAAwAAAAAAAAAAAAAAAwAAAAAAAAAEAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					71,
+					2,
+					"left_delete",
+					null,
+					"AgAAAAMAAAAAAAAAAwAAAAAAAAABAAAAMQIAAAAAAAAAAgAAAAAAAAABAAAAIA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAEAAAAAAAAAAQAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					72,
+					1,
+					"insert",
+					{
+						"characters": "1"
+					},
+					"AQAAAAIAAAAAAAAAAwAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					73,
+					1,
+					"insert",
+					{
+						"characters": " 2"
+					},
+					"AgAAAAMAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAFAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAADAAAAAAAAAAMAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					74,
+					1,
+					"insert",
+					{
+						"characters": " 3"
+					},
+					"AgAAAAUAAAAAAAAABgAAAAAAAAAAAAAABgAAAAAAAAAHAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAFAAAAAAAAAAUAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					75,
+					1,
+					"insert",
+					{
+						"characters": " 4"
+					},
+					"AgAAAAcAAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAJAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAHAAAAAAAAAAcAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					76,
+					1,
+					"insert",
+					{
+						"characters": " 5"
+					},
+					"AgAAAAkAAAAAAAAACgAAAAAAAAAAAAAACgAAAAAAAAALAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAJAAAAAAAAAAkAAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		},
+		{
+			"file": "Leetcode/output.txt",
+			"settings":
+			{
+				"buffer_size": 3,
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					5,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAY2hlY2sAAAAAAAAAAB0AAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					6,
+					1,
+					"revert",
+					null,
+					"BAAAAAAAAAAAAAAAAAAAAAAAAAAdAAAAaGVsbG8gdGhpcyBpcyBhYmhpc2hlayBzaW5naAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5AAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					9,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAA5AAAAaCBnIG4gaSBzICAgayBlIGggcyBpIGggYiBhICAgcyBpICAgcyBpIGggdCAgIG8gbCBsIGUgaCAKAAAAAAAAAAByAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					10,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAByAAAAaCBlIGwgbCBvICAgdCBoIGkgcyAgIGkgcyAgIGEgYiBoIGkgcyBoIGUgayAgIHMgaSBuIGcgaCAKaCBnIG4gaSBzICAgayBlIGggcyBpIGggYiBhICAgcyBpICAgcyBpIGggdCAgIG8gbCBsIGUgaCAKAAAAAAAAAAACAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					11,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAACAAAANAoAAAAAAAAAAAIAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					12,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAACAAAANQoAAAAAAAAAAAIAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					13,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAACAAAANAoAAAAAAAAAAAcAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					14,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAAHAAAAMTAgMTEwCgAAAAAAAAAACAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					15,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAMTAgMQoxMAoAAAAAAAAAAAMAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					16,
+					1,
+					"revert",
+					null,
+					"AwAAAAAAAAAAAAAAAAAAAAAAAAADAAAAMjAKAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		},
+		{
+			"file": "Leetcode/error.txt",
+			"settings":
+			{
+				"buffer_size": 8,
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					2,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAVGltZTogMAoAAAAAAAAAAAgAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					3,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAVGltZTogMAoAAAAAAAAAAAgAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					4,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAVGltZTogMAoAAAAAAAAAAAgAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					5,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAVGltZTogMAoAAAAAAAAAAAgAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					6,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAVGltZTogMAoAAAAAAAAAAAgAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					7,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAVGltZTogMAoAAAAAAAAAAAgAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					8,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAVGltZTogMAoAAAAAAAAAAAgAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					9,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAVGltZTogMAoAAAAAAAAAAAgAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					10,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAVGltZTogMAoAAAAAAAAAAAgAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					11,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAVGltZTogMAoAAAAAAAAAAAgAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					12,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAVGltZTogMAoAAAAAAAAAAAgAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					13,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAVGltZTogMAoAAAAAAAAAAAgAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					14,
+					1,
+					"revert",
+					null,
+					"AwAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAVGltZTogMAoAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -264,9 +1406,12 @@
 	},
 	"expanded_folders":
 	[
+		"/F/Tech learn and project/coding/CPP practice/Leetcode"
 	],
 	"file_history":
 	[
+		"/F/Tech learn and project/coding/CPP practice/Leetcode/Reverse_String.cpp",
+		"/F/Tech learn and project/coding/CPP practice/Leetcode/kth_Largest_Smallest_in_array.cpp",
 		"/F/Tech learn and project/coding/CPP practice/leetcode/DP/error.txt",
 		"/F/Tech learn and project/coding/CPP practice/leetcode/DP/2.Coin_Change.cpp",
 		"/F/Tech learn and project/coding/CPP practice/leetcode/DP/input.txt",
@@ -374,8 +1519,6 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"'",
-			"{'claimId': 'MultipleDOC1', 'claimType': 'REIMBURSEMENT', 'completedDatetime': '2022-05-15 11:23:54', 'documentsData': [{'source': {'connectorId': 'document-cdn', 'documentId': '566559c6b1afdd18db5c644293900488', 'documentName': 'FinalClaim_Pdf_v4.pdf', 'documentUrl': 'https://document-cdn.s3.us-east-2.amazonaws.com/FinalClaim_Pdf_v4.pdf', 'internalDocumentId': 'b291b9e8-0c4f-4ee1-b7e0-f41fb6af4f1a', 'output': [{'connectorId': 'value', 'documentId': 'value', 'documentName': 'outgoingDocuments/CS2022000007483/b291b9e8-0c4f-4ee1-b7e0-f41fb6af4f1a-page_1-2_Claim Form.pdf', 'documentType': 'Claim Form', 'documentUrl': '', 'internalSubDocumentId': 'a515318a-9ff8-4aab-acc0-e052107762d7', 'classificationVerification': 'yes', 'entityVerification': 'yes'}, {'connectorId': 'value', 'documentId': 'value', 'documentName': 'outgoingDocuments/CS2022000007483/b291b9e8-0c4f-4ee1-b7e0-f41fb6af4f1a-page_3-3_Check List.pdf', 'documentType': 'Check List', 'documentUrl': '', 'internalSubDocumentId': '4939d37b-9c1b-4fb8-ab04-2002742f6c1b', 'classificationVerification': 'yes', 'entityVerification': 'yes'}, {'connectorId': 'value', 'docExtract': [{'entityId': 'c2bd0281-a69a-42c2-b927-cb9e017b97ae', 'key': 'Name', 'label': 'Name', 'probability': '', 'text': 'AROCKIA RAJKUM', 'updatedValue': 'AROCKIA RAJKUMAR'}, {'entityId': '19b6d1d8-d611-4f91-8c85-77fc95274aba', 'key': 'Aadhar Number', 'label': 'Aadhar Number', 'probability': '', 'text': '507468882988', 'updatedValue': '507468882988'}, {'entityId': '78a627bc-c97a-4b59-a600-74d1c1cd477d', 'key': 'Date of Birth', 'label': 'Date of Birth', 'probability': '', 'text': '22/12/1980', 'updatedValue': '22/12/1980'}], 'documentId': 'value', 'documentName': 'outgoingDocuments/CS2022000007483/b291b9e8-0c4f-4ee1-b7e0-f41fb6af4f1a-page_4-4_aadharcard.pdf', 'documentType': 'Aadhar Card', 'documentUrl': '', 'internalSubDocumentId': '8bc59486-01f3-4765-bbde-bd5484094d1b', 'classificationVerification': 'yes', 'entityVerification': 'yes'}, {'connectorId': 'value', 'docExtract': [{'entityId': 'f998fee8-6e2b-4a0f-86e2-2ff77bc7f81e', 'key': 'Name', 'label': 'Name', 'probability': '', 'text': 'TOMAR M'}, {'entityId': '11d335d4-922b-4b42-9942-80eb4427fb18', 'key': 'Pan Number', 'label': 'Pan Number', 'probability': '', 'text': 'AWHPT4141L'}, {'entityId': 'e297e489-15e5-454b-ae31-9a7cb8b334e6', 'key': 'Date of Birth', 'label': 'Date of Birth', 'probability': '', 'text': '07/07/1992'}], 'documentId': 'value', 'documentName': 'outgoingDocuments/CS2022000007483/b291b9e8-0c4f-4ee1-b7e0-f41fb6af4f1a-page_5-5_pancard.pdf', 'documentType': 'Pan Card', 'documentUrl': '', 'internalSubDocumentId': '58c0dfd9-e868-4718-aaba-fa99fabf9c63', 'classificationVerification': 'yes', 'entityVerification': 'yes'}, {'connectorId': 'value', 'docExtract': [], 'documentId': 'value', 'documentName': 'outgoingDocuments/CS2022000007483/b291b9e8-0c4f-4ee1-b7e0-f41fb6af4f1a-page_6-6_cancelledcheque.pdf', 'documentType': 'Aadhar Card', 'documentUrl': '', 'internalSubDocumentId': 'ca46a116-5c0e-4cc4-9a8a-80a4446f82b3', 'classificationVerification': 'yes', 'entityVerification': 'yes'}, {'connectorId': 'value', 'docExtract': [{'key': 'Items', 'label': 'Items', 'text': [None, None]}, {'entityId': '51d88c36-b4a1-43e0-91f6-8d2fa5d1c040', 'key': 'Date of Admission', 'label': 'Date of Admission', 'text': ''}, {'entityId': '6f6a9160-6520-4b76-8a46-2907c54d8b9f', 'key': 'Name of Hospital', 'label': 'Name of Hospital', 'text': ' '}, {'entityId': 'fea1159d-977c-4e5c-b5da-72116d9336e7', 'key': 'Date of Discharge', 'label': 'Date of Discharge', 'text': '23/08/2018'}, {'entityId': '640beebf-ef02-4b13-88d8-3153a4a5e4c9', 'key': 'Invoice Number', 'label': 'Invoice Number', 'text': 'MHB18ICRO009905'}, {'entityId': '538fd7e8-835b-41d5-954d-89c452e654e2', 'key': 'Invoice Date', 'label': 'Invoice Date', 'text': '23/08/2018'}], 'documentId': 'value', 'documentName': 'outgoingDocuments/CS2022000007483/b291b9e8-0c4f-4ee1-b7e0-f41fb6af4f1a-page_7-12_Invoice.pdf', 'documentType': 'Invoice', 'documentUrl': '', 'internalSubDocumentId': '5e5e4fa4-cdff-4e70-930d-d6f1ef911ec2', 'classificationVerification': 'yes', 'entityVerification': 'yes'}, {'connectorId': '', 'docExtract': [{'key': 'Rooms', 'label': 'Rooms', 'text': []}], 'documentId': '', 'documentName': '', 'documentType': 'Room Type', 'documentUrl': '', 'internalSubDocumentId': 'a5892f31-91c6-43b1-a72d-e445cbf57d6b', 'classificationVerification': 'yes', 'entityVerification': 'yes'}, {'connectorId': '', 'docExtract': [{'entityId': '3c74c681-d6a3-48f4-b8df-1683b416930a', 'key': 'Id of Provider', 'label': 'Id of Provider', 'probability': 'N/A', 'text': ''}, {'entityId': '77f1e30e-9cbc-4a38-99a5-310a6c470b9d', 'key': 'Name of Provider', 'label': 'Name of Provider', 'probability': 'N/A', 'text': ''}, {'entityId': '3a36fd9f-5fa2-4581-9326-8a03e3e5ae82', 'key': 'Provider Pincode', 'label': 'Provider Pincode', 'probability': 'N/A', 'text': ''}, {'entityId': '546c96e4-9aec-43b8-a145-90916465412b', 'key': 'Provider City', 'label': 'Provider City', 'probability': 'N/A', 'text': ''}, {'entityId': '2c15d1c0-9fbd-4638-95fe-49a61d33b2fd', 'key': 'Date of Onset of Present Ailment', 'label': 'Date of Onset of Present Ailment', 'probability': 'N/A', 'text': ''}, {'entityId': '9c209337-4b28-4ac9-bc20-aed525cae65a', 'key': 'Date of first consultation', 'label': 'Date of first consultation', 'probability': 'N/A', 'text': ''}, {'entityId': '3b03e6b9-ae7c-46ab-831f-cc751bc35cf7', 'key': 'Treatment Details', 'label': 'Treatment Details', 'probability': 'N/A', 'text': ''}, {'key': 'Ailment', 'label': 'Ailment', 'probability': 'N/A', 'text': [[]], 'updatedValue': ''}, {'key': 'PCS', 'label': 'PCS', 'text': [[]], 'updatedValue': ''}, {'key': 'ICD', 'label': 'ICD', 'text': [[]], 'updatedValue': ''}, {'entityId': 'f94cf07f-a5a7-4e7b-a189-9287b8076888', 'key': 'Emergency Admission', 'label': 'Emergency Admission', 'probability': 'N/A', 'text': ''}, {'entityId': 'aee283c2-ffcd-4caf-b6a3-95bbab742160', 'key': 'Maternity', 'label': 'Maternity', 'probability': 'N/A', 'text': ''}, {'entityId': '411a20d2-8059-4a43-bed3-4fc263b45483', 'key': 'Date of Delivery', 'label': 'Date of Delivery', 'probability': 'N/A', 'text': ''}, {'entityId': 'd4907e9f-00ce-48c6-8949-a43efb4f7aaa', 'key': 'G', 'label': 'G', 'probability': 'N/A', 'text': ''}, {'entityId': 'd4093794-3752-46c4-a8a9-e4be8adfd664', 'key': 'P', 'label': 'P', 'probability': 'N/A', 'text': ''}, {'entityId': '8412a232-f3af-42fc-a5a8-30baabe00b1f', 'key': 'L', 'label': 'L', 'probability': 'N/A', 'text': ''}, {'entityId': 'efdb776a-b617-4567-b045-180df3bf87fe', 'key': 'A', 'label': 'A', 'probability': 'N/A', 'text': ''}, {'entityId': 'd25f4ba7-025e-43b8-95f2-b4d00b8baecd', 'key': 'Normal', 'label': 'Normal', 'probability': 'N/A', 'text': ''}, {'entityId': '3d98059a-378e-4323-b751-61674bd1d24e', 'key': 'Well Baby', 'label': 'Well Baby', 'probability': 'N/A', 'text': ''}, {'entityId': '9ed86491-d207-4d0a-9c9a-da221116b11f', 'key': 'Maternity - Intensive Care', 'label': 'Maternity - Intensive Care', 'probability': 'N/A', 'text': ''}, {'entityId': '38f5047d-5d7d-47c9-82a1-a3df8ea8f550', 'key': 'Maternity - Other Treatment Details', 'label': 'Maternity - Other Treatment Details', 'probability': 'N/A', 'text': ''}, {'entityId': '169b7576-bc46-44a0-b101-e69e5603be22', 'key': 'Maternity - System of Medicine', 'label': 'Maternity - System of Medicine', 'probability': 'N/A', 'text': ''}, {'entityId': 'd85c705b-14d9-43c1-8dc5-3ee440b4b541', 'key': 'Is Accident', 'label': 'Is Accident', 'probability': 'N/A', 'text': ''}, {'entityId': '395cf78d-da7a-4c75-88b7-6e2eede469c7', 'key': 'Is it RTA', 'label': 'Is it RTA', 'probability': 'N/A', 'text': ''}, {'entityId': '7bfa12bc-59eb-444f-93a4-7a66efa94492', 'key': 'Date of Injury', 'label': 'Date of Injury', 'probability': 'N/A', 'text': ''}, {'entityId': '93512a88-60cd-4e86-a799-d65d8adea196', 'key': 'Reported to Police', 'label': 'Reported to Police', 'probability': 'N/A', 'text': ''}, {'entityId': '611d3a57-30cd-4e5c-97a3-0c9c2d803870', 'key': 'FIR No', 'label': 'FIR No', 'probability': 'N/A', 'text': 'No'}, {'entityId': '74d05168-030e-4d2e-b001-d6138f1898f5', 'key': 'Accident - Intensive Care', 'label': 'Accident - Intensive Care', 'probability': 'N/A', 'text': ''}, {'entityId': 'c419db56-3255-4678-988f-88f83a1bd2f4', 'key': 'Accident - Other Treatment Details', 'label': 'Accident - Other Treatment Details', 'probability': 'N/A', 'text': ''}, {'entityId': 'a410a381-cac9-4ea3-99fa-cdc77f09159d', 'key': 'Accident - System of Medicine', 'label': 'Accident - System of Medicine', 'probability': 'N/A', 'text': ''}, {'entityId': '5773d356-1cbd-4483-829b-4f3b58ad2f2c', 'key': 'Substance Case', 'label': 'Substance Case', 'probability': 'N/A', 'text': ''}, {'entityId': '7fe43360-0bae-447b-b904-680007fc1da5', 'key': 'Death Case', 'label': 'Death Case', 'probability': 'N/A', 'text': ''}, {'entityId': '3e9cd43b-54a6-4afa-bf3a-594a003fda4f', 'key': 'Drug Overdose', 'label': 'Drug Overdose', 'probability': 'N/A', 'text': ''}, {'entityId': '8fb5476d-0cde-4ed8-9a71-9895e453772f', 'key': 'Alcohol Case', 'label': 'Alcohol Case', 'probability': 'N/A', 'text': ''}], 'documentId': '', 'documentName': '', 'documentType': 'Case details', 'documentUrl': '', 'internalSubDocumentId': '6b7fcb2b-06d8-44a4-8cd3-ff42d2873776', 'classificationVerification': 'yes', 'entityVerification': 'yes'}], 'statusCode': 'STAGE043', 'statusValue': 'Document Entity Extraction Verified'}}, {'source': {'connectorId': 'document-cdn', 'documentId': 'd798814dfad072123ca03d0922d8a721', 'documentName': '4362136_Aadhar_merged.pdf', 'documentUrl': 'https://document-cdn.s3.us-east-2.amazonaws.com/4362136_Aadhar_merged.pdf', 'internalDocumentId': '4bd81ae3-7b23-4955-927d-1011f94dbf93', 'output': [{'connectorId': 'value', 'docExtract': [{'entityId': 'dbc6b12f-413b-41ff-8bd0-5f44a4fa8973', 'key': 'Name', 'label': 'Name', 'probability': '', 'text': ''}, {'entityId': 'c78e388c-6cd8-4ae7-bcb6-fe7cc5094e9f', 'key': 'Aadhar Number', 'label': 'Aadhar Number', 'probability': '', 'text': ''}, {'entityId': 'abb0d8d6-28b6-41d0-abc6-b91adc6cccf3', 'key': 'Date of Birth', 'label': 'Date of Birth', 'probability': '', 'text': ''}], 'documentId': 'value', 'documentName': 'outgoingDocuments/CS2022000007483/4bd81ae3-7b23-4955-927d-1011f94dbf93-page_1-1_aadharcard.pdf', 'documentType': 'Aadhar Card', 'documentUrl': '', 'internalSubDocumentId': '90c6307c-3c3f-46fb-a949-d7089a6ff216', 'classificationVerification': 'yes', 'entityVerification': 'yes'}, {'connectorId': 'value', 'docExtract': [{'entityId': '1209fc3c-ead7-487e-8755-53bffd017c99', 'key': 'Bank Name', 'label': 'Bank Name', 'probability': '', 'text': 'LinirEG'}, {'entityId': 'bc91cf62-b82e-4753-8fee-1af538a95a8a', 'key': 'Account Number', 'label': 'Account Number', 'probability': '', 'text': ''}, {'entityId': 'fdc9c613-c07a-40ca-be8a-cc3528f65a71', 'key': 'IFSC', 'label': 'IFSC', 'probability': '', 'text': ''}, {'entityId': 'f8f37edd-5bb6-4be1-8927-b5fdd8ba7391', 'key': 'PAYEE', 'label': 'PAYEE', 'probability': '', 'text': ''}, {'entityId': 'f85bd209-8999-4a39-8665-ae1a3257cd94', 'key': 'Account Number1', 'label': 'Account Number1', 'probability': '', 'text': ''}, {'entityId': '69f3951e-bc71-47f0-a10e-aa37d7c7e3cb', 'key': 'IFSC1', 'label': 'IFSC1', 'probability': '', 'text': ''}], 'documentId': 'value', 'documentName': 'outgoingDocuments/CS2022000007483/4bd81ae3-7b23-4955-927d-1011f94dbf93-page_2-2_cancelledcheque.pdf', 'documentType': 'Cancelled Cheque', 'documentUrl': '', 'internalSubDocumentId': 'a9776fb9-ee24-4ce0-83ed-384a75002ac7', 'classificationVerification': 'yes', 'entityVerification': 'yes'}, {'connectorId': '', 'docExtract': [{'key': 'Rooms', 'label': 'Rooms', 'text': []}], 'documentId': '', 'documentName': '', 'documentType': 'Room Type', 'documentUrl': '', 'internalSubDocumentId': 'd151d3a4-0829-469f-88a4-9e501a89d5e1', 'classificationVerification': 'yes', 'entityVerification': 'yes'}, {'connectorId': '', 'docExtract': [{'entityId': '35f76b75-49f3-4573-bf4b-536c9454bd3e', 'key': 'Id of Provider', 'label': 'Id of Provider', 'probability': 'N/A', 'text': ''}, {'entityId': '1baff0ad-823f-4e99-a31d-2f75ae3a596b', 'key': 'Name of Provider', 'label': 'Name of Provider', 'probability': 'N/A', 'text': ''}, {'entityId': '2360fe64-fb8a-4855-8f06-0018179bb40b', 'key': 'Provider Pincode', 'label': 'Provider Pincode', 'probability': 'N/A', 'text': ''}, {'entityId': 'b59dcea8-5c96-4532-a89d-0b9e878aeb2a', 'key': 'Provider City', 'label': 'Provider City', 'probability': 'N/A', 'text': ''}, {'entityId': '42632bae-cd98-4bab-b594-82a8991f58fd', 'key': 'Date of Onset of Present Ailment', 'label': 'Date of Onset of Present Ailment', 'probability': 'N/A', 'text': ''}, {'entityId': '7e3d82d8-bfaf-4e67-9912-3bf6183a7732', 'key': 'Date of first consultation', 'label': 'Date of first consultation', 'probability': 'N/A', 'text': ''}, {'entityId': 'b65c59a8-e316-4aab-91ee-9d283d2e31aa', 'key': 'Treatment Details', 'label': 'Treatment Details', 'probability': 'N/A', 'text': ''}, {'key': 'Ailment', 'label': 'Ailment', 'probability': 'N/A', 'text': [[]]}, {'key': 'PCS', 'label': 'PCS', 'text': [[]]}, {'key': 'ICD', 'label': 'ICD', 'text': [[]]}, {'entityId': '4c3ad24b-3d70-4f91-9baf-52741d501084', 'key': 'Emergency Admission', 'label': 'Emergency Admission', 'probability': 'N/A', 'text': ''}, {'entityId': '40869e93-ae06-4e96-ab9b-67d0b2670b2e', 'key': 'Maternity', 'label': 'Maternity', 'probability': 'N/A', 'text': ''}, {'entityId': 'd94a1702-7231-4b8b-b245-f39c18288964', 'key': 'Date of Delivery', 'label': 'Date of Delivery', 'probability': 'N/A', 'text': ''}, {'entityId': '201ce1cb-a6a3-40f1-a498-ec4636849512', 'key': 'G', 'label': 'G', 'probability': 'N/A', 'text': ''}, {'entityId': '00a7a2bf-7a24-4033-8d6a-e2b44f98ffcb', 'key': 'P', 'label': 'P', 'probability': 'N/A', 'text': ''}, {'entityId': 'd1eeb4d7-ceed-4276-9bf0-56fa7f7824a0', 'key': 'L', 'label': 'L', 'probability': 'N/A', 'text': ''}, {'entityId': 'b80c0880-fe6f-4f9b-90d3-1161848ee253', 'key': 'A', 'label': 'A', 'probability': 'N/A', 'text': ''}, {'entityId': 'dd8e22af-e2c2-40c3-9b76-80f17e952107', 'key': 'Normal', 'label': 'Normal', 'probability': 'N/A', 'text': ''}, {'entityId': '07a543ee-8c92-4706-ab7f-f436d2cbc764', 'key': 'Well Baby', 'label': 'Well Baby', 'probability': 'N/A', 'text': ''}, {'entityId': '55238c9c-6994-46bf-b467-4f150cd9d8f2', 'key': 'Maternity - Intensive Care', 'label': 'Maternity - Intensive Care', 'probability': 'N/A', 'text': ''}, {'entityId': 'f4a061d9-1e30-4328-bd54-82a681821ed6', 'key': 'Maternity - Other Treatment Details', 'label': 'Maternity - Other Treatment Details', 'probability': 'N/A', 'text': ''}, {'entityId': '7d252147-7b62-4de8-a72e-3e05ff5e9d32', 'key': 'Maternity - System of Medicine', 'label': 'Maternity - System of Medicine', 'probability': 'N/A', 'text': ''}, {'entityId': '2bc2da2e-7317-4527-8175-f4b8e37bf9d5', 'key': 'Is Accident', 'label': 'Is Accident', 'probability': 'N/A', 'text': ''}, {'entityId': 'da7fb2c1-5ad2-49dd-8383-27164341eb40', 'key': 'Is it RTA', 'label': 'Is it RTA', 'probability': 'N/A', 'text': ''}, {'entityId': '17dbee18-883a-4bbc-bee6-70712f4a399c', 'key': 'Date of Injury', 'label': 'Date of Injury', 'probability': 'N/A', 'text': ''}, {'entityId': 'ce31e208-40b6-42af-b6f7-29202c4f15bc', 'key': 'Reported to Police', 'label': 'Reported to Police', 'probability': 'N/A', 'text': ''}, {'entityId': '274a0aad-6911-489d-bef6-fb8d5cd33c75', 'key': 'FIR No', 'label': 'FIR No', 'probability': 'N/A', 'text': 'No'}, {'entityId': '36bdf677-a818-4452-a559-5779c53fe7d7', 'key': 'Accident - Intensive Care', 'label': 'Accident - Intensive Care', 'probability': 'N/A', 'text': ''}, {'entityId': '7936dac4-69a5-4340-944f-284e8209c84b', 'key': 'Accident - Other Treatment Details', 'label': 'Accident - Other Treatment Details', 'probability': 'N/A', 'text': ''}, {'entityId': 'deb861c9-892b-4e8b-b665-1628a413a6bb', 'key': 'Accident - System of Medicine', 'label': 'Accident - System of Medicine', 'probability': 'N/A', 'text': ''}, {'entityId': 'ccadd74c-765a-4043-ac82-271f44383f5f', 'key': 'Substance Case', 'label': 'Substance Case', 'probability': 'N/A', 'text': ''}, {'entityId': 'ad8ae20c-7b4d-4cc8-8b8a-c984d1d6fd00', 'key': 'Death Case', 'label': 'Death Case', 'probability': 'N/A', 'text': ''}, {'entityId': '13f47976-fd76-4e33-a12a-1e1d3f0e5328', 'key': 'Drug Overdose', 'label': 'Drug Overdose', 'probability': 'N/A', 'text': ''}, {'entityId': '182c96e5-b588-4457-8a53-78e74df86a7b', 'key': 'Alcohol Case', 'label': 'Alcohol Case', 'probability': 'N/A', 'text': ''}], 'documentId': '', 'documentName': '', 'documentType': 'Case details', 'documentUrl': '', 'internalSubDocumentId': '077c877c-7557-4330-9424-0d0aaefeaeff', 'classificationVerification': 'yes', 'entityVerification': 'yes'}], 'statusCode': 'STAGE043', 'statusValue': 'Document Entity Extraction Verified'}}, {'source': {'connectorId': 'document-cdn', 'documentId': '79bba3a9817e1e0f5c5da530ea7dd040', 'documentName': 'ClaimRecord-CL18901249-pages-3-4,15.pdf', 'documentUrl': 'https://document-cdn.s3.us-east-2.amazonaws.com/ClaimRecord-CL18901249-pages-3-4,15.pdf', 'internalDocumentId': '8562d488-dc09-46d4-876e-69546c9a9def', 'output': [{'connectorId': 'value', 'docExtract': [{'entityId': 'eff2a3ba-2141-4b87-b0cf-fb93a42dbd8d', 'key': 'Name', 'label': 'Name', 'probability': '', 'text': ''}, {'entityId': '3048512e-1293-476d-ad5e-826f39413a5b', 'key': 'Aadhar Number', 'label': 'Aadhar Number', 'probability': '', 'text': ''}, {'entityId': 'e5b6f301-d00a-477b-a691-bffa11d29d27', 'key': 'Date of Birth', 'label': 'Date of Birth', 'probability': '', 'text': ''}], 'documentId': 'value', 'documentName': 'outgoingDocuments/CS2022000007483/8562d488-dc09-46d4-876e-69546c9a9def-page_1-1_aadharcard.pdf', 'documentType': 'Aadhar Card', 'documentUrl': '', 'internalSubDocumentId': '21a90cfa-02d2-441b-9f48-92af8b65821a', 'classificationVerification': 'yes', 'entityVerification': 'yes'}, {'connectorId': 'value', 'documentId': 'value', 'documentName': 'outgoingDocuments/CS2022000007483/8562d488-dc09-46d4-876e-69546c9a9def-page_2-2_Prescription.pdf', 'documentType': 'Prescription', 'documentUrl': '', 'internalSubDocumentId': '61742023-6d7e-4832-b7af-07c02ec1f5a4', 'classificationVerification': 'yes', 'entityVerification': 'yes'}, {'connectorId': 'value', 'docExtract': [{'entityId': '9b73d578-2a6d-4cf8-a988-97d678220bb5', 'key': 'Bank Name', 'label': 'Bank Name', 'probability': '', 'text': 'LinirEG'}, {'entityId': 'cfb45507-77ba-47e6-b225-e62b7835fa1e', 'key': 'Account Number', 'label': 'Account Number', 'probability': '', 'text': ''}, {'entityId': '716048b9-de22-45cc-b13f-aa5d861f8ea7', 'key': 'IFSC', 'label': 'IFSC', 'probability': '', 'text': ''}, {'entityId': '0314afd8-1f37-4934-90c7-99ad154ca67c', 'key': 'PAYEE', 'label': 'PAYEE', 'probability': '', 'text': ''}, {'entityId': 'c7b8a995-a81b-4abb-92c0-06274f57592b', 'key': 'Account Number1', 'label': 'Account Number1', 'probability': '', 'text': ''}, {'entityId': 'baa242f2-4890-40fa-bc9e-d91846ab9464', 'key': 'IFSC1', 'label': 'IFSC1', 'probability': '', 'text': ''}], 'documentId': 'value', 'documentName': 'outgoingDocuments/CS2022000007483/8562d488-dc09-46d4-876e-69546c9a9def-page_3-3_cancelledcheque.pdf', 'documentType': 'Cancelled Cheque', 'documentUrl': '', 'internalSubDocumentId': 'cdbf565f-4d50-4a59-8211-6747700f51e8', 'classificationVerification': 'yes', 'entityVerification': 'yes'}, {'connectorId': '', 'docExtract': [{'key': 'Rooms', 'label': 'Rooms', 'text': []}], 'documentId': '', 'documentName': '', 'documentType': 'Room Type', 'documentUrl': '', 'internalSubDocumentId': '2b18aced-a042-4813-99d6-5cacac8761f1', 'classificationVerification': 'yes', 'entityVerification': 'yes'}, {'connectorId': '', 'docExtract': [{'entityId': '22773fd9-2e0d-4f90-b710-426313f7f1dc', 'key': 'Id of Provider', 'label': 'Id of Provider', 'probability': 'N/A', 'text': ''}, {'entityId': '4caab148-f196-4707-99d7-93e550ef76a7', 'key': 'Name of Provider', 'label': 'Name of Provider', 'probability': 'N/A', 'text': ''}, {'entityId': 'e632004b-0e3a-4be7-9327-352384c07ae7', 'key': 'Provider Pincode', 'label': 'Provider Pincode', 'probability': 'N/A', 'text': ''}, {'entityId': '61fc3481-efbe-4fb4-bc42-0071751bc8a8', 'key': 'Provider City', 'label': 'Provider City', 'probability': 'N/A', 'text': ''}, {'entityId': '2924ad8d-c17b-4778-841d-8983d8d0b4d5', 'key': 'Date of Onset of Present Ailment', 'label': 'Date of Onset of Present Ailment', 'probability': 'N/A', 'text': ''}, {'entityId': '42e42ac7-e73b-4776-b99a-bf4a1a8e0359', 'key': 'Date of first consultation', 'label': 'Date of first consultation', 'probability': 'N/A', 'text': ''}, {'entityId': 'fa8dae26-b4d1-40c5-9adc-8e5f493d0841', 'key': 'Treatment Details', 'label': 'Treatment Details', 'probability': 'N/A', 'text': ''}, {'key': 'Ailment', 'label': 'Ailment', 'probability': 'N/A', 'text': [[]]}, {'key': 'PCS', 'label': 'PCS', 'text': [[]]}, {'key': 'ICD', 'label': 'ICD', 'text': [[]]}, {'entityId': '6c98cfbf-e00c-40f2-940d-5507ceb84c34', 'key': 'Emergency Admission', 'label': 'Emergency Admission', 'probability': 'N/A', 'text': ''}, {'entityId': 'b6778cea-d144-4175-a571-51e1937df0d2', 'key': 'Maternity', 'label': 'Maternity', 'probability': 'N/A', 'text': ''}, {'entityId': 'd039634f-adc8-40a8-b97e-494f776fcca1', 'key': 'Date of Delivery', 'label': 'Date of Delivery', 'probability': 'N/A', 'text': ''}, {'entityId': '17c2b8f6-8361-4a06-961b-6b7d4ef8ebd5', 'key': 'G', 'label': 'G', 'probability': 'N/A', 'text': ''}, {'entityId': '5a264145-e776-478a-9b22-ebde66735ac9', 'key': 'P', 'label': 'P', 'probability': 'N/A', 'text': ''}, {'entityId': '78013d59-a570-4d30-ad86-7bd5e5baa94e', 'key': 'L', 'label': 'L', 'probability': 'N/A', 'text': ''}, {'entityId': '25da52f5-7e14-4973-868e-e3dc2940ea19', 'key': 'A', 'label': 'A', 'probability': 'N/A', 'text': ''}, {'entityId': 'ec1e3a8e-79c7-4e10-ad95-e225cd6d5835', 'key': 'Normal', 'label': 'Normal', 'probability': 'N/A', 'text': ''}, {'entityId': '7bfb40ea-a685-40ee-ad0c-f305df07fb36', 'key': 'Well Baby', 'label': 'Well Baby', 'probability': 'N/A', 'text': ''}, {'entityId': 'c49047d7-2261-4490-84d8-f459fcb77f4e', 'key': 'Maternity - Intensive Care', 'label': 'Maternity - Intensive Care', 'probability': 'N/A', 'text': ''}, {'entityId': 'fcd6c78d-2fcf-431b-a0f8-840e61251da3', 'key': 'Maternity - Other Treatment Details', 'label': 'Maternity - Other Treatment Details', 'probability': 'N/A', 'text': ''}, {'entityId': '5caf4c57-b199-4e99-96a3-03bda7bcb808', 'key': 'Maternity - System of Medicine', 'label': 'Maternity - System of Medicine', 'probability': 'N/A', 'text': ''}, {'entityId': 'bfa7e15e-e445-4110-a6a1-96295673d236', 'key': 'Is Accident', 'label': 'Is Accident', 'probability': 'N/A', 'text': ''}, {'entityId': '45a3f8cb-eb59-4897-9e91-ddf3e3997d04', 'key': 'Is it RTA', 'label': 'Is it RTA', 'probability': 'N/A', 'text': ''}, {'entityId': '79c13203-d964-408a-a1cf-4d7a5b6edb2d', 'key': 'Date of Injury', 'label': 'Date of Injury', 'probability': 'N/A', 'text': ''}, {'entityId': 'd064a721-bcc3-416a-b467-bafff9a24cf3', 'key': 'Reported to Police', 'label': 'Reported to Police', 'probability': 'N/A', 'text': ''}, {'entityId': 'f9d8529c-b72f-416d-a0dd-c5b7365a8b9c', 'key': 'FIR No', 'label': 'FIR No', 'probability': 'N/A', 'text': 'No'}, {'entityId': '9d06e38c-0044-49dc-9c3e-57b7c97c6029', 'key': 'Accident - Intensive Care', 'label': 'Accident - Intensive Care', 'probability': 'N/A', 'text': ''}, {'entityId': '87f2b169-8f53-49fe-b4c0-b906ba91026c', 'key': 'Accident - Other Treatment Details', 'label': 'Accident - Other Treatment Details', 'probability': 'N/A', 'text': ''}, {'entityId': 'f79f0904-b2f8-440b-aa64-d6dc96c82e3a', 'key': 'Accident - System of Medicine', 'label': 'Accident - System of Medicine', 'probability': 'N/A', 'text': ''}, {'entityId': '1465e267-4282-41f6-ba58-dfbe0ad9f1e5', 'key': 'Substance Case', 'label': 'Substance Case', 'probability': 'N/A', 'text': ''}, {'entityId': '70cc40c2-02d9-4d32-8074-83563d320cae', 'key': 'Death Case', 'label': 'Death Case', 'probability': 'N/A', 'text': ''}, {'entityId': '92d9f237-e32c-4ae9-bb27-80317bb59448', 'key': 'Drug Overdose', 'label': 'Drug Overdose', 'probability': 'N/A', 'text': ''}, {'entityId': '639cb078-5c08-4bee-80b6-df061792c9b8', 'key': 'Alcohol Case', 'label': 'Alcohol Case', 'probability': 'N/A', 'text': ''}], 'documentId': '', 'documentName': '', 'documentType': 'Case details', 'documentUrl': '', 'internalSubDocumentId': '87a97b7e-e4c3-4e87-b1d5-7fc64c081e5c', 'classificationVerification': 'yes', 'entityVerification': 'yes'}], 'statusCode': 'STAGE043', 'statusValue': 'Document Entity Extraction Verified'}}], 'processingId': 'CS2022000007483', 'requestDatetime': '2022-05-09 05:48:21', 'statusCode': 'STAGE043', 'statusValue': 'Document Entity Extraction Verified', 'user_id': 'wisteli', 'notifyCustomer': 0}"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -395,7 +1538,7 @@
 	"folders":
 	[
 		{
-			"path": "F:\\Tech learn and project\\coding\\CPP practice\\leetcode"
+			"path": "F:\\Tech learn and project\\coding\\CPP practice\\Leetcode"
 		}
 	],
 	"groups":
@@ -403,16 +1546,137 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "Leetcode/Maximum_sum_subarray.cpp",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5616,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5139,
+								5139
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1428.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		},
 		{
 			"sheets":
 			[
+				{
+					"buffer": 1,
+					"file": "Leetcode/input.txt",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11,
+								11
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		},
 		{
 			"sheets":
 			[
+				{
+					"buffer": 2,
+					"file": "Leetcode/output.txt",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Leetcode/error.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -450,13 +1714,13 @@
 		"cols":
 		[
 			0.0,
-			0.746376811594,
+			0.697783461211,
 			1.0
 		],
 		"rows":
 		[
 			0.0,
-			0.440298507463,
+			0.5,
 			1.0
 		]
 	},
@@ -503,7 +1767,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 2,
+	"selected_group": 0,
 	"settings":
 	{
 		"last_automatic_layout":
