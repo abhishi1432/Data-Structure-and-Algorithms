@@ -83,9 +83,49 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 
 /*=================================================================*/
 
+class Node{
+public:
+	int data;
+	Node* next;
+	Node(){
+		next = nullptr;
+	}
+};
+
+Node* createNode(int data){
+	Node* new_node = new Node();
+	new_node->data = data;
+	return new_node;
+}
+void printLinkedList(Node* head){
+	Node* temp = head;
+	while(temp!=nullptr){
+		cout<<temp->data<<nline;
+		temp= temp->next;
+	}
+}
+void addNodeAtFront(Node** head,int data){
+	if(*head==NULL){
+		*head =createNode(data);
+		return;
+	}
+	Node* temp = createNode(data);
+	temp->next = *head;
+	*head = temp;
+}
 
 void solve() {
-	
+	Node* head2 = NULL;
+	head2= createNode(10);
+	Node* temp2 = head2;
+	for(int i=11;i<20;i++){
+		Node* curr_node = createNode(i);
+		temp2->next = curr_node;
+		temp2= curr_node;
+	}
+	printLinkedList(head2);
+	addNodeAtFront(&head2,99);
+	printLinkedList(head2);
 }
 
 
