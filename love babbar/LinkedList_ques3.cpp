@@ -1,5 +1,5 @@
 /*
-	A B H I S H E K    S I N G H
+    A B H I S H E K    S I N G H
 */
 
 #include<bits/stdc++.h>
@@ -82,134 +82,96 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
 
 /*=================================================================*/
-long long int total_ways_to_make_helper_repetitive_ans(int n,int m,vector<int>&coins){
-	/*
-	TLE + wrong answer
-	This will give the repetitve answer
-	*/
-	long long int ans=0;
-	if(n==0)
-		return 1;
-	for(int i=0;i<m;i++){
-		if(n-coins[i]>=0)
-			ans+=total_ways_to_make_helper_repetitive_ans(n-coins[i],m,coins);
-	}
-	return ans;
+class Node{
+public:
+    int data;
+    Node* next;
+    Node(){
+        next = nullptr;
+    }
+};
+Node* createNode(int data){
+    Node* new_node = new Node();
+    new_node->data = data;
+    return new_node;
 }
 
-long long int total_ways_to_make_helper(int ind,int n,int m,vector<int>&coins,vector<vector<int>>&dp){
-	/*
-	TLE
-	ind is taken so as during any coin at index 'ind' ,we will not take the coins at previous index.
-
-	AC
-	After intrducing memoization  --> denoted by //
-	*/
-	long long int ans=0;
-	if(n==0)
-		return 1;
-	if(dp[n][ind]!=-1)   //
-		return dp[n][ind];  //
-	for(int i=ind;i<m;i++){
-		if(n-coins[i]>=0)
-			ans+=total_ways_to_make_helper(i,n-coins[i],m,coins,dp);
-	} 
-	return dp[n][ind]=ans;   
+void printLinkedList(Node** head){
+    cout<<"Printing..."<<nline;
+    Node* temp = *head;
+    while(temp!=nullptr){
+        cout<<temp->data<<nline;
+        temp= temp->next;
+    }
 }
-long long int total_ways_to_make(int n,int m,vector<int>&coins){
-	long long ans=0;
-	vector<vector<int>> dp(n+1,vector<int>(m+1,-1));
-	ans=total_ways_to_make_helper(0,n,m,coins,dp);    //correct answer, only unique combinations
-	cout<<"some repetitive combinations :"<< total_ways_to_make_helper_repetitive_ans(n,m,coins)<<nline;  //repetitive ans
-	return ans;
+bool hasCycle(Node *head) {
+    /*
+        Using map and set to check for the repeating address of any node.
+    */
+    Node* temp = head;
+    unordered_set<Node*> st;
+    map<Node* , int> mp;
+    while(temp!=nullptr){
+        // if(st.find(temp)!=st.end())
+        //     return true;
+        // st.insert(temp);
+        if(mp[temp]==1)
+            return true;
+        mp[temp]=1;
+        temp= temp->next;
+
+    }           
+    return false;
 }
-
-int minimum_no_of_coins_to_make(int n,int m, vector<int>&coins){
-	/*
-	TLE
-	This is naive approach with complexity as O(m^n)
-	During printing we will check if the ans returned value is INT_MAX then we will print '-1' else we will print 'ans'.
-	*/
-	int ans=INT_MAX;
-	if(n==0)
-		return 0;
-	for(int i=0;i<m;i++){
-		if(n-coins[i]>=0){
-			int subAns=minimum_no_of_coins_to_make(n-coins[i],m,coins);
-			if(subAns!=INT_MAX)
-				ans = min(1+ subAns,ans);
-		}
-	}
-	return ans;
+bool hasCycle_floyd_cycle_Algo(Node *head) {
+    /*
+        Using two pointer approach -  one is slow pointer and another is fast pointer.
+    */
+    if(head == NULL || head->next == NULL) 
+            return false;    
+    Node *slow, *fast;
+    slow = fast = head;
+    while(fast!=NULL && fast->next->next!=NULL){
+        slow= slow->next;
+        fast= fast->next->next;
+        if(fast == slow){
+            return true;
+        } 
+    }           
+    return false;
 }
-
-int minimum_no_of_coins_to_make(int amount,int m, vector<int> coins,vector<int>& dp){
-	/*
-	AC
-	This is recursionn + memoization with complexity as _____ . 
-	During printing we will check if the ans returned value is INT_MAX then we will print '-1' else we will print 'ans'.
-	*/
-	int ans=INT_MAX;
-	if(amount==0)
-		return 0;
-	if(dp[amount]!=-1)
-		return dp[amount];
-	for(int i=0;i<m;i++){
-		if(amount-coins[i]>=0){
-			int subAns=minimum_no_of_coins_to_make(amount-coins[i],m,coins,dp);
-			if(subAns!=INT_MAX)
-				ans = min(1+ subAns,ans);
-		}
-	}
-	return dp[amount]=ans;
-}
-
-/*
-	This code gives AC whereas when i use vector<int> dp instead of array then TLE occurs.
-
-		int minimum_no_of_coins_to_make(int amount, vector<int>&coins){
-		if(amount==0) return 0;
-		if(dp[amount]!=-1) return dp[amount];
-
-		int ans =INT_MAX;
-		for(int coin:coins){
-			if(amount-coin>=0)
-				ans=min(ans+0LL, func(amount-coin,coins)+1LL);
-		}
-		return dp[amount]=ans;
-	}
-	int coinChange(vector<int>&coins, int amount){
-		int dp[10010];
-		memset(dp,-1,sizeof(dp));
-		int ans=func(amount,coins);
-		return ans==INT_MAX?-1:ans;
-	}
-
-	Update:  This was happenign as i was passing the dp vector as value so multiple copies were forming but now using vector<int>&dp ,  pass by reference is used so gives AC even on using vector.
-*/
 
 void solve() {
-	int n,m;
-	cin>>n>>m;
-	vector<int> coins;
-	input_vec(coins,m);
-	cout<<minimum_no_of_coins_to_make(n,m,coins)<<nline;
-	cout<< total_ways_to_make(n,m,coins)<<nline;
-
+    Node* head2 = NULL;
+    head2= createNode(0);
+    Node* temp2 = head2;
+    for(int i=1;i<4;i++){
+        Node* curr_node = createNode(i);
+        temp2->next = curr_node;
+        temp2= curr_node;
+    }
+    Node* head3 = createNode(1);
+    Node* head4 = createNode(2);
+    head3->next = head4;
+    head4->next = head3;
+    printLinkedList(&head2);
+    cout<<hasCycle(head3)<<nline;
+    cout<<hasCycle_floyd_cycle_Algo(head3)<<nline;
 }
+
 
 
 int main() {
-	fastio();
+    fastio();
 #ifndef ONLINE_JUDGE
-	freopen("error.txt", "w", stderr);
+    freopen("error.txt", "w", stderr);
 #endif
-	auto start1 = high_resolution_clock::now();
-	solve();
-	auto stop1 = high_resolution_clock::now();
-	auto duration = duration_cast<microseconds>(stop1 - start1);
+    auto start1 = high_resolution_clock::now();
+    solve();
+    auto stop1 = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop1 - start1);
 #ifndef ONLINE_JUDGE
-	cerr << "Time: " << duration . count() / 1000 << endl;
+    cerr << "Time: " << duration . count() / 1000 << endl;
 #endif
-	return 0;
+    return 0;
 }

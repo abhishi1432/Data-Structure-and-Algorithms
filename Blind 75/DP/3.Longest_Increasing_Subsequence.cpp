@@ -82,119 +82,90 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
 
 /*=================================================================*/
-long long int total_ways_to_make_helper_repetitive_ans(int n,int m,vector<int>&coins){
-	/*
-	TLE + wrong answer
-	This will give the repetitve answer
-	*/
-	long long int ans=0;
-	if(n==0)
-		return 1;
-	for(int i=0;i<m;i++){
-		if(n-coins[i]>=0)
-			ans+=total_ways_to_make_helper_repetitive_ans(n-coins[i],m,coins);
-	}
-	return ans;
-}
 
-long long int total_ways_to_make_helper(int ind,int n,int m,vector<int>&coins,vector<vector<int>>&dp){
-	/*
-	TLE
-	ind is taken so as during any coin at index 'ind' ,we will not take the coins at previous index.
 
-	AC
-	After intrducing memoization  --> denoted by //
-	*/
-	long long int ans=0;
-	if(n==0)
-		return 1;
-	if(dp[n][ind]!=-1)   //
-		return dp[n][ind];  //
-	for(int i=ind;i<m;i++){
-		if(n-coins[i]>=0)
-			ans+=total_ways_to_make_helper(i,n-coins[i],m,coins,dp);
-	} 
-	return dp[n][ind]=ans;   
-}
-long long int total_ways_to_make(int n,int m,vector<int>&coins){
-	long long ans=0;
-	vector<vector<int>> dp(n+1,vector<int>(m+1,-1));
-	ans=total_ways_to_make_helper(0,n,m,coins,dp);    //correct answer, only unique combinations
-	cout<<"some repetitive combinations :"<< total_ways_to_make_helper_repetitive_ans(n,m,coins)<<nline;  //repetitive ans
-	return ans;
-}
-
-int minimum_no_of_coins_to_make(int n,int m, vector<int>&coins){
+int naive_lengthOfLIS(vector<int>&nums,int ind,int current,int n){
 	/*
-	TLE
-	This is naive approach with complexity as O(m^n)
-	During printing we will check if the ans returned value is INT_MAX then we will print '-1' else we will print 'ans'.
+		Time complexity of this solution is O(2^n)
 	*/
-	int ans=INT_MAX;
-	if(n==0)
+	int ans=0;
+	if(ind>=n)
 		return 0;
-	for(int i=0;i<m;i++){
-		if(n-coins[i]>=0){
-			int subAns=minimum_no_of_coins_to_make(n-coins[i],m,coins);
-			if(subAns!=INT_MAX)
-				ans = min(1+ subAns,ans);
-		}
+	for(int i=ind;i<n;i++){
+			if(nums[i]>current){
+				int subAns = 1+naive_lengthOfLIS(nums,i,nums[i],n);
+				ans = max(subAns,ans);
+			}
 	}
 	return ans;
 }
-
-int minimum_no_of_coins_to_make(int amount,int m, vector<int> coins,vector<int>& dp){
+int memoization_lengthOfLIS(vector<int>&nums,int ind,int current,int n,vector<int>&memo){
 	/*
-	AC
-	This is recursionn + memoization with complexity as _____ . 
-	During printing we will check if the ans returned value is INT_MAX then we will print '-1' else we will print 'ans'.
+		Time complexity of this solution is O(n^2)
+		Space complexity is O(n)
 	*/
-	int ans=INT_MAX;
-	if(amount==0)
+	int ans=0;
+	if(ind>=n)
 		return 0;
-	if(dp[amount]!=-1)
-		return dp[amount];
-	for(int i=0;i<m;i++){
-		if(amount-coins[i]>=0){
-			int subAns=minimum_no_of_coins_to_make(amount-coins[i],m,coins,dp);
-			if(subAns!=INT_MAX)
-				ans = min(1+ subAns,ans);
-		}
+	if(memo[ind]!=-1)
+		return memo[ind];
+	for(int i=ind;i<n;i++){
+			if(nums[i]>current){
+				int subAns = 1+memoization_lengthOfLIS(nums,i,nums[i],n,memo);
+				ans = max(subAns,ans);
+			}
 	}
-	return dp[amount]=ans;
+	return memo[ind]=ans;
+}
+int binarySearchh_lengthOfLIS_Helper(int start,int end,vector<int>&arr,int target){
+	// cout<<start<<" "<<end<<nline;
+	int mid;
+	while(start<end){
+		mid = (start+end)/2;
+		if(arr[mid]==target)
+			return mid;
+		else if(arr[mid]>target)
+			end=mid;
+		else
+			start = mid+1;
+		
+	}
+	return start;
+}
+int binarySearchh_lengthOfLIS(vector<int>&nums,int n){
+	/*
+		Time complexity of this solution is O(nlogn)
+	*/
+	vector<int> arr(n);
+	int ans=0;
+	for(int i=0;i<n;i++){
+		int index = binarySearchh_lengthOfLIS_Helper(0,ans,arr,nums[i]);
+		// cout<<index<<nline;
+		arr[index]=nums[i];
+		// print_vec(arr);
+		if(index==ans)
+			ans+=1;
+		// cout<<"ans : "<<ans<<nline;
+	}
+return ans;
 }
 
-/*
-	This code gives AC whereas when i use vector<int> dp instead of array then TLE occurs.
+int call_all_solutions_here(vector<int>&nums){
+	return naive_lengthOfLIS(nums,0,INT_MIN,nums.size());  //O(2^n)
 
-		int minimum_no_of_coins_to_make(int amount, vector<int>&coins){
-		if(amount==0) return 0;
-		if(dp[amount]!=-1) return dp[amount];
+	vector<int> memo(nums.size()+1,-1);
+	return memoization_lengthOfLIS(nums,0,INT_MIN,nums.size(),memo);    //O(n^2)
 
-		int ans =INT_MAX;
-		for(int coin:coins){
-			if(amount-coin>=0)
-				ans=min(ans+0LL, func(amount-coin,coins)+1LL);
-		}
-		return dp[amount]=ans;
-	}
-	int coinChange(vector<int>&coins, int amount){
-		int dp[10010];
-		memset(dp,-1,sizeof(dp));
-		int ans=func(amount,coins);
-		return ans==INT_MAX?-1:ans;
-	}
+	return binarySearchh_lengthOfLIS(nums,nums.size());    //O(nlogn)
 
-	Update:  This was happenign as i was passing the dp vector as value so multiple copies were forming but now using vector<int>&dp ,  pass by reference is used so gives AC even on using vector.
-*/
+}
 
 void solve() {
-	int n,m;
-	cin>>n>>m;
-	vector<int> coins;
-	input_vec(coins,m);
-	cout<<minimum_no_of_coins_to_make(n,m,coins)<<nline;
-	cout<< total_ways_to_make(n,m,coins)<<nline;
+	int n;
+	cin>>n;
+	vector<int> vec;
+	input_vec(vec,n);
+	cout<<call_all_solutions_here(vec)<<nline;
 
 }
 

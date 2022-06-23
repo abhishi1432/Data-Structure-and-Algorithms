@@ -82,119 +82,106 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
 
 /*=================================================================*/
-long long int total_ways_to_make_helper_repetitive_ans(int n,int m,vector<int>&coins){
-	/*
-	TLE + wrong answer
-	This will give the repetitve answer
-	*/
-	long long int ans=0;
-	if(n==0)
-		return 1;
-	for(int i=0;i<m;i++){
-		if(n-coins[i]>=0)
-			ans+=total_ways_to_make_helper_repetitive_ans(n-coins[i],m,coins);
+int search_linear(string str,int low,int high,char ch){
+	for(int i=low;i<high;i++){
+		if(ch==str[i])
+			return i;
+	}
+	return -1;
+}
+int longestCommonSubsequence(string text1, string text2) {
+	int l1=text1.size();
+	int l2=text2.size();
+	int ans=0;
+	string res="";
+	for(int i=0;i<l1;i++){
+		int index=-1;
+		int localAns=0;
+		res="";
+		for(int j=i;j<l1;j++){
+			int temp = search_linear(text2,index+1,l2,text1[j]);
+			if(temp!=-1){
+				localAns+=1;
+				res=res+text1[j];
+				index = temp;
+				ans = max(localAns,ans);
+			}
+			// cout<<temp<<" "<<index<<" "<<text1[j]<<" "<<ans<<" "<<res<<nline;
+		}
 	}
 	return ans;
 }
 
-long long int total_ways_to_make_helper(int ind,int n,int m,vector<int>&coins,vector<vector<int>>&dp){
-	/*
-	TLE
-	ind is taken so as during any coin at index 'ind' ,we will not take the coins at previous index.
-
-	AC
-	After intrducing memoization  --> denoted by //
-	*/
-	long long int ans=0;
-	if(n==0)
-		return 1;
-	if(dp[n][ind]!=-1)   //
-		return dp[n][ind];  //
-	for(int i=ind;i<m;i++){
-		if(n-coins[i]>=0)
-			ans+=total_ways_to_make_helper(i,n-coins[i],m,coins,dp);
-	} 
-	return dp[n][ind]=ans;   
-}
-long long int total_ways_to_make(int n,int m,vector<int>&coins){
-	long long ans=0;
-	vector<vector<int>> dp(n+1,vector<int>(m+1,-1));
-	ans=total_ways_to_make_helper(0,n,m,coins,dp);    //correct answer, only unique combinations
-	cout<<"some repetitive combinations :"<< total_ways_to_make_helper_repetitive_ans(n,m,coins)<<nline;  //repetitive ans
-	return ans;
-}
-
-int minimum_no_of_coins_to_make(int n,int m, vector<int>&coins){
-	/*
-	TLE
-	This is naive approach with complexity as O(m^n)
-	During printing we will check if the ans returned value is INT_MAX then we will print '-1' else we will print 'ans'.
-	*/
-	int ans=INT_MAX;
-	if(n==0)
+int longestCommonSubsequence_UsingRecursion(string &text1,string &text2,int ind1,int ind2,vector<vector<int>>&memo){
+	if(ind1==text1.size() || ind2==text2.size()){
 		return 0;
-	for(int i=0;i<m;i++){
-		if(n-coins[i]>=0){
-			int subAns=minimum_no_of_coins_to_make(n-coins[i],m,coins);
-			if(subAns!=INT_MAX)
-				ans = min(1+ subAns,ans);
-		}
 	}
-	return ans;
+	if(memo[ind1][ind2]!=-1)
+		return memo[ind1][ind2];
+	else if(text1[ind1]==text2[ind2]){
+		int temp=longestCommonSubsequence_UsingRecursion(text1,text2,ind1+1,ind2+1,memo);
+		memo[ind1+1][ind2+1]=temp;
+		return 1 + temp;
+	}
+	else
+		return max(longestCommonSubsequence_UsingRecursion(text1,text2,ind1,ind2+1,memo),longestCommonSubsequence_UsingRecursion(text1,text2,ind1+1,ind2,memo));
 }
 
-int minimum_no_of_coins_to_make(int amount,int m, vector<int> coins,vector<int>& dp){
+
+int longestCommonSubsequence_UsingDP(string text1,string text2, vector<vector<long long>>&dp){
+	int n=text1.size(),m=text2.size();
+	// cout<<n<<" "<<m<<nline;
+	for(int i=0;i<n;i++){
+		for(int j=0;j<m;j++){
+			if(text1[i]==text2[j]){
+				if(i==0 || j==0)
+					dp[i][j]=1;
+				else
+					dp[i][j] = 1LL + dp[i-1][j-1];
+			}
+			else{
+				if(i==0 && j!=0)
+					dp[i][j]=dp[i][j-1];
+				else if(j==0 && i!=0)
+					dp[i][j] = dp[i-1][j];
+				else if(i==0 && j==0)
+					dp[i][j] = 0;
+				else
+					dp[i][j] = max(dp[i-1][j],dp[i][j-1]);
+			}
+		}
+	}
+	return dp[n-1][m-1];
+}
+
+int call_all_functions_here(string text1,string text2){
+	
 	/*
-	AC
-	This is recursionn + memoization with complexity as _____ . 
-	During printing we will check if the ans returned value is INT_MAX then we will print '-1' else we will print 'ans'.
+		Time complexity of this function is O(n1*n2*n3) ~ O(n^3)
+		Not working for all of the test cases.
 	*/
-	int ans=INT_MAX;
-	if(amount==0)
-		return 0;
-	if(dp[amount]!=-1)
-		return dp[amount];
-	for(int i=0;i<m;i++){
-		if(amount-coins[i]>=0){
-			int subAns=minimum_no_of_coins_to_make(amount-coins[i],m,coins,dp);
-			if(subAns!=INT_MAX)
-				ans = min(1+ subAns,ans);
-		}
-	}
-	return dp[amount]=ans;
+	return longestCommonSubsequence(text1,text2);
+		
+	/*
+		Recursion--> O(2*n)
+		Recursion + Memoization
+		Time complexity of this is O(n1*n2) i.e size of the memoization table
+	*/
+	vector<vector<int>> memo(text1.size()+1,vector<int>(text2.size()+1,-1));
+	return longestCommonSubsequence_UsingRecursion(text1,text2,0,0,memo);
+
+	/*
+		Time complexiyt of this solution is O(n1*n2)
+	*/
+	vector<vector<long long>> dp(text1.size(),vector<long long>(text2.size(),0));
+	return longestCommonSubsequence_UsingDP(text1,text2,dp);
+
 }
-
-/*
-	This code gives AC whereas when i use vector<int> dp instead of array then TLE occurs.
-
-		int minimum_no_of_coins_to_make(int amount, vector<int>&coins){
-		if(amount==0) return 0;
-		if(dp[amount]!=-1) return dp[amount];
-
-		int ans =INT_MAX;
-		for(int coin:coins){
-			if(amount-coin>=0)
-				ans=min(ans+0LL, func(amount-coin,coins)+1LL);
-		}
-		return dp[amount]=ans;
-	}
-	int coinChange(vector<int>&coins, int amount){
-		int dp[10010];
-		memset(dp,-1,sizeof(dp));
-		int ans=func(amount,coins);
-		return ans==INT_MAX?-1:ans;
-	}
-
-	Update:  This was happenign as i was passing the dp vector as value so multiple copies were forming but now using vector<int>&dp ,  pass by reference is used so gives AC even on using vector.
-*/
-
 void solve() {
-	int n,m;
-	cin>>n>>m;
-	vector<int> coins;
-	input_vec(coins,m);
-	cout<<minimum_no_of_coins_to_make(n,m,coins)<<nline;
-	cout<< total_ways_to_make(n,m,coins)<<nline;
+	string text1,text2;
+	getline(cin,text1);
+	getline(cin,text2);
+	cout<<call_all_functions_here(text1,text2)<<nline;
 
 }
 
