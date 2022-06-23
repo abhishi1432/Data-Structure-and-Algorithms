@@ -107,6 +107,8 @@ void printLinkedList(Node** head){
 bool hasCycle(Node *head) {
     /*
         Using map and set to check for the repeating address of any node.
+        Time compelexity is O(n)
+        Space complelxiyt is O(n)
     */
     Node* temp = head;
     unordered_set<Node*> st;
@@ -126,6 +128,8 @@ bool hasCycle(Node *head) {
 bool hasCycle_floyd_cycle_Algo(Node *head) {
     /*
         Using two pointer approach -  one is slow pointer and another is fast pointer.
+        Time compelexity is O(n)
+        Space complelxiyt is O(1)
     */
     if(head == NULL || head->next == NULL) 
             return false;    
