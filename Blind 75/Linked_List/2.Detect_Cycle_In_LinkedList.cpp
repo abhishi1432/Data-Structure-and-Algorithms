@@ -1,5 +1,5 @@
 /*
-	A B H I S H E K    S I N G H
+    A B H I S H E K    S I N G H
 */
 
 #include<bits/stdc++.h>
@@ -82,142 +82,56 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
 
 /*=================================================================*/
-
 class Node{
 public:
-	int data;
-	Node* next;
-	Node(){
-		next = nullptr;
-	}
-};
-
-Node* createNode(int data){
-	Node* new_node = new Node();
-	new_node->data = data;
-	return new_node;
-}
-void printLinkedList(Node** head){
-	Node* temp = *head;
-	while(temp!=nullptr){
-		cout<<temp->data<<nline;
-		temp= temp->next;
-	}
-}
-void addNodeAtFront(Node** head,int data){
-	if(*head==NULL){
-		*head =createNode(data);
-		return;
-	}
-	Node* temp = createNode(data);
-	temp->next = *head;
-	*head = temp;
-}
-void addNodeAfterGivenNode(Node* node, int val){
-	if(node ==NULL)
-		return;
-	Node* temp= createNode(val);
-	temp->next = node->next;
-	node->next = temp;
-}
-void addNodeAtEnd(Node** head,int val){
-	Node* temp = *head;
-	if(*head == NULL){
-		*head = createNode(val);
-		return;
-	}
-	while(temp->next!=nullptr){
-		temp=temp->next;
-	}
-	temp->next = createNode(val);
-}
-
-void DeleteNode(Node** head,int pos){
-	if(*head ==	NULL)
-		return;
-	Node* temp = *head;
-	if(pos==1){
-		*head = temp->next;
-		free(temp);
-		return;
-	}
-	for(int i=1;i<pos-1;i++){
-		temp = temp->next;
-		if(temp==NULL || temp->next==NULL)
-			return;
-	}
-	
-	Node* temp2= temp->next->next;
-	free(temp->next);
-	temp->next = temp2;
-}
-Node* reverseLinkedList(Node* head,Node** new_head){
-	if(head  == NULL){
-        *new_head = head;
-        return head;
+    int data;
+    Node* next;
+    Node(){
+        next = nullptr;
     }
-	if(head->next == NULL){
-		*new_head = head;
-		return head;
-	}
-	ListNode* temp = reverseLinkedList(head->next,new_head);
-	temp->next = head;
-	temp->next->next = NULL;
-	return head;
+};
+Node* createNode(int data){
+    Node* new_node = new Node();
+    new_node->data = data;
+    return new_node;
 }
+
+void printLinkedList(Node** head){
+    cout<<"Printing..."<<nline;
+    Node* temp = *head;
+    while(temp!=nullptr){
+        cout<<temp->data<<nline;
+        temp= temp->next;
+    }
+}
+
 
 void solve() {
-	Node* head2 = NULL;
-	head2= createNode(10);
-	Node* temp2 = head2;
-	for(int i=11;i<12;i++){
-		Node* curr_node = createNode(i);
-		temp2->next = curr_node;
-		temp2= curr_node;
-	}
-	cout<<"Printing..."<<nline;
-	printLinkedList(&head2);
-	addNodeAtFront(&head2,99);
-	cout<<"Printing..."<<nline;
-	// printLinkedList(&head2);
-	addNodeAtEnd(&head2,1000);
-	cout<<"Printing..."<<nline;
-	// printLinkedList(&head2);
-	DeleteNode(&head2,4);
-	cout<<"Printing..."<<nline;
-	// printLinkedList(&head2);
-	DeleteNode(&head2,3);
-	cout<<"Printing..."<<nline;
-	// printLinkedList(&head2);
-	DeleteNode(&head2,2);
-	cout<<"Printing..."<<nline;
-	printLinkedList(&head2);
-	DeleteNode(&head2,1);
-	cout<<"Printing..."<<nline;
-	printLinkedList(&head2);
-	addNodeAtEnd(&head2,1);
-	addNodeAtEnd(&head2,2);
-	addNodeAtEnd(&head2,3);
-	cout<<"Printing..."<<nline;
-	printLinkedList(&head2);
-	cout<<"Printing..."<<nline;
-	Node* xx;
-	Node* xy = reverseLinkedList(head2,&xx);
-	printLinkedList(&xx);
+    Node* head2 = NULL;
+    head2= createNode(0);
+    Node* temp2 = head2;
+    for(int i=1;i<4;i++){
+        Node* curr_node = createNode(i);
+        temp2->next = curr_node;
+        temp2= curr_node;
+    }
+    
+    printLinkedList(&head2);
 }
+
 
 
 int main() {
-	fastio();
+    fastio();
 #ifndef ONLINE_JUDGE
-	freopen("error.txt", "w", stderr);
+    freopen("error.txt", "w", stderr);
 #endif
-	auto start1 = high_resolution_clock::now();
-	solve();
-	auto stop1 = high_resolution_clock::now();
-	auto duration = duration_cast<microseconds>(stop1 - start1);
+    auto start1 = high_resolution_clock::now();
+    solve();
+    auto stop1 = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop1 - start1);
 #ifndef ONLINE_JUDGE
-	cerr << "Time: " << duration . count() / 1000 << endl;
+    cerr << "Time: " << duration . count() / 1000 << endl;
 #endif
-	return 0;
+    return 0;
 }
