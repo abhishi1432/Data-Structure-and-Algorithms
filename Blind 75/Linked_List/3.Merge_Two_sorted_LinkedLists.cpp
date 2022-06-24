@@ -153,7 +153,7 @@ void solve() {
     head4->next = head5;
     printLinkedList(&head2);
     printLinkedList(&head3);
-    Node* new_list = mergeTwoLists(head2,head3);
+    Node* new_list = mergeTwoLists_Iterative(head2,head3);
     printLinkedList(&new_list);
 }
 
