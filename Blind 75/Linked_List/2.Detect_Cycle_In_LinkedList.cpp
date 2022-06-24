@@ -145,6 +145,10 @@ bool hasCycle_floyd_cycle_Algo(Node *head) {
     return false;
 }
 
+Node* mergeTwoLists(Node* list1, Node* list2) {
+    
+}
+
 void solve() {
     Node* head2 = NULL;
     head2= createNode(0);
