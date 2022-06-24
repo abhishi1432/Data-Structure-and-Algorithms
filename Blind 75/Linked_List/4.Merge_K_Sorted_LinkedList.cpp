@@ -1,5 +1,5 @@
 /*
-    A B H I S H E K    S I N G H
+	A B H I S H E K    S I N G H
 */
 
 #include<bits/stdc++.h>
@@ -105,40 +105,54 @@ void printLinkedList(Node** head){
     }
 }
 
-Node* mergeTwoLists_Iterative(Node* list1, Node* list2) {
-    Node* head_new=NULL;
-    Node* tail=NULL;
-    if (list1==NULL)
-        return list2;
-    if (list2==NULL)
-        return list1;
-    while(list1!=NULL && list2!=NULL){
-        if(list1->data < list2->data){
-            if(head_new ==NULL)
-                head_new=list1;
-            else
-                tail->next=list1;
-            tail=list1;
-            list1=list1->next;
-        }
-        else{
-            if(head_new ==NULL)
-                head_new=list2;
-            else
-                tail->next=list2;
-            tail=list2;
-            list2=list2->next;
-        }
-    }
-    if(list1!=NULL)
-        tail->next=list1;
-    if(list2!=NULL)
-        tail->next=list2;
-    return head_new;
+Node* mergeKLists(vector<Node*>& lists) {
+    Node* head_neww=NULL;
+    for(int i=0;i<lists.size();i++){
+    	Node* tail=NULL;
+    	Node* head_new = NULL;
+    	Node* list1 = lists[i];
+    	Node* list2 = head_neww;
+
+    	if(list1==NULL){
+    		head_new = list2;
+    		head_neww = head_new;
+    		continue;
+    	}
+    	if(list2 == NULL){
+    		head_new = list1;
+    		head_neww = head_new;
+    		continue;
+    	}
+
+	    while(list1!=NULL && list2!=NULL){
+	        if(list1->data < list2->data){
+	            if(head_new ==NULL)
+	                head_new=list1;
+	            else
+	                tail->next=list1;
+	            tail=list1;
+	            list1=list1->next;
+	        }
+	        else{
+	            if(head_new ==NULL)
+	                head_new=list2;
+	            else
+	                tail->next=list2;
+	            tail=list2;
+	            list2=list2->next;
+	        }
+	    }
+	    if(list1!=NULL)
+	        tail->next=list1;
+	    if(list2!=NULL)
+	        tail->next=list2;
+	    head_neww = head_new;
+	}
+    return head_neww;
 }
 
 void solve() {
-    Node* head2 = NULL;
+	Node* head2 = NULL;
     head2= createNode(0);
     Node* temp2 = head2;
     for(int i=1;i<4;i++){
@@ -153,23 +167,31 @@ void solve() {
     head4->next = head5;
     printLinkedList(&head2);
     printLinkedList(&head3);
-    Node* new_list = mergeTwoLists_Iterative(head2,head3);
+
+    Node* head6 = createNode(1);
+    Node* head7 = createNode(3);
+    Node* head8 = createNode(9);
+    head6->next = head7;
+    head7->next = head8;
+    printLinkedList(&head6);
+    vector<Node*> lists = {head2,head3,head6};
+    Node* new_list = mergeKLists(lists);
     printLinkedList(&new_list);
+
 }
 
 
-
 int main() {
-    fastio();
+	fastio();
 #ifndef ONLINE_JUDGE
-    freopen("error.txt", "w", stderr);
+	freopen("error.txt", "w", stderr);
 #endif
-    auto start1 = high_resolution_clock::now();
-    solve();
-    auto stop1 = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(stop1 - start1);
+	auto start1 = high_resolution_clock::now();
+	solve();
+	auto stop1 = high_resolution_clock::now();
+	auto duration = duration_cast<microseconds>(stop1 - start1);
 #ifndef ONLINE_JUDGE
-    cerr << "Time: " << duration . count() / 1000 << endl;
+	cerr << "Time: " << duration . count() / 1000 << endl;
 #endif
-    return 0;
+	return 0;
 }
