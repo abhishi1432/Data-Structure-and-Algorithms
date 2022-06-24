@@ -1,5 +1,5 @@
 /*
-    A B H I S H E K    S I N G H
+	A B H I S H E K    S I N G H
 */
 
 #include<bits/stdc++.h>
@@ -82,104 +82,25 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
 
 /*=================================================================*/
-class Node{
-public:
-    int data;
-    Node* next;
-    Node(){
-        next = nullptr;
-    }
-};
-Node* createNode(int data){
-    Node* new_node = new Node();
-    new_node->data = data;
-    return new_node;
-}
 
-void printLinkedList(Node** head){
-    cout<<"Printing..."<<nline;
-    Node* temp = *head;
-    while(temp!=nullptr){
-        cout<<temp->data<<nline;
-        temp= temp->next;
-    }
-}
-bool hasCycle(Node *head) {
-    /*
-        Using map and set to check for the repeating address of any node.
-        Time compelexity is O(n)
-        Space complelxiyt is O(n)
-    */
-    Node* temp = head;
-    unordered_set<Node*> st;
-    map<Node* , int> mp;
-    while(temp!=nullptr){
-        // if(st.find(temp)!=st.end())
-        //     return true;
-        // st.insert(temp);
-        if(mp[temp]==1)
-            return true;
-        mp[temp]=1;
-        temp= temp->next;
-
-    }           
-    return false;
-}
-bool hasCycle_floyd_cycle_Algo(Node *head) {
-    /*
-        Using two pointer approach -  one is slow pointer and another is fast pointer.
-        Time compelexity is O(n)
-        Space complelxiyt is O(1)
-    */
-    if(head == NULL || head->next == NULL) 
-            return false;    
-    Node *slow, *fast;
-    slow = fast = head;
-    while(fast!=NULL && fast->next->next!=NULL){
-        slow= slow->next;
-        fast= fast->next->next;
-        if(fast == slow){
-            return true;
-        } 
-    }           
-    return false;
-}
-
-Node* mergeTwoLists(Node* list1, Node* list2) {
-    
-}
 
 void solve() {
-    Node* head2 = NULL;
-    head2= createNode(0);
-    Node* temp2 = head2;
-    for(int i=1;i<4;i++){
-        Node* curr_node = createNode(i);
-        temp2->next = curr_node;
-        temp2= curr_node;
-    }
-    Node* head3 = createNode(1);
-    Node* head4 = createNode(2);
-    head3->next = head4;
-    head4->next = head3;
-    printLinkedList(&head2);
-    cout<<hasCycle(head3)<<nline;
-    cout<<hasCycle_floyd_cycle_Algo(head3)<<nline;
-}
+	
 
+}
 
 
 int main() {
-    fastio();
+	fastio();
 #ifndef ONLINE_JUDGE
-    freopen("error.txt", "w", stderr);
+	freopen("error.txt", "w", stderr);
 #endif
-    auto start1 = high_resolution_clock::now();
-    solve();
-    auto stop1 = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(stop1 - start1);
+	auto start1 = high_resolution_clock::now();
+	solve();
+	auto stop1 = high_resolution_clock::now();
+	auto duration = duration_cast<microseconds>(stop1 - start1);
 #ifndef ONLINE_JUDGE
-    cerr << "Time: " << duration . count() / 1000 << endl;
+	cerr << "Time: " << duration . count() / 1000 << endl;
 #endif
-    return 0;
+	return 0;
 }

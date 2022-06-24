@@ -104,49 +104,37 @@ void printLinkedList(Node** head){
         temp= temp->next;
     }
 }
-bool hasCycle(Node *head) {
-    /*
-        Using map and set to check for the repeating address of any node.
-        Time compelexity is O(n)
-        Space complelxiyt is O(n)
-    */
-    Node* temp = head;
-    unordered_set<Node*> st;
-    map<Node* , int> mp;
-    while(temp!=nullptr){
-        // if(st.find(temp)!=st.end())
-        //     return true;
-        // st.insert(temp);
-        if(mp[temp]==1)
-            return true;
-        mp[temp]=1;
-        temp= temp->next;
 
-    }           
-    return false;
-}
-bool hasCycle_floyd_cycle_Algo(Node *head) {
-    /*
-        Using two pointer approach -  one is slow pointer and another is fast pointer.
-        Time compelexity is O(n)
-        Space complelxiyt is O(1)
-    */
-    if(head == NULL || head->next == NULL) 
-            return false;    
-    Node *slow, *fast;
-    slow = fast = head;
-    while(fast!=NULL && fast->next->next!=NULL){
-        slow= slow->next;
-        fast= fast->next->next;
-        if(fast == slow){
-            return true;
-        } 
-    }           
-    return false;
-}
-
-Node* mergeTwoLists(Node* list1, Node* list2) {
-    
+Node* mergeTwoLists_Iterative(Node* list1, Node* list2) {
+    Node* head_new=NULL;
+    Node* tail=NULL;
+    if (list1==NULL)
+        return list2;
+    if (list2==NULL)
+        return list1;
+    while(list1!=NULL && list2!=NULL){
+        if(list1->data < list2->data){
+            if(head_new ==NULL)
+                head_new=list1;
+            else
+                tail->next=list1;
+            tail=list1;
+            list1=list1->next;
+        }
+        else{
+            if(head_new ==NULL)
+                head_new=list2;
+            else
+                tail->next=list2;
+            tail=list2;
+            list2=list2->next;
+        }
+    }
+    if(list1!=NULL)
+        tail->next=list1;
+    if(list2!=NULL)
+        tail->next=list2;
+    return head_new;
 }
 
 void solve() {
@@ -160,11 +148,13 @@ void solve() {
     }
     Node* head3 = createNode(1);
     Node* head4 = createNode(2);
+    Node* head5 = createNode(5);
     head3->next = head4;
-    head4->next = head3;
+    head4->next = head5;
     printLinkedList(&head2);
-    cout<<hasCycle(head3)<<nline;
-    cout<<hasCycle_floyd_cycle_Algo(head3)<<nline;
+    printLinkedList(&head3);
+    Node* new_list = mergeTwoLists(head2,head3);
+    printLinkedList(&new_list);
 }
 
 
