@@ -239,6 +239,70 @@ void DFT_Postorder(Node* root){
 	DFT_Postorder(root->right);
 	cout<<root->data<<" ";
 }
+
+
+/*
+	Iterative DFT Reference  : strivers take u forward
+	https://youtu.be/lxTGsVXjwvM
+*/
+void DFT_Inorder_Iterative(Node* root){
+	if(root==NULL)
+		return;
+	stack<Node*> s;
+	Node* temp = root;
+	while(true){
+		if(temp!=NULL){
+			s.push(temp);
+			temp= temp->left;
+		}
+		else{
+			if(s.empty() == true)
+				break;
+			temp = s.top();
+			s.pop();
+			cout<<temp->data<<" ";
+			temp= temp->right;
+		}
+	}
+}
+void DFT_Preorder_Iterative(Node* root){
+	/*
+		For this we use stack and then put element in it as first right then left
+		As the left will be on top so it will be printed before right(since stack in LIFO).
+	*/
+	if(root==NULL)
+		return;
+	stack<Node*> s;
+	s.push(root);
+	while(!s.empty()){
+		Node* temp = s.top();
+		s.pop();
+		cout<<temp->data<<" ";
+		if(temp->right!=NULL)
+			s.push(temp->right);
+		if(temp->left!=NULL)
+			s.push(temp->left);
+	}
+}
+void DFT_Postorder_Iterative(Node* root){
+	if(root==NULL)
+		return;
+	stack<Node*> s1,s2;
+	s1.push(root);
+	while(!s1.empty()){
+		root = s1.top();
+		s1.pop();
+		s2.push(root);
+		if(root->left!=NULL)
+			s1.push(root->left);
+		if(root->right!=NULL)
+			s1.push(root->right);
+	}
+	while(!s2.empty()){
+		cout<<s2.top()->data<<" ";
+		s2.pop();
+	}
+}
 void BFT(Node* root){
 	queue<Node*> q;
 	q.push(root);
@@ -297,6 +361,13 @@ void solve() {
 					4    5  6
 
 	*/
+	DFT_Inorder_Iterative(root);
+	cout<<"\n\n\n";
+	DFT_Preorder_Iterative(root);
+	cout<<"\n\n\n";
+	DFT_Postorder_Iterative(root);
+	cout<<"\n\n\n";
+	
 	cout<<root->data<<nline<<root->left->data<<nline<<root->right->data<<nline;
 
 
