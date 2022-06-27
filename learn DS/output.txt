@@ -1,3 +1,26 @@
-i am hello
-i am hello 2
+4 2 1 5 3 6 
+
+
+1 2 4 3 5 6 
+
+
+4 2 5 6 3 1 
+
+
+1
 2
+3
+0
+41
+
+PREORDER: 1 2 4 41 3 5 6 
+INORDER: 4 2 41 1 5 3 6 
+POSTORDER: 4 41 2 5 6 3 1 
+LevelOrder or BFT: 1 2 3 4 41 5 6 
+1
+2 3
+4 41 5 6
+1
+2 3
+4 41 5 6
+Max = 41
