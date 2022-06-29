@@ -103,28 +103,21 @@ int naive_rob_Helper(vector<int>& nums,int ind,int n){
 }
 int memo_rob_Helper(vector<int>& nums,int ind,int n,vector<int>&memo){
 	/*
-		Time complexity of this solution is O(2^n).
-		Space compleixity is O(1)
+		Time complexity of this solution is O(n).
+		Space compleixity is O(n) + O(n)
 	*/
 	if(ind==n-1)
 		return nums[ind];
 	if(ind>=n)
 		return 0;
-	int take_current;
-	if(memo[ind+2]!=-1)
-		take_current = nums[ind] + memo[ind+2];
+	int take_current,leave_current;
+	if(memo[ind]!=-1)
+		return memo[ind];
 	else{
-		memo[ind+2] = memo_rob_Helper(nums,ind+2,n,memo); 
-		take_current = nums[ind] + memo[ind+2];
+		take_current = nums[ind] + memo_rob_Helper(nums,ind+2,n,memo);
+		leave_current = 0 + memo_rob_Helper(nums,ind+1,n,memo);
 	}
-	int leave_current;
-	if(memo[ind+1]!=-1)
-		leave_current = 0 + memo[ind+1];
-	else{
-		memo[ind+1] = memo_rob_Helper(nums,ind+1,n,memo);
-		leave_current = 0 + memo[ind+1];
-	}
-	return max(take_current,leave_current);
+	return memo[ind]=max(take_current,leave_current);
 }
 
 int rob(vector<int>& nums) {
