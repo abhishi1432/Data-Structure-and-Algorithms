@@ -100,13 +100,25 @@ int combinationSum4(vector<int>& nums, int target,vector<int>& memo) {
 	}
 	return memo[target]=ans;
 }
+int combinationSum4_DP(vector<int>& nums, int target){
+	vector<int>dp(target+1,0);
+	dp[0]=1;
+	for(int i=1;i<=target;i++){
+		for(int j:nums){
+			if(i-j>=0)
+				dp[i]=dp[i]+dp[i-j];
+		}
+	}
+	return dp[target];
+}
 void solve() {
 	int n,target;
 	cin>>n>>target;
 	vector<int> arr;
 	input_vec(arr,n);	
 	vector<int>memo(target+1,-1);
-	cout<<combinationSum4(arr,target,memo);
+	cout<<combinationSum4(arr,target,memo)<<nline;
+	cout<<combinationSum4_DP(arr,target)<<nline;
 }
 
 
