@@ -119,12 +119,33 @@ int memo_rob_Helper(vector<int>& nums,int ind,int n,vector<int>&memo){
 	}
 	return memo[ind]=max(take_current,leave_current);
 }
+int DP_rob_Helper(vector<int>& nums,int n){
+	/*
+		Time complexity of this solution is O(n).
+		Space compleixity is O(n)
+		Top-Down approach(Try to follow bottom-up in DP as it is suggested by many)
+	*/
+	vector<int>dp(n+1,0);
+	dp[n-1]=nums[n-1];
+	int neg = 0;
+	for(int i=n-2;i>=0;i--){
+		dp[i] = max(dp[i+2]+nums[i], dp[i+1]);
+	}
+	return dp[0];
+
+	/*
+		To further optimize it for space we can just use two variables to strore dp[i+2] and dp[i+1]
+		as only this is used.
+	*/
+
+}
 
 int rob(vector<int>& nums) {
 	int n=nums.size();
-      return naive_rob_Helper(nums,0,n);
-      vector<int>memo(n+1,-1);
-      return memo_rob_Helper(nums,0,n,memo);
+      // return naive_rob_Helper(nums,0,n);
+      // vector<int>memo(n+1,-1);
+      // return memo_rob_Helper(nums,0,n,memo);
+      return DP_rob_Helper(nums,n);
 }
 
 void solve() {
