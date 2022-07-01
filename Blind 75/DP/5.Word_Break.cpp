@@ -57,7 +57,7 @@ template <class T> void input_vec(vector<T> &v , int n);  //taking input of n el
 template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item);  //binary search on vector
 template <class T> void print_vec(vector<T> v){ for(T i:v){ cout<<i<<" ";}cout<<nline;} 
 template <class T> void print_set(set<T> s){for(T i:s){cout<<i<<" ";}cout<<nline;}  
-template <class T> void input_vec(vector<T> &v , int n){for(int i=0;i<n;i++){int temp;cin>>temp;v.pb(temp);}}   
+template <class T> void input_vec(vector<T> &v , int n){for(int i=0;i<n;i++){T temp;cin>>temp;v.pb(temp);}}   
 template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V low = 0; V high = n - 1; while(low<=high){{V mid = (low + high)/2; if (a[mid] == item) return mid; else if (a[mid] < item) low = mid + 1; else high = mid - 1;}} return -1;}
 
 /*===============================================================*/
@@ -82,11 +82,48 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
 
 /*=================================================================*/
+bool Search(vector<string>&wordDict,string target){
+	if(target=="")
+		return true;
+	for(auto words : wordDict){
+		if(words == target){
+			return true;
+		}
+	}
+	return false;
+}
+bool naive_wordBreak(string s, vector<string>& wordDict,map<string,bool>&memo) {
+	if(memo[s]==true)
+		return true;
+	if(Search(wordDict, s)){
+		return true;
+	}
+	for(int i=1;i<=s.size();i++){
+		string left = s.substr(0,i);
+		string right = s.substr(i);
+		if(Search(wordDict, left) && naive_wordBreak(right,wordDict,memo)){
+				memo[s]=true;
+				return true;
+		}
+	}
+	memo[s] = false;
+	return false;
+}
 
+bool wordBreak(string s, vector<string>& wordDict) {
+	map<string,bool> memo;
+    return naive_wordBreak(s,wordDict,memo);
+}
 
 void solve() {
-	
-
+	string s;
+	getline(cin,s);
+	int n;
+	cin>>n;
+	vector<string> wordDict;
+	input_vec(wordDict,n);
+	// print_vec(wordDict);
+	cout<<wordBreak(s,wordDict)<<nline;
 }
 
 
