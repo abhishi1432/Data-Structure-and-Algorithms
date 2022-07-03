@@ -1,6 +1,1 @@
-elm 1
-elm 3
-max1 2
-max2 3
-max1 2
 Time: 0
