@@ -1,1 +1,5 @@
-1
+andog 0
+catsandog 0
+og 0
+sandog 0
+0

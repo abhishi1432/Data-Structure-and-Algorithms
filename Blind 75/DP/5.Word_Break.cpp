@@ -82,37 +82,80 @@ template <class T, class V, class X>V binarySearch(vector<T> a, V n, X item){  V
 // ll lcm(int a, int b){return (a / gcd(a, b)) * b;}
 
 /*=================================================================*/
-bool Search(vector<string>&wordDict,string target){
-	if(target=="")
-		return true;
-	for(auto words : wordDict){
-		if(words == target){
-			return true;
-		}
-	}
-	return false;
+
+bool DP_wordBreak(string s, vector<string>& wordDict) {
+    set<string> word_set(wordDict.begin(), wordDict.end());
+    vector<bool> dp(s.length() + 1);
+    dp[0] = true;
+
+    for (int i = 1; i <= s.length(); i++) {
+        for (int j = 0; j < i; j++) {
+            if (dp[j] and
+                word_set.find(s.substr(j, i - j)) != word_set.end()) {
+                dp[i] = true;
+                break;
+            }
+        }
+    }
+    return dp[s.length()];
 }
-bool naive_wordBreak(string s, vector<string>& wordDict,map<string,bool>&memo) {
-	if(memo[s]==true)
-		return true;
-	if(Search(wordDict, s)){
-		return true;
-	}
-	for(int i=1;i<=s.size();i++){
-		string left = s.substr(0,i);
-		string right = s.substr(i);
-		if(Search(wordDict, left) && naive_wordBreak(right,wordDict,memo)){
-				memo[s]=true;
-				return true;
-		}
-	}
-	memo[s] = false;
-	return false;
+
+bool naive_wordBreak(string s, set<string>& word_set, int start, map<string, int>& memo) {
+    /*
+		Time complexity : O(n^3). Size of recursion tree can go up to n^2 . Substring computation takes O(n)
+		Space complexity : O(n).The depth of recursion tree can go up to n.
+    */
+	// This is taken from soltions in Leetcode
+    // if (start == s.length()) {    //or we can say if s == "" i.e s is empty
+    //     return true;
+    // }
+    // if (memo[start] != -1) {
+    //         return memo[start];   //here memo is a 1d vector so change memo accordingly
+    //     }
+    // for (int end = start + 1; end <= s.length(); end++) {
+    //     if (word_set.find(s.substr(start, end - start)) != word_set.end() &&
+    //         naive_wordBreak(s, word_set, end)) {
+    //         return memo[start] = true;
+    //     }
+    // }
+    // return memo[start] = false;
+
+
+    if(s == "")
+    	return true;
+    if(memo.find(s)!=memo.end())
+    {
+    	if(memo[s]==1)
+    		return true;
+    	else
+    		return false;
+    }
+    for(int i=1;i<=s.length();i++){
+    	if(word_set.find(s.substr(0,i))!=word_set.end() && naive_wordBreak(s.substr(i),word_set,0,memo)){
+    		// cout<<s<<" "<<i<<nline;
+    		memo[s]=1;
+    		return true;
+    	}
+    }
+    memo[s]=0;
+    return false;
 }
 
 bool wordBreak(string s, vector<string>& wordDict) {
-	map<string,bool> memo;
-    return naive_wordBreak(s,wordDict,memo);
+	set<string> word_set(wordDict.begin(), wordDict.end());
+	/*
+	// Use this if you use 1D vector in memo . 0 for false and 1 for true
+    vector<int> memo(s.length(), -1);
+    */
+
+	map<string, int> memo;
+    bool ans = naive_wordBreak(s, word_set, 0,memo);
+    // for(auto i:memo)
+    // 	cout<<i.first <<" "<<i.second<<nline;
+    return ans;
+
+
+    return DP_wordBreak(s,wordDict)<<nline;
 }
 
 void solve() {
