@@ -1,6 +1,10 @@
 class Solution {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
+        /*
+        Time complexity is O(n)
+        Space Compleixyt is O(logn) -> for recursion stack
+    */
         if(!p && !q)
             return true;
         else if((!p && q) || (p && !q))
