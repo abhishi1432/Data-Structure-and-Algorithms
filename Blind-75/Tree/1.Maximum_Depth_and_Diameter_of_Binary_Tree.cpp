@@ -109,28 +109,70 @@ int maxDepth(TreeNode* root) {
     return max(leftMax,rightMax);
 }
 
+/* This is Extra*/
+int ans=0;
+int maxDiameter(TreeNode* root) {
+	/*
+		Time complexity is O(2^n * 2^n) where 2^n is total no of nodes in a tree 
+	*/
+    if(root == NULL)
+    	return 0;
+    int leftMax = maxDepth(root->left);
+    int rightMax = maxDepth(root->right);
+    ans = max(ans, leftMax + rightMax );
+    maxDiameter(root->left);
+    maxDiameter(root->right);
+    return ans; 
+} 
+
+int maxDiameter_Optimized(TreeNode* root,int &ans) {
+	/*
+		Time complexity is O(2^n)
+	*/
+    if(root == NULL)
+    	return 0;
+    int leftMax = maxDiameter_Optimized(root->left,ans);
+    int rightMax = maxDiameter_Optimized(root->right,ans);
+    ans = max(ans,leftMax+rightMax);
+    return 1 + max(leftMax,rightMax);
+}
+
 void solve() {
 	/* Write your code here.*/
 
 	TreeNode* root = createNode(1);
 	root->left = createNode(2);
 	root->right = createNode(3);
-	root->left->left = createNode(4);
-	root->right->left = createNode(5);
+	// root->left->left = createNode(4);
 	root->right->right = createNode(6);
-	// root->left->left->left = createNode(9);
 	root->right->right->right = createNode(12);
+	root->right->right->right->right = createNode(23);
+	root->right->right->right->right->right = createNode(53);
+	root->right->left = createNode(5);
+	root->right->left->left = createNode(9);
+	root->right->left->left->left = createNode(13);
+	root->right->left->left->left->left = createNode(17);
+	root->right->left->left->left->left->left = createNode(87);
 	/*
 						1
 					   / \
 					  2   3
-					 /   / \
-					4    5  6
-							 \
-							  12
+					     / \
+					    5   6
+					   /	 \
+					  9	     12
+					 /		   \
+					13 		   23
+				    /			\
+				   17 			53	
+				  / 
+				 87
 	*/
 	cout<<maxDepth(root)<<nline;
-
+	cout<<maxDiameter(root)<<nline;
+	int anss=0;
+	maxDiameter_Optimized(root,anss);
+	cout<<anss<<nline;
 
 }
 
