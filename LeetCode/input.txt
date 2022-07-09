@@ -1,3 +1,3 @@
-aabcc
-dbbca
-aadbbcbcac
+6
+1 -1 -2 4 -7 3
+2
